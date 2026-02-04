@@ -410,6 +410,68 @@ section {
   letter-spacing: -0.02em;
 }
 
+/* BTS Progress */
+.bts-block {
+  margin-top: 1.5rem;
+}
+
+.bts-block + .bts-block {
+  margin-top: 2.5rem;
+}
+
+.bts-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.bts-grid-4 {
+  grid-template-columns: 1fr;
+}
+
+.bts-grid-3 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .bts-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .bts-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.bts-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1.25rem;
+  transition: var(--transition);
+}
+
+.bts-card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.bts-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: rgba(232, 232, 232, 0.86);
+}
+
+.bts-card li {
+  margin: 0.4rem 0;
+}
+
+.bts-card:hover {
+  border-color: rgba(212, 184, 150, 0.55);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
 /* Hero */
 .hero {
   min-height: calc(90vh - var(--header-h));
