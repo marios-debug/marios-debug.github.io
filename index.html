@@ -1,58 +1,408 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marios - Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio · Marios M. Sarkis</title>
+  <meta name="description" content="A calm, chapter-based portfolio: physical systems → connected systems → cloud infrastructure." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
+  <script defer src="assets/js/main.js"></script>
 </head>
+
 <body>
-  <header class="navbar">
-    <div class="container navbar-inner">
-      <div class="logo">Marios</div>
-      <nav class="nav-links" aria-label="Primary">
-        <a class="active" href="index.html">Home</a>
-        <a href="reflection.html">Reflection</a>
-        <a href="checklist.html">Checklist</a>
-        <a href="downloads.html">Downloads</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <div class="container">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="#top" aria-label="Go to top">
+          <span class="dot" aria-hidden="true"></span>
+          <span>MS.</span>
+        </a>
+
+        <div class="nav-links" role="navigation" aria-label="Section links">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="nav-cta">
+          <a class="btn btn-ghost" href="#projects">View work</a>
+          <a class="btn btn-primary" href="#contact">Get in touch</a>
+        </div>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="overlayMenu">
+          <span aria-hidden="true"></span>
+        </button>
       </nav>
     </div>
   </header>
 
-  <main class="page">
-    <section class="hero container">
-      <span class="tag">Portfolio Overview</span>
-      <h1>Marios - Portfolio</h1>
-      <p>A clean, exam-ready portfolio focused on reflection, required evidence, and design quality. Everything aligns to the grading parts and stays concise.</p>
-      <div class="note">Part 3 is oral discussion supported by evidence in projects.</div>
+  <div class="overlay" id="overlayMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="overlay-inner">
+      <div class="overlay-nav">
+        <div class="overlay-top">
+          <div class="brand"><span class="dot" aria-hidden="true"></span><span>MS.</span></div>
+          <button class="btn btn-ghost" id="closeMenuBtn" aria-label="Close menu">Close</button>
+        </div>
+
+        <div class="overlay-links">
+          <a href="#about" class="overlay-link">About</a>
+          <a href="#experience" class="overlay-link">Experience</a>
+          <a href="#projects" class="overlay-link">Projects</a>
+          <a href="#skills" class="overlay-link">Skills</a>
+          <a href="#contact" class="overlay-link">Contact</a>
+        </div>
+
+        <div class="overlay-actions">
+          <a class="btn btn-secondary overlay-link" href="#projects">View projects</a>
+          <a class="btn btn-primary overlay-link" href="#contact">Email me</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container">
+        <div class="hero-grid reveal">
+          <div>
+            <div class="label">Hello, I'm</div>
+            <h1>Marios M. Sarkis</h1>
+            <div class="role">BTS Cloud Computing Student · Infrastructure Focus</div>
+            <p class="tagline">
+              Hands-on technical student building a path in cloud computing and IT infrastructure.
+              I bring real industrial automation experience—PLC logic, sensors, and safety systems—
+              now applied to cloud, networks, and reliable operations.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#projects">View Projects</a>
+              <a class="btn btn-secondary" href="#contact">Get in Touch</a>
+            </div>
+
+            <div class="social" aria-label="Social links">
+              <a class="icon-link" href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 2C6.477 2 2 6.58 2 12.238c0 4.53 2.865 8.372 6.839 9.728.5.095.682-.22.682-.488 0-.24-.009-.877-.014-1.722-2.782.619-3.369-1.372-3.369-1.372-.454-1.18-1.11-1.494-1.11-1.494-.908-.637.069-.624.069-.624 1.004.073 1.532 1.055 1.532 1.055.892 1.56 2.341 1.11 2.91.849.091-.663.349-1.11.635-1.365-2.22-.26-4.555-1.136-4.555-5.056 0-1.117.39-2.031 1.03-2.748-.103-.26-.447-1.305.098-2.72 0 0 .84-.275 2.75 1.05A9.35 9.35 0 0 1 12 6.84c.85.004 1.705.12 2.504.35 1.909-1.325 2.748-1.05 2.748-1.05.546 1.415.202 2.46.1 2.72.64.717 1.028 1.631 1.028 2.748 0 3.93-2.339 4.793-4.566 5.048.359.317.679.942.679 1.9 0 1.37-.012 2.477-.012 2.814 0 .27.18.586.688.487C19.138 20.607 22 16.767 22 12.238 22 6.58 17.523 2 12 2Z" fill="currentColor"/>
+                </svg>
+              </a>
+
+              <a class="icon-link" href="https://www.linkedin.com/in/marios-moshe-sarkis-75b22b210/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6.94 6.5A2.2 2.2 0 1 0 6.94 2.1a2.2 2.2 0 0 0 0 4.4ZM5.2 21.9h3.5V8.2H5.2v13.7ZM12.2 8.2h3.35v1.87h.05c.47-.9 1.62-1.86 3.33-1.86 3.56 0 4.22 2.43 4.22 5.6v8.09h-3.5v-7.17c0-1.71-.03-3.91-2.3-3.91-2.3 0-2.65 1.85-2.65 3.79v7.29h-3.5V8.2Z" fill="currentColor"/>
+                </svg>
+              </a>
+
+              <a class="icon-link" href="mailto:marios_sarkis@hotmail.com" aria-label="Email">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 6.5h16c.55 0 1 .45 1 1v9c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1v-9c0-.55.45-1 1-1Zm0 2.1v.2l8 4.9 8-4.9v-.2l-8 4.9-8-4.9Z" fill="currentColor"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="profile-card">
+            <div class="profile-img" aria-label="Profile photo">
+              <img src="assets/img/Portrait.jpg" alt="Marios M. Sarkis" loading="lazy" />
+            </div>
+            <div style="margin-top: 1.25rem;">
+              <div class="meta">Theme</div>
+              <div style="font-weight:700; margin-top:0.35rem; letter-spacing:-0.02em;">
+                Physical → Connected → Cloud
+              </div>
+              <p style="color: var(--color-meta); margin: 0.8rem 0 0; max-width: 65ch;">
+                A chapter-based portfolio that reads like a technical book: calm, structured, deliberate.
+              </p>
+              <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1.25rem;">
+                <a class="btn btn-ghost" href="#experience">Read Chapter 02</a>
+                <a class="btn btn-ghost" href="#projects">Read Chapter 03</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
 
-    <section class="container section" id="quick-links">
-      <div class="section-header">
-        <h2>Quick Navigation</h2>
-        <p>Jump straight to each grading part.</p>
-      </div>
-      <div class="grid-12">
-        <a class="card" href="reflection.html" style="grid-column: span 4;">
-          <h3 class="card-title">Part 1 - Reflection &amp; Progress</h3>
-          <p class="card-meta">Progress, milestones, strengths, skills, and growth snapshot.</p>
-        </a>
-        <a class="card" href="checklist.html" style="grid-column: span 4;">
-          <h3 class="card-title">Part 2 - Checklist</h3>
-          <p class="card-meta">Teacher requirements mapped to evidence and status.</p>
-        </a>
-        <a class="card" href="downloads.html" style="grid-column: span 4;">
-          <h3 class="card-title">Downloads</h3>
-          <p class="card-meta">CVs, certificates, and placeholder documents.</p>
-        </a>
+    <section id="about">
+      <div class="container">
+        <div class="chapter reveal">
+          <div class="num">01</div>
+          <h2>About Me</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>
+              I’m a hands-on technical student building a career path in cloud computing and IT infrastructure.
+              My background in industrial electricity and smart automation shaped how I work: reliable, testable,
+              and well-structured systems.
+            </p>
+            <p>
+              I follow a simple method—plan, build, test, troubleshoot, document—so setups are repeatable and easy
+              to maintain. Today, I’m applying that mindset to cloud infrastructure, networks, and system administration.
+            </p>
+
+            <div class="info-cards">
+              <div class="info">
+                <div class="k">Location</div>
+                <div class="v">Luxembourg</div>
+              </div>
+              <div class="info">
+                <div class="k">Status</div>
+                <div class="v">BTS Cloud Computing (2025–2027)</div>
+              </div>
+              <div class="info">
+                <div class="k">Focus</div>
+                <div class="v">Cloud, Infrastructure, Networks</div>
+              </div>
+            </div>
+
+            <div class="tags" aria-label="Areas of interest">
+              <span class="tag">Cloud Infrastructure</span>
+              <span class="tag">Networking</span>
+              <span class="tag">System Administration</span>
+              <span class="tag">Automation</span>
+              <span class="tag">Reliability</span>
+              <span class="tag">Documentation</span>
+              <span class="tag">Troubleshooting</span>
+              <span class="tag">Security Basics</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="chapter reveal">
+          <div class="num">02</div>
+          <h2>Experience & Education</h2>
+        </div>
+
+        <div class="timeline reveal" aria-label="Timeline">
+          <div class="entry">
+            <div class="meta">2025 — Present</div>
+            <h3>BTS Cloud Computing</h3>
+            <div class="org">Lycée Guillaume Kroll · Esch-sur-Alzette</div>
+            <ul class="bullets">
+              <li>Building cloud fundamentals: IaaS/PaaS concepts, availability, and scalability.</li>
+              <li>Developing Linux, networking, and infrastructure logic through lab environments.</li>
+              <li>Practicing structured deployments with testing, logs, and documentation.</li>
+            </ul>
+            <div class="mini-tags">
+              <span class="mini-tag">Linux</span>
+              <span class="mini-tag">Cloud</span>
+              <span class="mini-tag">Networking</span>
+              <span class="mini-tag">Labs</span>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="meta">2023 — 2025</div>
+            <h3>Industrial Electricity & Smart Automation</h3>
+            <div class="org">Technical training</div>
+            <ul class="bullets">
+              <li>Hands-on work with PLC logic, HMI panels, sensors, actuators, and drives.</li>
+              <li>Built a disciplined mindset: safety, precision, and methodical troubleshooting.</li>
+              <li>Learned to document setups so teams can reproduce and maintain systems.</li>
+            </ul>
+            <div class="mini-tags">
+              <span class="mini-tag">PLC</span>
+              <span class="mini-tag">Automation</span>
+              <span class="mini-tag">Safety</span>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="meta">Internships</div>
+            <h3>Public & Industrial Environments</h3>
+            <div class="org">Administration des Ponts et Chaussées · La Provençale · Hoffmann et Fils · Commune de Mondercange · Creos</div>
+            <ul class="bullets">
+              <li>Developed work discipline, punctuality, and safe execution habits.</li>
+              <li>Collaborated with technicians, reported progress, and adapted to new teams.</li>
+              <li>Gained exposure to infrastructure environments with structured procedures.</li>
+            </ul>
+            <div class="mini-tags">
+              <span class="mini-tag">Teamwork</span>
+              <span class="mini-tag">Adaptability</span>
+              <span class="mini-tag">Procedures</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="chapter reveal">
+          <div class="num">03</div>
+          <h2>Featured Projects</h2>
+        </div>
+
+        <div class="projects-grid">
+          <article class="card reveal">
+            <div class="thumb" aria-hidden="true"></div>
+            <div class="card-body">
+              <div class="mini-tags">
+                <span class="mini-tag">Infrastructure</span>
+                <span class="mini-tag">Labs</span>
+                <span class="mini-tag">Testing</span>
+              </div>
+              <h3>Cloud Lab Environments</h3>
+              <p>Structured practice labs covering users, permissions, services, and repeatable setup steps.</p>
+              <a class="more" href="#" aria-label="View project">
+                View More
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M10 17l5-5-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="thumb" aria-hidden="true"></div>
+            <div class="card-body">
+              <div class="mini-tags">
+                <span class="mini-tag">Networking</span>
+                <span class="mini-tag">DNS</span>
+                <span class="mini-tag">VLANs</span>
+              </div>
+              <h3>Network Services Practice</h3>
+              <p>Hands-on exercises around addressing, VLAN concepts, and core services like DNS and DHCP.</p>
+              <a class="more" href="#" aria-label="View project">
+                View More
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M10 17l5-5-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="thumb" aria-hidden="true"></div>
+            <div class="card-body">
+              <div class="mini-tags">
+                <span class="mini-tag">Docs</span>
+                <span class="mini-tag">Reliability</span>
+                <span class="mini-tag">Troubleshooting</span>
+              </div>
+              <h3>System Documentation Playbooks</h3>
+              <p>Clear step-by-step guides that make setups repeatable and support logical troubleshooting.</p>
+              <a class="more" href="#" aria-label="View project">
+                View More
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M10 17l5-5-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="chapter reveal">
+          <div class="num">04</div>
+          <h2>Skills & Tools</h2>
+        </div>
+
+        <div class="skills">
+          <div class="skill-group reveal">
+            <h3>Cloud & Infrastructure</h3>
+            <div class="skill-grid">
+              <div class="skill"><div class="ico">IA</div><span>IaaS</span></div>
+              <div class="skill"><div class="ico">PA</div><span>PaaS</span></div>
+              <div class="skill"><div class="ico">AV</div><span>Availability</span></div>
+              <div class="skill"><div class="ico">SC</div><span>Scalability</span></div>
+              <div class="skill"><div class="ico">US</div><span>Users/Roles</span></div>
+              <div class="skill"><div class="ico">SV</div><span>Services</span></div>
+              <div class="skill"><div class="ico">LB</div><span>Labs</span></div>
+              <div class="skill"><div class="ico">DM</div><span>Docs</span></div>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>Networking</h3>
+            <div class="skill-grid">
+              <div class="skill"><div class="ico">IP</div><span>IP Basics</span></div>
+              <div class="skill"><div class="ico">DN</div><span>DNS</span></div>
+              <div class="skill"><div class="ico">VL</div><span>VLANs</span></div>
+              <div class="skill"><div class="ico">RT</div><span>Routing</span></div>
+              <div class="skill"><div class="ico">DH</div><span>DHCP</span></div>
+              <div class="skill"><div class="ico">SC</div><span>Security</span></div>
+              <div class="skill"><div class="ico">MT</div><span>Monitoring</span></div>
+              <div class="skill"><div class="ico">TR</div><span>Troubleshooting</span></div>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>Automation Foundations</h3>
+            <div class="skill-grid">
+              <div class="skill"><div class="ico">TI</div><span>TIA Portal</span></div>
+              <div class="skill"><div class="ico">HM</div><span>HMI Panels</span></div>
+              <div class="skill"><div class="ico">SE</div><span>Sensors</span></div>
+              <div class="skill"><div class="ico">AC</div><span>Actuators</span></div>
+              <div class="skill"><div class="ico">VD</div><span>VFDs</span></div>
+              <div class="skill"><div class="ico">SF</div><span>Safety</span></div>
+              <div class="skill"><div class="ico">PR</div><span>Precision</span></div>
+              <div class="skill"><div class="ico">DC</div><span>Discipline</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="chapter reveal" style="justify-content:center;">
+          <div class="num">05</div>
+          <h2>Get in Touch</h2>
+        </div>
+
+        <div class="contact reveal">
+          <p>
+            I’m looking for opportunities in cloud, IT infrastructure, systems, and networking.
+            If you have a project, internship, or role in mind, I’d be happy to connect.
+          </p>
+          <a class="btn btn-primary" href="mailto:email@example.com">Say Hello</a>
+
+          <div class="social" aria-label="Social links">
+            <a class="icon-link" href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6.94 6.5A2.2 2.2 0 1 0 6.94 2.1a2.2 2.2 0 0 0 0 4.4ZM5.2 21.9h3.5V8.2H5.2v13.7ZM12.2 8.2h3.35v1.87h.05c.47-.9 1.62-1.86 3.33-1.86 3.56 0 4.22 2.43 4.22 5.6v8.09h-3.5v-7.17c0-1.71-.03-3.91-2.3-3.91-2.3 0-2.65 1.85-2.65 3.79v7.29h-3.5V8.2Z" fill="currentColor"/>
+              </svg>
+            </a>
+            <a class="icon-link" href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2C6.477 2 2 6.58 2 12.238c0 4.53 2.865 8.372 6.839 9.728.5.095.682-.22.682-.488 0-.24-.009-.877-.014-1.722-2.782.619-3.369-1.372-3.369-1.372-.454-1.18-1.11-1.494-1.11-1.494-.908-.637.069-.624.069-.624 1.004.073 1.532 1.055 1.532 1.055.892 1.56 2.341 1.11 2.91.849.091-.663.349-1.11.635-1.365-2.22-.26-4.555-1.136-4.555-5.056 0-1.117.39-2.031 1.03-2.748-.103-.26-.447-1.305.098-2.72 0 0 .84-.275 2.75 1.05A9.35 9.35 0 0 1 12 6.84c.85.004 1.705.12 2.504.35 1.909-1.325 2.748-1.05 2.748-1.05.546 1.415.202 2.46.1 2.72.64.717 1.028 1.631 1.028 2.748 0 3.93-2.339 4.793-4.566 5.048.359.317.679.942.679 1.9 0 1.37-.012 2.477-.012 2.814 0 .27.18.586.688.487C19.138 20.607 22 16.767 22 12.238 22 6.58 17.523 2 12 2Z" fill="currentColor"/>
+              </svg>
+            </a>
+            <a class="icon-link" href="mailto:email@example.com" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 6.5h16c.55 0 1 .45 1 1v9c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1v-9c0-.55.45-1 1-1Zm0 2.1v.2l8 4.9 8-4.9v-.2l-8 4.9-8-4.9Z" fill="currentColor"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="footer">
-    <div class="container">Contact: marios@email.com - LinkedIn: placeholder - Phone: +33 00 00 00 00</div>
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Marios M. Sarkis · Designed &amp; Built with Care ·
+      <a href="#top">Back to top</a>
+    </div>
   </footer>
-
-  <script src="assets/js/main.js"></script>
 </body>
 </html>
