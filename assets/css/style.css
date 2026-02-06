@@ -974,8 +974,8 @@ ul.bullets li {
   background: rgba(255, 255, 255, 0.02);
   overflow: hidden;
   transition: var(--transition);
-  display: grid;
-  grid-template-rows: auto 1fr;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
@@ -999,6 +999,9 @@ ul.bullets li {
 
 .card-body {
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .project-thumb {
@@ -1104,6 +1107,7 @@ ul.bullets li {
 
 .training-toggle {
   margin-top: 0.75rem;
+  align-self: center;
 }
 
 .training-details {
@@ -1271,6 +1275,11 @@ ul.bullets li {
   border-color: rgba(212, 184, 150, 0.55);
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+.project-link {
+  margin-top: auto;
+  display: inline-flex;
 }
 
 /* Contact */
