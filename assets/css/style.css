@@ -1105,9 +1105,18 @@ ul.bullets li {
   margin-bottom: 12px;
 }
 
+.training-card .cert-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .training-toggle {
-  margin-top: 0.75rem;
+  margin-top: auto;
   align-self: center;
+  min-width: 160px;
+  justify-content: center;
+  text-align: center;
 }
 
 .training-details {
@@ -1280,6 +1289,9 @@ ul.bullets li {
 .project-link {
   margin-top: auto;
   display: inline-flex;
+  min-width: 160px;
+  justify-content: center;
+  text-align: center;
 }
 
 /* Contact */
