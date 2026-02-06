@@ -51,6 +51,19 @@ const io = new IntersectionObserver(
 
 revealEls.forEach((el) => io.observe(el));
 
+const trainingToggles = Array.from(document.querySelectorAll(".training-toggle"));
+trainingToggles.forEach((toggle) => {
+  toggle.addEventListener("click", () => {
+    const details = toggle.nextElementSibling;
+    if (!details) return;
+    const isOpen = details.classList.contains("is-open");
+    details.classList.toggle("is-open", !isOpen);
+    details.hidden = isOpen;
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+    toggle.textContent = isOpen ? "View details" : "Hide details";
+  });
+});
+
 const formatDate = (isoDate) => {
   if (!isoDate) return null;
   const [year, month, day] = isoDate.split("-");
