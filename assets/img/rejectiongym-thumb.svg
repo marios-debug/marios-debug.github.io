@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">RejectionGym Challenge and Progress Platform</title>
+  <desc id="desc">Illustrated thumbnail for a cloud web app with challenge packs, streaks, progress tracking, and reports.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#13161c" />
+      <stop offset="100%" stop-color="#212734" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d4b896" />
+      <stop offset="100%" stop-color="#b78758" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)" />
+  <circle cx="1035" cy="95" r="170" fill="#ffffff" fill-opacity="0.04" />
+  <circle cx="120" cy="595" r="150" fill="#d4b896" fill-opacity="0.08" />
+
+  <g transform="translate(90 150)">
+    <rect x="0" y="0" width="320" height="360" rx="30" fill="#0d1117" stroke="#ffffff" stroke-opacity="0.08" />
+    <rect x="28" y="28" width="264" height="64" rx="16" fill="#1c2230" />
+    <rect x="28" y="114" width="264" height="64" rx="16" fill="#171d28" />
+    <rect x="28" y="200" width="264" height="64" rx="16" fill="#171d28" />
+    <rect x="28" y="286" width="264" height="46" rx="14" fill="#171d28" />
+
+    <circle cx="68" cy="60" r="12" fill="url(#accent)" />
+    <circle cx="68" cy="146" r="12" fill="#8ed081" />
+    <circle cx="68" cy="232" r="12" fill="#8ed081" />
+    <circle cx="68" cy="309" r="12" fill="#8aa4b8" />
+
+    <rect x="96" y="49" width="122" height="10" rx="5" fill="#f0e8df" />
+    <rect x="96" y="69" width="82" height="10" rx="5" fill="#aebccc" />
+    <rect x="96" y="135" width="134" height="10" rx="5" fill="#d6e0ea" />
+    <rect x="96" y="155" width="104" height="10" rx="5" fill="#8aa4b8" />
+    <rect x="96" y="221" width="138" height="10" rx="5" fill="#d6e0ea" />
+    <rect x="96" y="241" width="110" height="10" rx="5" fill="#8aa4b8" />
+    <rect x="96" y="304" width="88" height="10" rx="5" fill="#d6e0ea" />
+  </g>
+
+  <g transform="translate(470 145)">
+    <rect x="0" y="0" width="420" height="14" rx="7" fill="url(#accent)" />
+    <text x="0" y="92" fill="#f4efe9" font-family="'Segoe UI', Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="3">REJECTIONGYM</text>
+    <text x="0" y="146" fill="#c8d0d8" font-family="'Segoe UI', Arial, sans-serif" font-size="30" font-weight="600">Challenge &amp; Progress Platform</text>
+
+    <rect x="0" y="196" width="560" height="170" rx="24" fill="#10151d" stroke="#ffffff" stroke-opacity="0.08" />
+    <text x="30" y="246" fill="#d4b896" font-family="'Segoe UI', Arial, sans-serif" font-size="24" font-weight="700">FEATURES</text>
+    <text x="30" y="292" fill="#d6e0ea" font-family="'Segoe UI', Arial, sans-serif" font-size="24">Daily challenge packs, streak tracking,</text>
+    <text x="30" y="328" fill="#d6e0ea" font-family="'Segoe UI', Arial, sans-serif" font-size="24">proof uploads, and shareable progress reports.</text>
+
+    <g transform="translate(0 402)">
+      <rect x="0" y="0" width="132" height="40" rx="20" fill="#1b2230" />
+      <rect x="148" y="0" width="154" height="40" rx="20" fill="#1b2230" />
+      <rect x="318" y="0" width="154" height="40" rx="20" fill="#1b2230" />
+      <text x="30" y="27" fill="#f4efe9" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700">REACT</text>
+      <text x="176" y="27" fill="#f4efe9" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700">NODE / API</text>
+      <text x="354" y="27" fill="#f4efe9" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700">POSTGRES</text>
+    </g>
+  </g>
+</svg>

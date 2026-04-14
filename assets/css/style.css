@@ -420,6 +420,42 @@ section {
   margin-top: 2.5rem;
 }
 
+.bts-reflection {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.reflection-panel {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1.25rem;
+  line-height: 1.7;
+}
+
+.reflection-status {
+  margin: 0;
+  color: var(--color-meta);
+}
+
+.reflection-content > *:first-child {
+  margin-top: 0;
+}
+
+.reflection-content ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+  color: rgba(232, 232, 232, 0.86);
+}
+
+.reflection-content p {
+  margin: 0 0 0.75rem;
+}
+
 .bts-grid {
   display: grid;
   gap: 1.25rem;
@@ -801,7 +837,6 @@ section {
 .meta {
   color: var(--color-meta);
   font-size: 0.875rem;
-  font-family: var(--font-mono);
 }
 
 .entry h3 {
@@ -844,7 +879,6 @@ ul.bullets li {
 
 .mini-tag {
   font-size: 0.75rem;
-  font-family: var(--font-mono);
   padding: 0.35rem 0.65rem;
   border-radius: var(--radius-full);
   border: 1px solid rgba(212, 184, 150, 0.25);
@@ -1366,3 +1400,131 @@ footer a:hover {
     transform: none;
   }
 }
+
+/* === UX/UI cleanup additions === */
+
+/* Profile card — replaces inline styles */
+.profile-card-body { margin-top: 1.25rem; }
+.profile-card-headline { font-weight: 700; margin-top: 0.35rem; letter-spacing: -0.02em; }
+.profile-card-text { color: var(--color-meta); margin: 0.8rem 0 0; max-width: 65ch; }
+
+/* Chapter centering */
+.chapter-center { justify-content: center; }
+
+/* Experience compact list */
+.experience-list-compact {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+}
+.experience-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.experience-row:last-child { border-bottom: none; }
+.experience-row .experience-org { color: rgba(232, 232, 232, 0.92); font-weight: 600; }
+.experience-row .experience-date { color: var(--color-meta); font-family: var(--font-mono); font-size: 0.85rem; }
+
+/* Projects list (earlier work) */
+.projects-list { margin-top: 3rem; }
+.project-list-item {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.project-list-item:last-child { border-bottom: none; }
+.project-list-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.project-list-head h4 { margin: 0; font-size: 1.1rem; font-weight: 700; letter-spacing: -0.01em; }
+.project-list-item > p { margin: 0; color: var(--color-meta); max-width: 70ch; }
+.project-list-link {
+  display: inline-flex;
+  margin-top: 0.6rem;
+  color: var(--color-meta);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.project-list-link:hover { color: var(--color-hover); }
+
+/* Certifications */
+.cert-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.cert-badges img {
+  width: 72px;
+  height: 72px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.02);
+  object-fit: contain;
+}
+
+/* Training compact list */
+.training-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.training-row {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.02);
+}
+@media (max-width: 699px) {
+  .training-row {
+    grid-template-columns: 1fr auto;
+  }
+  .training-row > img { display: none; }
+}
+.training-row > img {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  object-fit: cover;
+}
+.training-info h4 { margin: 0 0 0.2rem; font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; }
+.training-info p { margin: 0; color: var(--color-meta); font-size: 0.875rem; }
+.training-row .training-toggle {
+  padding: 0.5rem 0.9rem;
+  font-size: 0.85rem;
+  min-width: unset;
+}
+.training-row .training-details {
+  grid-column: 1 / -1;
+}
+
+/* BTS summary card */
+.bts-summary { max-width: 75ch; }
+.bts-summary p { margin: 0; color: rgba(232, 232, 232, 0.92); }
+
+/* Footer */
+footer .container { display: flex; flex-direction: column; gap: 0.5rem; }
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.25rem;
+}
+.footer-nav a { color: var(--color-meta); font-weight: 500; }
+.footer-nav a:hover { color: var(--color-hover); }
+.footer-copy { color: var(--color-meta); }

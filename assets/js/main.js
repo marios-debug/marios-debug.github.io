@@ -64,6 +64,53 @@ trainingToggles.forEach((toggle) => {
   });
 });
 
+const reflectionToggle = document.querySelector(".reflection-toggle");
+const reflectionPanel = document.querySelector(".reflection-panel");
+const reflectionStatus = document.querySelector(".reflection-status");
+const reflectionContent = document.querySelector(".reflection-content");
+
+const loadReflection = async () => {
+  if (!reflectionStatus || !reflectionContent) return;
+  reflectionStatus.textContent = "Loading...";
+
+  // Prefer inline template to avoid fetch/CORS issues
+  const inlineSource = document.getElementById("reflection-md");
+  let markdown = "";
+  if (inlineSource) {
+    markdown = inlineSource.innerHTML.trim();
+  } else {
+    try {
+      const response = await fetch("Reflexion.md");
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      markdown = await response.text();
+    } catch (error) {
+      reflectionStatus.textContent = "Could not load reflection.";
+      return;
+    }
+  }
+
+  if (!markdown) {
+    reflectionStatus.textContent = "Reflection is empty.";
+    return;
+  }
+  reflectionContent.innerHTML = window.marked ? window.marked.parse(markdown) : markdown;
+  reflectionStatus.textContent = "";
+};
+
+if (reflectionToggle && reflectionPanel) {
+  let loaded = false;
+  reflectionToggle.addEventListener("click", async () => {
+    const isOpen = !reflectionPanel.hidden;
+    reflectionPanel.hidden = isOpen;
+    reflectionToggle.setAttribute("aria-expanded", String(!isOpen));
+    reflectionToggle.textContent = isOpen ? "Read full BTS reflection" : "Hide BTS reflection";
+    if (!loaded && !isOpen) {
+      loaded = true;
+      await loadReflection();
+    }
+  });
+}
+
 const formatDate = (isoDate) => {
   if (!isoDate) return null;
   const [year, month, day] = isoDate.split("-");
