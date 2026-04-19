@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Secure Family Private Cloud and Learning Lab</title>
+  <desc id="desc">Illustrated thumbnail for a homelab project focused on private cloud, backups, self-hosting, and security.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10151c" />
+      <stop offset="100%" stop-color="#1c2430" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d4b896" />
+      <stop offset="100%" stop-color="#b88c5d" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)" />
+  <circle cx="1030" cy="100" r="170" fill="#ffffff" fill-opacity="0.04" />
+  <circle cx="120" cy="590" r="160" fill="#d4b896" fill-opacity="0.08" />
+
+  <g transform="translate(82 170)">
+    <path d="M170 0 L320 116 V330 H20 V116 Z" fill="#121821" stroke="#d4b896" stroke-opacity="0.55" stroke-width="5" />
+    <path d="M170 40 L272 120 V146 H68 V120 Z" fill="#202a36" />
+    <rect x="70" y="166" width="200" height="124" rx="18" fill="#0e1319" stroke="#ffffff" stroke-opacity="0.08" />
+    <rect x="96" y="194" width="148" height="18" rx="9" fill="#8aa4b8" />
+    <rect x="96" y="226" width="102" height="18" rx="9" fill="#8aa4b8" />
+    <rect x="134" y="92" width="72" height="54" rx="12" fill="#d4b896" fill-opacity="0.18" stroke="#d4b896" stroke-opacity="0.45" />
+    <circle cx="170" cy="119" r="18" fill="url(#accent)" />
+  </g>
+
+  <g transform="translate(440 152)">
+    <path d="M112 138 C112 94 148 60 192 60 C212 60 229 67 243 79 C254 49 282 28 315 28 C358 28 392 62 392 105 C392 109 392 113 391 117 C422 122 446 149 446 181 C446 217 416 246 380 246 H180 C127 246 84 203 84 150 C84 146 84 142 85 138 Z" fill="#171e27" stroke="#ffffff" stroke-opacity="0.08" />
+    <path d="M210 146 C210 112 238 84 272 84 C286 84 299 89 309 97 C317 76 337 62 360 62 C390 62 414 86 414 116 C414 119 414 122 413 124 C434 128 450 146 450 168 C450 193 430 214 405 214 H262 C232 214 208 190 208 160 C208 155 209 151 210 146 Z" fill="#202a36" />
+    <g fill="#d4b896">
+      <rect x="154" y="284" width="118" height="18" rx="9" />
+      <rect x="292" y="284" width="136" height="18" rx="9" />
+    </g>
+    <g fill="#d9e4ec">
+      <text x="0" y="330" font-family="'Segoe UI', Arial, sans-serif" font-size="56" font-weight="700" letter-spacing="3">HOMELAB</text>
+    </g>
+    <g fill="#b8c3ce">
+      <text x="0" y="382" font-family="'Segoe UI', Arial, sans-serif" font-size="28" font-weight="600">Private cloud, backups, self-hosting,</text>
+      <text x="0" y="420" font-family="'Segoe UI', Arial, sans-serif" font-size="28" font-weight="600">remote access, monitoring, and learning.</text>
+    </g>
+  </g>
+
+  <g transform="translate(838 168)">
+    <rect x="0" y="0" width="254" height="344" rx="24" fill="#0f141a" stroke="#ffffff" stroke-opacity="0.09" />
+    <rect x="30" y="34" width="194" height="56" rx="14" fill="#1d2631" />
+    <text x="52" y="71" fill="#f4efe9" font-family="'Segoe UI', Arial, sans-serif" font-size="24" font-weight="700">STACK</text>
+    <rect x="30" y="118" width="194" height="38" rx="12" fill="#18212a" />
+    <rect x="30" y="176" width="194" height="38" rx="12" fill="#18212a" />
+    <rect x="30" y="234" width="194" height="38" rx="12" fill="#18212a" />
+    <rect x="30" y="292" width="194" height="38" rx="12" fill="#18212a" />
+    <text x="50" y="144" fill="#d4b896" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700">BACKUPS</text>
+    <text x="50" y="202" fill="#d4b896" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700">DOCKER</text>
+    <text x="50" y="260" fill="#d4b896" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700">MONITORING</text>
+    <text x="50" y="318" fill="#d4b896" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700">VPN / DNS</text>
+  </g>
+</svg>
