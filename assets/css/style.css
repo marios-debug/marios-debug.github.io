@@ -1291,7 +1291,8 @@ ul.bullets li {
   right: 0.5rem;
 }
 
-.project-link {
+.project-link,
+.project-modal-btn {
   margin-top: auto;
   display: inline-flex;
   min-width: 160px;
