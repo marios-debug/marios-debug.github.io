@@ -105,9 +105,9 @@
                 </svg>
               </a>
 
-              <a class="icon-link" href="./assets/downloads/CV_Marios_M_Sarkis.pdf" download="CV_Marios_M_Sarkis.pdf" aria-label="Download CV" title="Download CV">
+              <button class="icon-link cv-modal-btn" type="button" aria-label="Download CV" title="Download CV">
                 CV
-              </a>
+              </button>
             </div>
           </div>
 
@@ -375,7 +375,7 @@
         <div class="projects-grid">
           <article class="card reveal">
             <div class="card-body">
-              <img class="project-thumb" src="./assets/img/rejectiongym-thumb.png" alt="RejectionGym Challenge and Progress Platform" loading="lazy" />
+              <img class="project-thumb" src="./assets/img/rejectiongym_logo.png" alt="RejectionGym Challenge and Progress Platform" loading="lazy" />
               <div class="mini-tags">
                 <span class="mini-tag">React</span>
                 <span class="mini-tag">Node.js</span>
@@ -392,7 +392,7 @@
 
           <article class="card reveal">
             <div class="card-body">
-              <img class="project-thumb" src="./assets/img/homelab-project-thumb.png" alt="Secure Family Private Cloud and Learning Lab" loading="lazy" />
+              <img class="project-thumb" src="./assets/img/Homelab.png" alt="Secure Family Private Cloud and Learning Lab" loading="lazy" />
               <div class="mini-tags">
                 <span class="mini-tag">Private Cloud</span>
                 <span class="mini-tag">Backups</span>
@@ -409,7 +409,7 @@
 
           <article class="card reveal">
             <div class="card-body">
-              <img class="project-thumb" src="./assets/img/openmediavault.png" alt="NAS Server Setup and Configuration" loading="lazy" />
+              <img class="project-thumb" src="./assets/img/OpenMediaVault-Logo.webp" alt="NAS Server Setup and Configuration" loading="lazy" />
               <div class="mini-tags">
                 <span class="mini-tag">OpenMediaVault</span>
                 <span class="mini-tag">RAID 5</span>
@@ -452,6 +452,22 @@
               <h3>Grade Management System</h3>
               <p>Secure grade management with role-based access for students, professors, and admins.</p>
               <button class="btn btn-ghost project-modal-btn" type="button" data-project-id="grademanagement">View details</button>
+            </div>
+          </article>
+
+          <article class="card reveal" data-collapsible>
+            <div class="card-body">
+              <img class="project-thumb" src="./assets/img/pytwo_log_analyzer.png" alt="Linux Log Analyser" loading="lazy" />
+              <div class="mini-tags">
+                <span class="mini-tag">Python</span>
+                <span class="mini-tag">Regex</span>
+                <span class="mini-tag">Linux</span>
+                <span class="mini-tag">Syslog</span>
+                <span class="mini-tag">Monitoring</span>
+              </div>
+              <h3>Linux Log Analyser</h3>
+              <p>Python-based log parser for Linux syslog files. Extracts structured data with regex, generates statistics, tracks time-based metrics, and triggers alerts on suspicious activity.</p>
+              <button class="btn btn-ghost project-modal-btn" type="button" data-project-id="linuxloganalyser">View details</button>
             </div>
           </article>
 
@@ -541,6 +557,7 @@
                 <h3>Microsoft Office Specialist: PowerPoint Associate</h3>
                 <p class="cert-issuer">Issuer: Microsoft</p>
                 <p class="cert-valid">Valid until Oct 20, 2030</p>
+                <p class="cert-score">Score: 750</p>
               </div>
             </a>
 
@@ -559,6 +576,7 @@
                 <h3>Microsoft Office Specialist: Word Associate</h3>
                 <p class="cert-issuer">Issuer: Microsoft</p>
                 <p class="cert-valid">Valid until Nov 17, 2030</p>
+                <p class="cert-score">Score: 700</p>
               </div>
             </a>
 
@@ -577,6 +595,7 @@
                 <h3>Microsoft Office Specialist: Word Expert</h3>
                 <p class="cert-issuer">Issuer: Microsoft</p>
                 <p class="cert-valid">Valid until Jan 27, 2031</p>
+                <p class="cert-score">Score: 700</p>
               </div>
             </a>
           </div>
@@ -792,9 +811,9 @@ This portfolio shows my progress, my projects, and my mindset: learning step by 
                 <path d="M4 6.5h16c.55 0 1 .45 1 1v9c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1v-9c0-.55.45-1 1-1Zm0 2.1v.2l8 4.9 8-4.9v-.2l-8 4.9-8-4.9Z" fill="currentColor"/>
               </svg>
             </a>
-            <a class="icon-link" href="./assets/downloads/CV_Marios_M_Sarkis.pdf" download="Moshe Sarkis Marios CV.pdf" aria-label="Download CV" title="Moshe Sarkis Marios CV">
+            <button class="icon-link cv-modal-btn" type="button" aria-label="Download CV" title="Moshe Sarkis Marios CV">
               CV
-            </a>
+            </button>
           </div>
           <img class="contact-qr" src="./assets/img/QRcodelinkedin.png" alt="LinkedIn QR code" loading="lazy" />
         </div>
@@ -870,6 +889,27 @@ This portfolio shows my progress, my projects, and my mindset: learning step by 
           <p id="projectModalResults"></p>
         </div>
         <div class="project-modal-footer" id="projectModalFooter"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cv-modal" id="cvModal" role="dialog" aria-modal="true" aria-label="Download CV" hidden>
+    <div class="cv-modal-backdrop" id="cvModalBackdrop"></div>
+    <div class="cv-modal-content">
+      <div class="cv-modal-header">
+        <h3>Download CV</h3>
+        <button class="btn btn-ghost cv-modal-close" id="cvModalClose" type="button" aria-label="Close">Close</button>
+      </div>
+      <div class="cv-modal-body">
+        <p class="cv-modal-hint">Choose the version you would like to download:</p>
+        <div class="cv-modal-options">
+          <a class="btn btn-primary cv-option" href="./assets/downloads/CV-Marios2026.pdf" download="CV-Marios2026.pdf">
+            <span>English</span>
+          </a>
+          <a class="btn btn-primary cv-option" href="./assets/downloads/CVFR-Marios2026.pdf" download="CVFR-Marios2026.pdf">
+            <span>French</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>

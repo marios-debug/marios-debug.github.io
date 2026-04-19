@@ -198,8 +198,8 @@ const projectData = {
     tech: "Frontend built with React and modern CSS for responsive design. Backend API powered by Node.js and Express with RESTful endpoints. PostgreSQL handles relational data including users, challenges, streaks, and upload metadata. Docker containers ensure consistent environments across development and production. CI/CD pipeline automates testing and deployment.",
     results: "Delivered a functional platform with user registration, challenge pack selection, daily task completion with proof upload, streak calculation, and shareable progress reports. The architecture is modular and ready for scaling.",
     tags: ["React", "Node.js", "PostgreSQL", "Docker + CI/CD"],
-    pdf: "downloads/RejectionGYM.pdf",
-    img: "./assets/img/rejectiongym-thumb.png"
+    pdf: "assets/downloads/RejectionGym \u2014 Challenge & Progress Platform.pdf",
+    img: "./assets/img/rejectiongym_logo.png"
   },
   "homelab": {
     title: "Secure Family Private Cloud + Learning Lab",
@@ -208,8 +208,8 @@ const projectData = {
     tech: "Proxmox VE provides the virtualization layer with ZFS-backed storage pools. TrueNAS handles file serving and snapshot-based backups. WireGuard and Tailscale provide encrypted remote access. Docker runs containerized services in isolated network segments. UPS integration ensures graceful shutdowns during power events. All configurations are documented for reproducibility.",
     results: "Production-ready homelab serving family data with 99%+ uptime. Isolated VLANs separate production services from experimental workloads. Remote access works from any device. Backup strategy covers both local snapshots and off-site replication.",
     tags: ["Private Cloud", "Backups", "Self-Hosting", "Network Security"],
-    pdf: "downloads/HomeLab-project.pdf",
-    img: "./assets/img/homelab-project-thumb.png"
+    pdf: "assets/downloads/Secure Family Private Cloud + Learning Lab.pdf",
+    img: "./assets/img/Homelab.png"
   },
   "nas": {
     title: "NAS Server Setup & Configuration",
@@ -218,8 +218,8 @@ const projectData = {
     tech: "OpenMediaVault 8 serves as the management layer. Hardware RAID 5 provides striped parity across three disks for performance and fault tolerance. BTRFS RAID 1 mirrors metadata for additional integrity. SMB handles Windows clients, NFS serves Linux/macOS, and SFTP provides secure remote file transfer. User and group permissions are mapped consistently across all protocols. Snapshots run on a scheduled basis with retention policies.",
     results: "Fully operational NAS serving mixed Windows, macOS, and Linux clients with no data loss events. Disk health is monitored continuously with email alerts for temperature and SMART anomalies. Snapshot restore has been tested and verified.",
     tags: ["OpenMediaVault", "RAID 5", "BTRFS RAID 1", "SMB/NFS/SFTP"],
-    pdf: "downloads/NAS_Project_Team2.pdf",
-    img: "./assets/img/openmediavault.png"
+    pdf: "assets/downloads/NAS_Project_Team2.pdf",
+    img: "./assets/img/OpenMediaVault-Logo.webp"
   },
   "lab8": {
     title: "Lab 8 Windows Services: VPN + DirectAccess",
@@ -228,7 +228,7 @@ const projectData = {
     tech: "Windows Server 2022 hosts Active Directory Domain Services with integrated DNS and DHCP. SSTP VPN provides encrypted remote access over HTTPS. DirectAccess delivers seamless always-on connectivity using IPv6 transition technologies and certificate-based machine authentication. Network Access Protection enforces health policies. File Server hosts departmental shares with DFS namespace. Roaming Profiles synchronize user data across devices.",
     results: "Complete remote access lab with full network topology diagrams, step-by-step configuration documentation, and troubleshooting guides. Both VPN and DirectAccess tested successfully from external clients. Group Policy enforces consistent security settings across all domain-joined machines.",
     tags: ["Windows Server", "VPN", "DirectAccess", "AD DS"],
-    pdf: "downloads/Lab8.WindowsServices.MariosDonovan.pdf",
+    pdf: "assets/downloads/Lab8.WindowsServices.MariosDonovan.pdf",
     img: "./assets/img/lab8.png"
   },
   "grademanagement": {
@@ -238,8 +238,18 @@ const projectData = {
     tech: "FastAPI powers the backend with asynchronous request handling and automatic OpenAPI documentation. JWT tokens provide stateless authentication with expiration and refresh logic. PostgreSQL stores users, courses, grades, and audit logs with foreign key constraints. Docker containers run the API and database with Docker Compose for local development. Role-based access control middleware verifies permissions on every endpoint.",
     results: "Functional web application with secure login, student grade viewing, professor grade management, and admin dashboards. API endpoints are documented and tested. The system handles concurrent users and maintains an audit trail of all grade modifications.",
     tags: ["FastAPI", "JWT", "Docker"],
-    pdf: "downloads/Planning document-GradingManagementSystem.pdf",
+    pdf: "assets/downloads/Planning document-GradingManagementSystem.pdf",
     img: "./assets/img/Grademanagmentsystem.png"
+  },
+  "linuxloganalyser": {
+    title: "Linux Log Analyser",
+    overview: "A Python-based log analyser for Linux log files that reads real system logs, extracts structured information using regular expressions, and generates a monitoring summary. The project simulates real-world work in cloud infrastructure, system administration, and cybersecurity where logs are used to detect problems and incidents.",
+    objectives: "Build a parser that extracts at least 3 fields from each log entry including timestamp, hostname, program or service name, PID, message text, and IP address or username when present. Design a monitoring system with at least 2 statistics or counters and 1 time-based metric. Implement at least one alert rule that triggers a warning when suspicious activity exceeds defined thresholds.",
+    tech: "Python with regular expressions for log parsing. The analyser processes /var/log/syslog to extract structured data including timestamps, hostnames, service names, PIDs, and message text. Custom monitoring logic counts events, tracks top services producing log messages, and measures events per minute. Alert rules trigger on thresholds such as failed login spikes or excessive error messages.",
+    results: "Functional log analyser that parses syslog entries, generates statistics on top services and common error keywords, tracks events per minute, and triggers alerts when suspicious patterns are detected. Clear terminal output shows total parsed lines, unparsed lines, chosen statistics, time-based metric results, and any triggered alerts.",
+    tags: ["Python", "Regex", "Linux", "Syslog", "Monitoring"],
+    pdf: null,
+    img: "./assets/img/pytwo_log_analyzer.png"
   },
   "weekflow": {
     title: "WeekFlow — PowerApps Week Planner",
@@ -268,7 +278,7 @@ const projectData = {
     tech: "Siemens TIA Portal programmed the S7-1200 PLC with ladder logic for discrete control and structured text for complex sequences. HMI panels built in WinCC provide process visualization, alarm handling, and manual override. Temperature and humidity sensors feed analog inputs for closed-loop control. Motor contactors, frequency drives, and pneumatic valves execute physical actions. Emergency stops, safety relays, and light curtains protect operators. Risk assessment documentation covers all hazards.",
     results: "Complete automated system commissioned and tested. The PLC controls the entire fermentation cycle from loading through drying with automatic fault handling. HMI screens display real-time values and trend history. Customer received full documentation including electrical schematics, PLC code printouts, HMI backups, and maintenance schedules.",
     tags: ["Smart Tech", "Sensors", "PLC/HMI", "Documentation"],
-    pdf: "downloads/Kundenordner.pdf",
+    pdf: "assets/downloads/Kundenordner.pdf",
     img: "./assets/img/PIF.png"
   },
   "erasmus": {
@@ -331,6 +341,39 @@ projectModalBackdrop?.addEventListener("click", closeProjectModal);
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && projectModal?.classList.contains("is-open")) {
     closeProjectModal();
+  }
+});
+
+const cvModal = document.getElementById("cvModal");
+const cvModalBackdrop = document.getElementById("cvModalBackdrop");
+const cvModalClose = document.getElementById("cvModalClose");
+
+const openCvModal = () => {
+  if (!cvModal) return;
+  cvModal.hidden = false;
+  cvModal.classList.add("is-open");
+  document.body.style.overflow = "hidden";
+};
+
+const closeCvModal = () => {
+  if (!cvModal) return;
+  cvModal.classList.remove("is-open");
+  cvModal.hidden = true;
+  document.body.style.overflow = "";
+};
+
+document.querySelectorAll(".cv-modal-btn").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    openCvModal();
+  });
+});
+
+cvModalClose?.addEventListener("click", closeCvModal);
+cvModalBackdrop?.addEventListener("click", closeCvModal);
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && cvModal?.classList.contains("is-open")) {
+    closeCvModal();
   }
 });
 
