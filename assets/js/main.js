@@ -57,6 +57,7 @@ const trainingData = {
     meta: "Deep (POST Luxembourg Group) · 5-day course · Mar 23–27, 2026",
     desc: "Attended a 5-day advanced training course on automating Windows Server administration with PowerShell. Covered scripting fundamentals, pipeline usage, remote management, and task automation for administrator roles. Hosted by Deep (POST Luxembourg Group) and conducted by a trainer from their team, as part of my BTS Cloud Computing program at LGK.",
     skills: ["PowerShell Scripting", "Task Automation", "Remote Administration", "Azure PowerShell"],
+    takeaway: "Gained practical confidence in writing reusable PowerShell scripts for real administrative tasks. The pipeline approach and remote session management are now part of my regular workflow.",
     img: "./assets/img/powershell-logo.webp"
   },
   "luxembourg-army": {
@@ -64,6 +65,7 @@ const trainingData = {
     meta: "Armée du Luxembourg · Site visit · Half-day · Mar 13, 2026",
     desc: "Visited the Luxembourg Army as part of our BTS Cloud Computing class at LGK. The visit covered how the military operates and its career paths, but what stood out most from a technical perspective was their satellite capabilities — Luxembourg's investment in space and defense communication is impressive. We also got insight into their cybersecurity operations and IT infrastructure. It was a good look at how national defense intersects with the kind of tech and infrastructure work we study.",
     skills: ["Defense IT Infrastructure", "Satellite Communications", "Cybersecurity Operations", "National Security Systems"],
+    takeaway: "Saw firsthand how national defense relies on satellite and cybersecurity infrastructure at scale. It shifted my perspective on how critical uptime and secure comms are in high-stakes environments.",
     img: "./assets/img/luxembourg-army-logo.webp"
   },
   "aws-recap": {
@@ -71,6 +73,7 @@ const trainingData = {
     meta: "ARHS Group · Half-day session · Mar 4, 2026 · Belval, Luxembourg",
     desc: "Attended the afternoon AWS re:Invent re:Cap 2026 recap hosted and presented by ARHS Group in Belval, Luxembourg. Their team shared takeaways and demos from the event, covering Amazon Connect, security topics, the Kiro coding IDE, Model Context Protocol (MCP), and AI models and demonstrations they are working on. I attended as part of the Lycée Guillaume Kroll student group, representing the school through the BTS Cloud Computing program.",
     skills: ["Amazon Connect", "Cloud Security", "Kiro IDE", "Model Context Protocol", "Enterprise AI Models"],
+    takeaway: "Learned that AWS is pushing heavily into AI-integrated developer tools and contact-center automation. The Model Context Protocol demo showed me how enterprise AI will reshape cloud service architecture.",
     img: "./assets/img/aws-logo.webp"
   },
   "quantum": {
@@ -78,6 +81,7 @@ const trainingData = {
     meta: "Deep (POST Luxembourg Group) · Presentation · 2 hours · Mar 3, 2026",
     desc: "Attended a presentation introducing quantum computing concepts, covering the fundamentals of how quantum computers work, their potential applications, and what they mean for the future of computing and cloud infrastructure. Hosted by Deep (POST Luxembourg Group) and conducted by a trainer from their team, as part of my BTS Cloud Computing program at LGK.",
     skills: ["Quantum Computing Fundamentals", "Quantum vs Classical Computing", "Emerging Technologies"],
+    takeaway: "Understood that quantum computing is not a replacement for classical systems but a specialized accelerator for specific problem classes. It will impact cryptography and optimization long before general workloads.",
     img: "./assets/img/deep-logo.webp"
   },
   "blockchain": {
@@ -85,6 +89,7 @@ const trainingData = {
     meta: "The Blockchain Academy · Workshop series · 3 hours × 3 sessions · Jan–Feb 2026",
     desc: "A proper introduction to blockchain: what it is, how it works, and why it matters. We set up Metamask, got to know the Sepolia testnet and faucets, and were asked to mine some Sepolia ETH at home. The presenter explained mining and the ethics around it. Everyone received their NFT; we sold it to the person next to us to experience a real peer-to-peer trade. He showed how to create an NFT, used IPFS to explain where they live and how the tech works, and demonstrated a Metamask-based voting app where NFT holders could vote. The Blockchain Academy at Lycée Guillaume Kroll (LGK), BTS Cloud Computing.",
     skills: ["Blockchain Fundamentals", "Distributed Ledger Technology", "Cryptocurrency Concepts", "Blockchain Applications"],
+    takeaway: "Going through a full hands-on cycle—wallet setup, testnet mining, minting an NFT, and peer-to-peer trading—made the abstract concepts concrete. I now understand where blockchain adds real value versus hype.",
     img: "./assets/img/blockchain-academy-logo.webp"
   },
   "phishing": {
@@ -92,6 +97,7 @@ const trainingData = {
     meta: "Fondation Restena · Workshop · 3 hours · Dec 16, 2025",
     desc: "Attended a 3-hour presentation/workshop on Phishing, focusing on various phishing methods, prevention techniques, and social engineering. Hosted by Fondation Restena and conducted by a representative from their team, as part of my BTS Cloud Computing program at LGK.",
     skills: ["Phishing Methods", "Social Engineering", "Security Awareness", "Prevention Techniques"],
+    takeaway: "Realized that technical defenses are only half the battle. Human behavior and awareness training are equally critical because most breaches start with a single convincing email.",
     img: "./assets/img/restena.png"
   },
   "sustainable-cloud": {
@@ -99,6 +105,7 @@ const trainingData = {
     meta: "Arηs Group · Workshop · 3 hours · Jan 6, 2026",
     desc: "Attended a 3-hour presentation/workshop on Sustainable Cloud, focusing on environmental impact and sustainable practices in cloud computing. Hosted by Arηs Group and conducted by a representative from their team, as part of my BTS Cloud Computing program at LGK.",
     skills: ["Sustainable Cloud", "Environmental Impact", "Cloud Best Practices", "Green IT"],
+    takeaway: "Learned that sustainability in cloud is measurable through PUE and WUE metrics. Efficient cooling and renewable energy sourcing are becoming competitive differentiators for data center operators.",
     img: "./assets/img/arns.png"
   },
   "luxconnect": {
@@ -106,6 +113,7 @@ const trainingData = {
     meta: "LuxConnect · Site visit · 4 hours · Jan 9, 2026",
     desc: "Visited the Tier IV LuxConnect data center in Bettembourg with my Cloud Computing class (both 1st and 2nd year students), organized by the 2nd year students through LGK. What stood out most was the incredible level of organization—everything is color-coded and labeled, from power lines to cooling systems. The redundancy is impressive: dual power paths, UPS systems, generators that kick in within seconds, and the facility can run autonomously for days. Efficiency metrics are excellent (PUE ~1.5, WUE ~0.2), and they even reuse waste heat.",
     skills: ["Tier IV Data Center", "Infrastructure Redundancy", "Power Systems", "Cooling Efficiency", "Data Center Operations"],
+    takeaway: "Walking through a live Tier IV facility showed me what true redundancy looks like—every system has a backup with autonomous failover. The level of operational discipline and labeling precision was eye-opening.",
     img: "./assets/img/luxconnect.png"
   },
   "pluralsight-az900": {
@@ -113,6 +121,7 @@ const trainingData = {
     meta: "Pluralsight · Completed · 100% · Dec 18, 2025",
     desc: "Finished the full Microsoft Certified: Azure Fundamentals (AZ-900) learning path on Pluralsight. Total time spent: ~19h. This preparation contributed to passing the AZ-900 certification exam.",
     skills: ["Cloud Concepts", "Azure Services", "Security & Compliance", "Azure Pricing"],
+    takeaway: "Self-paced learning reinforced that cloud fundamentals are best retained through repetition and hands-on labs. Completing the full path gave me the foundation to pass AZ-900 with confidence.",
     img: "./assets/img/pluralsight.jpg"
   },
   "azure-deep": {
@@ -120,6 +129,7 @@ const trainingData = {
     meta: "Deep (POST Luxembourg Group) · Full-day session · 09:00–17:00",
     desc: "Full-day training course covering cloud concepts, Azure services, security & compliance, and Azure pricing. Hosted by DEEP (POST Luxembourg Group) and conducted by a trainer from their team, as part of the BTS Cloud Computing program at LGK.",
     skills: ["Cloud Concepts", "Azure Services", "Security & Compliance", "Azure Pricing"],
+    takeaway: "The instructor-led format helped me ask questions in real time and clarify concepts I had missed during self-study. Having structured time to focus on fundamentals accelerated my understanding.",
     img: "./assets/img/azure-az900.png"
   },
   "pl900": {
@@ -127,6 +137,7 @@ const trainingData = {
     meta: "Deep (POST Luxembourg Group) · Full-day session · 09:00–17:00 · Dec 5, 2025",
     desc: "Attended a full-day training course (9h-17h) covering PL-900 concepts and Power Platform fundamentals. Hosted by Deep (POST Luxembourg Group) and conducted by a trainer from their team, as part of my BTS Cloud Computing program at LGK.",
     skills: ["Power Platform", "Power Apps", "Power Automate", "Power BI"],
+    takeaway: "Discovered how quickly business problems can be solved with low-code tools. Power Automate especially stood out as a way to eliminate repetitive manual tasks without writing full applications.",
     img: "./assets/img/Power Platform Fundamentals (PL-900)png.png"
   }
 };
@@ -139,6 +150,7 @@ const trainingModalTitle = document.getElementById("trainingModalTitle");
 const trainingModalMeta = document.getElementById("trainingModalMeta");
 const trainingModalDesc = document.getElementById("trainingModalDesc");
 const trainingModalSkills = document.getElementById("trainingModalSkills");
+const trainingModalTakeaway = document.getElementById("trainingModalTakeaway");
 
 const openTrainingModal = (id) => {
   const data = trainingData[id];
@@ -148,6 +160,7 @@ const openTrainingModal = (id) => {
   trainingModalTitle.textContent = data.title;
   trainingModalMeta.textContent = data.meta;
   trainingModalDesc.textContent = data.desc;
+  trainingModalTakeaway.textContent = data.takeaway || "";
   trainingModalSkills.innerHTML = data.skills.map((s) => `<span class="skill-tag">${s}</span>`).join("");
   trainingModal.hidden = false;
   trainingModal.classList.add("is-open");
