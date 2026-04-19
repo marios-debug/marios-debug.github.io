@@ -190,6 +190,121 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+const projectData = {
+  "rejectiongym": {
+    title: "RejectionGym — Challenge & Progress Platform",
+    desc: "A full-stack web platform built to gamify personal growth through daily challenge packs. Users select themed challenges, complete tasks daily, upload proof of completion, and maintain streaks. Progress is visualized through dashboards and shareable reports. The system handles user authentication, file uploads, streak calculation, and social sharing. Built with React for the frontend, Node.js and Express for the API, PostgreSQL for data persistence, and Docker with CI/CD for deployment.",
+    tags: ["React", "Node.js", "PostgreSQL", "Docker + CI/CD"],
+    pdf: "downloads/RejectionGYM.pdf",
+    img: "./assets/img/rejectiongym-thumb.png"
+  },
+  "homelab": {
+    title: "Secure Family Private Cloud + Learning Lab",
+    desc: "Designed and deployed a private cloud infrastructure for secure family data storage and a dedicated lab environment for testing IT concepts. The setup runs on Proxmox VE with virtualized TrueNAS for storage, automated backup routines, and network-segmented self-hosted services. Includes VPN access for remote connectivity, UPS integration for power resilience, and comprehensive documentation for reproducibility.",
+    tags: ["Private Cloud", "Backups", "Self-Hosting", "Network Security"],
+    pdf: "downloads/HomeLab-project.pdf",
+    img: "./assets/img/homelab-project-thumb.png"
+  },
+  "nas": {
+    title: "NAS Server Setup & Configuration",
+    desc: "Transformed a bare-metal rack server into a production-ready network-attached storage solution using OpenMediaVault 8. Configured hardware RAID 5 for performance and BTRFS RAID 1 for metadata redundancy. Set up cross-platform access via SMB, NFS, and SFTP with granular user permissions. Implemented automated snapshot-based backups and monitoring alerts for data integrity and disk health.",
+    tags: ["OpenMediaVault", "RAID 5", "BTRFS RAID 1", "SMB/NFS/SFTP"],
+    pdf: "downloads/NAS_Project_Team2.pdf",
+    img: "./assets/img/openmediavault.png"
+  },
+  "lab8": {
+    title: "Lab 8 Windows Services: VPN + DirectAccess",
+    desc: "A comprehensive Windows Server lab exercise deploying secure remote access solutions. Built an Active Directory Domain Services infrastructure with integrated DNS and DHCP. Configured both traditional VPN (SSTP) and DirectAccess for always-on connectivity. Implemented certificate-based authentication and network access protection. Fully documented with network topology diagrams, configuration steps, and troubleshooting guides.",
+    tags: ["Windows Server", "VPN", "DirectAccess", "AD DS"],
+    pdf: "downloads/Lab8.WindowsServices.MariosDonovan.pdf",
+    img: "./assets/img/lab8.png"
+  },
+  "grademanagement": {
+    title: "Grade Management System",
+    desc: "A secure web application for managing academic grades with role-based access control. Students can view their grades and track performance over time. Professors can create courses, enter grades, and publish results. Administrators manage users, audit logs, and system configuration. Built with FastAPI for the backend, JWT for stateless authentication, and Docker for consistent deployment across environments.",
+    tags: ["FastAPI", "JWT", "Docker"],
+    pdf: "downloads/Planning document-GradingManagementSystem.pdf",
+    img: "./assets/img/Grademanagmentsystem.png"
+  },
+  "weekflow": {
+    title: "WeekFlow — PowerApps Week Planner",
+    desc: "A low-code weekly planner application built with Microsoft PowerApps and integrated with SharePoint as the data backend. Features include quick task creation, drag-and-drop status tracking, and automated email reminders via Power Automate. Designed for team coordination with role-based views and real-time synchronization across devices.",
+    tags: ["PowerApps", "SharePoint", "Automation"],
+    pdf: null,
+    img: "./assets/img/Weekflow.logo.png"
+  },
+  "portfolio": {
+    title: "Portfolio Website — GitHub Pages",
+    desc: "A personal portfolio website designed and built to document BTS Cloud Computing progress, projects, and professional reflection. Follows GRAP design principles for consistent grid, rhythm, alignment, and proportion. Deployed on GitHub Pages with a fully static architecture. Features responsive layouts, scroll-triggered animations, accessible navigation, and semantic HTML structure.",
+    tags: ["GitHub Pages", "Documentation", "Design"],
+    pdf: null,
+    img: "./assets/img/github.logo.png"
+  },
+  "pif": {
+    title: "PIF Smart Technologies (Coffee Fermentation)",
+    desc: "An automated coffee-bean fermentation system designed as a capstone industrial automation project. Integrated temperature and humidity sensors for real-time process monitoring. Programmed control logic in Siemens TIA Portal using ladder logic and structured text. Designed HMI operator panels for process visualization and manual override. Delivered complete technical documentation including electrical schematics, PLC code, and customer handover manuals.",
+    tags: ["Smart Tech", "Sensors", "PLC/HMI", "Documentation"],
+    pdf: "downloads/Kundenordner.pdf",
+    img: "./assets/img/PIF.png"
+  },
+  "erasmus": {
+    title: "Erasmus+",
+    desc: "Participated in a Smart Technologies exchange program at Carl Benz Schule in Germany. As part of a team, built an autonomous line-following car programmed with Arduino C++. Designed and 3D-printed custom chassis components. Achieved the best team time of 32 seconds on the competition track. Presented the project and technical approach to an audience of approximately 40 students and faculty. Emphasis on rapid prototyping, iterative testing, and cross-cultural teamwork.",
+    tags: ["3D Modeling", "C++ Programming", "Arduino"],
+    pdf: null,
+    img: "./assets/img/eu-flag-erasmus-logo.jpg"
+  }
+};
+
+const projectModal = document.getElementById("projectModal");
+const projectModalBackdrop = document.getElementById("projectModalBackdrop");
+const projectModalClose = document.getElementById("projectModalClose");
+const projectModalImg = document.getElementById("projectModalImg");
+const projectModalTitle = document.getElementById("projectModalTitle");
+const projectModalTags = document.getElementById("projectModalTags");
+const projectModalDesc = document.getElementById("projectModalDesc");
+const projectModalFooter = document.getElementById("projectModalFooter");
+
+const openProjectModal = (id) => {
+  const data = projectData[id];
+  if (!data || !projectModal) return;
+  projectModalImg.src = data.img;
+  projectModalImg.alt = data.title;
+  projectModalTitle.textContent = data.title;
+  projectModalTags.innerHTML = data.tags.map((t) => `<span class="mini-tag">${t}</span>`).join("");
+  projectModalDesc.textContent = data.desc;
+  if (data.pdf) {
+    projectModalFooter.innerHTML = `<a class="btn btn-primary" href="${data.pdf}" target="_blank" rel="noopener" download>Download PDF</a>`;
+  } else {
+    projectModalFooter.innerHTML = "";
+  }
+  projectModal.hidden = false;
+  projectModal.classList.add("is-open");
+  document.body.style.overflow = "hidden";
+};
+
+const closeProjectModal = () => {
+  if (!projectModal) return;
+  projectModal.classList.remove("is-open");
+  projectModal.hidden = true;
+  document.body.style.overflow = "";
+};
+
+document.querySelectorAll(".project-modal-btn").forEach((btn) => {
+  const id = btn.dataset.projectId;
+  if (id) {
+    btn.addEventListener("click", () => openProjectModal(id));
+  }
+});
+
+projectModalClose?.addEventListener("click", closeProjectModal);
+projectModalBackdrop?.addEventListener("click", closeProjectModal);
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && projectModal?.classList.contains("is-open")) {
+    closeProjectModal();
+  }
+});
+
 const formatDate = (isoDate) => {
   if (!isoDate) return null;
   const [year, month, day] = isoDate.split("-");
@@ -209,6 +324,7 @@ const fallbackExperienceDates = {
 
 const setTooltips = (durationEls, mapping) => {
   durationEls.forEach((el) => {
+    if (el.getAttribute("data-tooltip")) return;
     const company = el.dataset.company;
     const entry = company ? mapping[company] : null;
     const start = entry?.start ? formatDate(entry.start) : null;
