@@ -820,7 +820,6 @@ section {
 .entry-desc {
   margin: 0.5rem 0 0;
   color: rgba(232, 232, 232, 0.86);
-  max-width: 65ch;
 }
 
 ul.bullets {
