@@ -193,63 +193,90 @@ document.addEventListener("keydown", (event) => {
 const projectData = {
   "rejectiongym": {
     title: "RejectionGym — Challenge & Progress Platform",
-    desc: "A full-stack web platform built to gamify personal growth through daily challenge packs. Users select themed challenges, complete tasks daily, upload proof of completion, and maintain streaks. Progress is visualized through dashboards and shareable reports. The system handles user authentication, file uploads, streak calculation, and social sharing. Built with React for the frontend, Node.js and Express for the API, PostgreSQL for data persistence, and Docker with CI/CD for deployment.",
+    overview: "A full-stack web platform built to gamify personal growth through daily challenge packs. The project was developed as part of the BTS Cloud Computing curriculum to demonstrate full-stack development skills from database design to deployment.",
+    objectives: "Create a habit-forming platform that encourages consistency through gamification. The system needed to handle user authentication, file uploads for proof of completion, streak tracking with visual dashboards, and social sharing of progress reports.",
+    tech: "Frontend built with React and modern CSS for responsive design. Backend API powered by Node.js and Express with RESTful endpoints. PostgreSQL handles relational data including users, challenges, streaks, and upload metadata. Docker containers ensure consistent environments across development and production. CI/CD pipeline automates testing and deployment.",
+    results: "Delivered a functional platform with user registration, challenge pack selection, daily task completion with proof upload, streak calculation, and shareable progress reports. The architecture is modular and ready for scaling.",
     tags: ["React", "Node.js", "PostgreSQL", "Docker + CI/CD"],
     pdf: "downloads/RejectionGYM.pdf",
     img: "./assets/img/rejectiongym-thumb.png"
   },
   "homelab": {
     title: "Secure Family Private Cloud + Learning Lab",
-    desc: "Designed and deployed a private cloud infrastructure for secure family data storage and a dedicated lab environment for testing IT concepts. The setup runs on Proxmox VE with virtualized TrueNAS for storage, automated backup routines, and network-segmented self-hosted services. Includes VPN access for remote connectivity, UPS integration for power resilience, and comprehensive documentation for reproducibility.",
+    overview: "A personal infrastructure project designing and deploying a private cloud for secure family data storage and a dedicated learning lab for testing IT and networking concepts. Built from consumer and enterprise hardware to simulate real-world infrastructure at home.",
+    objectives: "Build reliable, secure, self-hosted infrastructure with automated backups, remote access, network segmentation, and power resilience. The lab needed to support both production family services and experimental environments without cross-contamination.",
+    tech: "Proxmox VE provides the virtualization layer with ZFS-backed storage pools. TrueNAS handles file serving and snapshot-based backups. WireGuard and Tailscale provide encrypted remote access. Docker runs containerized services in isolated network segments. UPS integration ensures graceful shutdowns during power events. All configurations are documented for reproducibility.",
+    results: "Production-ready homelab serving family data with 99%+ uptime. Isolated VLANs separate production services from experimental workloads. Remote access works from any device. Backup strategy covers both local snapshots and off-site replication.",
     tags: ["Private Cloud", "Backups", "Self-Hosting", "Network Security"],
     pdf: "downloads/HomeLab-project.pdf",
     img: "./assets/img/homelab-project-thumb.png"
   },
   "nas": {
     title: "NAS Server Setup & Configuration",
-    desc: "Transformed a bare-metal rack server into a production-ready network-attached storage solution using OpenMediaVault 8. Configured hardware RAID 5 for performance and BTRFS RAID 1 for metadata redundancy. Set up cross-platform access via SMB, NFS, and SFTP with granular user permissions. Implemented automated snapshot-based backups and monitoring alerts for data integrity and disk health.",
+    overview: "A BTS team project converting a bare-metal rack server into a production-ready network-attached storage solution. The goal was to design enterprise-grade storage with redundancy, cross-platform access, and automated monitoring using open-source tools.",
+    objectives: "Design and configure redundant storage with hardware RAID for performance, BTRFS for metadata integrity, cross-platform file sharing, granular user permissions, automated snapshots, and health monitoring with alerting.",
+    tech: "OpenMediaVault 8 serves as the management layer. Hardware RAID 5 provides striped parity across three disks for performance and fault tolerance. BTRFS RAID 1 mirrors metadata for additional integrity. SMB handles Windows clients, NFS serves Linux/macOS, and SFTP provides secure remote file transfer. User and group permissions are mapped consistently across all protocols. Snapshots run on a scheduled basis with retention policies.",
+    results: "Fully operational NAS serving mixed Windows, macOS, and Linux clients with no data loss events. Disk health is monitored continuously with email alerts for temperature and SMART anomalies. Snapshot restore has been tested and verified.",
     tags: ["OpenMediaVault", "RAID 5", "BTRFS RAID 1", "SMB/NFS/SFTP"],
     pdf: "downloads/NAS_Project_Team2.pdf",
     img: "./assets/img/openmediavault.png"
   },
   "lab8": {
     title: "Lab 8 Windows Services: VPN + DirectAccess",
-    desc: "A comprehensive Windows Server lab exercise deploying secure remote access solutions. Built an Active Directory Domain Services infrastructure with integrated DNS and DHCP. Configured both traditional VPN (SSTP) and DirectAccess for always-on connectivity. Implemented certificate-based authentication and network access protection. Fully documented with network topology diagrams, configuration steps, and troubleshooting guides.",
+    overview: "A comprehensive Windows Server lab exercise developed for the OSYCL-Windows module at Lycée Guillaume Kroll. Team project with Donovan Glodt under teacher Maurizio Spagnuolo. The client company was Flowdesk and the consultant company was DON&SAR IT.",
+    objectives: "Deploy a secure remote access infrastructure that supports both traditional VPN for legacy clients and DirectAccess for modern always-on connectivity. The solution needed to integrate with Active Directory, enforce network access policies, and support roaming user profiles.",
+    tech: "Windows Server 2022 hosts Active Directory Domain Services with integrated DNS and DHCP. SSTP VPN provides encrypted remote access over HTTPS. DirectAccess delivers seamless always-on connectivity using IPv6 transition technologies and certificate-based machine authentication. Network Access Protection enforces health policies. File Server hosts departmental shares with DFS namespace. Roaming Profiles synchronize user data across devices.",
+    results: "Complete remote access lab with full network topology diagrams, step-by-step configuration documentation, and troubleshooting guides. Both VPN and DirectAccess tested successfully from external clients. Group Policy enforces consistent security settings across all domain-joined machines.",
     tags: ["Windows Server", "VPN", "DirectAccess", "AD DS"],
     pdf: "downloads/Lab8.WindowsServices.MariosDonovan.pdf",
     img: "./assets/img/lab8.png"
   },
   "grademanagement": {
     title: "Grade Management System",
-    desc: "A secure web application for managing academic grades with role-based access control. Students can view their grades and track performance over time. Professors can create courses, enter grades, and publish results. Administrators manage users, audit logs, and system configuration. Built with FastAPI for the backend, JWT for stateless authentication, and Docker for consistent deployment across environments.",
+    overview: "A secure web application for managing academic grades, developed for the BTSCC Project Management module at Lycée Guillaume Kroll. Team project with Mustafa Murtadha and Yona Yarvis under teacher Sam Hoffman.",
+    objectives: "Design and build a grade management platform with role-based access control. Students must view their own grades. Professors must manage courses and enter grades. Administrators must oversee users, audit activity, and configure the system.",
+    tech: "FastAPI powers the backend with asynchronous request handling and automatic OpenAPI documentation. JWT tokens provide stateless authentication with expiration and refresh logic. PostgreSQL stores users, courses, grades, and audit logs with foreign key constraints. Docker containers run the API and database with Docker Compose for local development. Role-based access control middleware verifies permissions on every endpoint.",
+    results: "Functional web application with secure login, student grade viewing, professor grade management, and admin dashboards. API endpoints are documented and tested. The system handles concurrent users and maintains an audit trail of all grade modifications.",
     tags: ["FastAPI", "JWT", "Docker"],
     pdf: "downloads/Planning document-GradingManagementSystem.pdf",
     img: "./assets/img/Grademanagmentsystem.png"
   },
   "weekflow": {
     title: "WeekFlow — PowerApps Week Planner",
-    desc: "A low-code weekly planner application built with Microsoft PowerApps and integrated with SharePoint as the data backend. Features include quick task creation, drag-and-drop status tracking, and automated email reminders via Power Automate. Designed for team coordination with role-based views and real-time synchronization across devices.",
+    overview: "A low-code weekly planner application built with the Microsoft Power Platform. Designed for team coordination with task tracking, status updates, and automated notifications without writing traditional application code.",
+    objectives: "Create an intuitive weekly planner that allows team members to create tasks, track status changes, and receive automated reminders. The solution needed to integrate with existing Microsoft 365 infrastructure and work on mobile and desktop.",
+    tech: "PowerApps Canvas App provides the user interface with custom galleries and forms. SharePoint lists serve as the relational data backend with versioning enabled. Power Automate flows trigger email reminders when tasks approach deadlines or when status changes. Role-based views filter tasks by owner and team. The app is responsive and works offline with sync on reconnect.",
+    results: "Deployed application used for team task coordination with real-time synchronization across devices. Automated reminders reduced missed deadlines. Managers gained visibility into team workload through summary dashboards.",
     tags: ["PowerApps", "SharePoint", "Automation"],
     pdf: null,
     img: "./assets/img/Weekflow.logo.png"
   },
   "portfolio": {
     title: "Portfolio Website — GitHub Pages",
-    desc: "A personal portfolio website designed and built to document BTS Cloud Computing progress, projects, and professional reflection. Follows GRAP design principles for consistent grid, rhythm, alignment, and proportion. Deployed on GitHub Pages with a fully static architecture. Features responsive layouts, scroll-triggered animations, accessible navigation, and semantic HTML structure.",
+    overview: "A personal portfolio website designed and built to document BTS Cloud Computing progress, projects, certifications, and professional reflection. The site serves as both a showcase and a learning journal.",
+    objectives: "Build a fast, accessible, visually consistent portfolio following GRAP design principles: Grid structure, Rhythm in spacing, Alignment of elements, and Proportion in typography. The site needed to be maintainable without a backend and deploy automatically on push.",
+    tech: "Static HTML5 with semantic structure for accessibility. CSS custom properties define the dark theme with consistent colors and spacing. Vanilla JavaScript handles mobile navigation, scroll-triggered reveal animations via Intersection Observer, and modal interactions. GitHub Pages hosts the site with custom domain support. All assets are optimized for performance with lazy loading.",
+    results: "Live portfolio deployed at marios-debug.github.io with clean chapter-based navigation, responsive layouts, and smooth scroll animations. The site scores well on Lighthouse accessibility and performance metrics. Content is updated regularly as new projects and certifications are completed.",
     tags: ["GitHub Pages", "Documentation", "Design"],
     pdf: null,
     img: "./assets/img/github.logo.png"
   },
   "pif": {
     title: "PIF Smart Technologies (Coffee Fermentation)",
-    desc: "An automated coffee-bean fermentation system designed as a capstone industrial automation project. Integrated temperature and humidity sensors for real-time process monitoring. Programmed control logic in Siemens TIA Portal using ladder logic and structured text. Designed HMI operator panels for process visualization and manual override. Delivered complete technical documentation including electrical schematics, PLC code, and customer handover manuals.",
+    overview: "A BTS Smart Technologies E-Controls capstone project at Lycée Privé Émile Metz. Team project with Ayena Ezechiele under teacher Gilles Krantz. The project automated a coffee-bean fermentation process for Kaffeefabrik, integrating sensors, PLC control, and HMI visualization.",
+    objectives: "Design and build an automated coffee-bean fermentation system with real-time sensor monitoring, precise motor and valve control, safety device integration, and complete customer documentation including electrical schematics and operator manuals.",
+    tech: "Siemens TIA Portal programmed the S7-1200 PLC with ladder logic for discrete control and structured text for complex sequences. HMI panels built in WinCC provide process visualization, alarm handling, and manual override. Temperature and humidity sensors feed analog inputs for closed-loop control. Motor contactors, frequency drives, and pneumatic valves execute physical actions. Emergency stops, safety relays, and light curtains protect operators. Risk assessment documentation covers all hazards.",
+    results: "Complete automated system commissioned and tested. The PLC controls the entire fermentation cycle from loading through drying with automatic fault handling. HMI screens display real-time values and trend history. Customer received full documentation including electrical schematics, PLC code printouts, HMI backups, and maintenance schedules.",
     tags: ["Smart Tech", "Sensors", "PLC/HMI", "Documentation"],
     pdf: "downloads/Kundenordner.pdf",
     img: "./assets/img/PIF.png"
   },
   "erasmus": {
     title: "Erasmus+",
-    desc: "Participated in a Smart Technologies exchange program at Carl Benz Schule in Germany. As part of a team, built an autonomous line-following car programmed with Arduino C++. Designed and 3D-printed custom chassis components. Achieved the best team time of 32 seconds on the competition track. Presented the project and technical approach to an audience of approximately 40 students and faculty. Emphasis on rapid prototyping, iterative testing, and cross-cultural teamwork.",
+    overview: "Smart Technologies exchange program at Carl Benz Schule in Germany. A two-week intensive where teams designed, built, and raced autonomous line-following cars.",
+    objectives: "Build an autonomous line-following car as a team challenge, optimize it for speed and reliability, and present the technical approach and results to faculty and students.",
+    tech: "Arduino Uno programmed in C++ with PID control for line following. IR sensor arrays detect the track boundary and feed analog values to the microcontroller. Motor driver shields control DC motors with PWM for speed regulation. Chassis and wheel mounts designed in Fusion 360 and 3D-printed in PLA. Battery management ensures consistent power delivery during runs.",
+    results: "Best team time of 32 seconds on the competition track. The presentation covered design iterations, sensor calibration, PID tuning, and lessons learned. Audience of approximately 40 students and faculty. Emphasis on rapid prototyping, iterative testing, and cross-cultural teamwork.",
     tags: ["3D Modeling", "C++ Programming", "Arduino"],
     pdf: null,
     img: "./assets/img/eu-flag-erasmus-logo.jpg"
@@ -262,7 +289,6 @@ const projectModalClose = document.getElementById("projectModalClose");
 const projectModalImg = document.getElementById("projectModalImg");
 const projectModalTitle = document.getElementById("projectModalTitle");
 const projectModalTags = document.getElementById("projectModalTags");
-const projectModalDesc = document.getElementById("projectModalDesc");
 const projectModalFooter = document.getElementById("projectModalFooter");
 
 const openProjectModal = (id) => {
@@ -272,7 +298,10 @@ const openProjectModal = (id) => {
   projectModalImg.alt = data.title;
   projectModalTitle.textContent = data.title;
   projectModalTags.innerHTML = data.tags.map((t) => `<span class="mini-tag">${t}</span>`).join("");
-  projectModalDesc.textContent = data.desc;
+  document.getElementById("projectModalOverview").textContent = data.overview || "";
+  document.getElementById("projectModalObjectives").textContent = data.objectives || "";
+  document.getElementById("projectModalTech").textContent = data.tech || "";
+  document.getElementById("projectModalResults").textContent = data.results || "";
   if (data.pdf) {
     projectModalFooter.innerHTML = `<a class="btn btn-primary" href="${data.pdf}" target="_blank" rel="noopener" download>Download PDF</a>`;
   } else {
