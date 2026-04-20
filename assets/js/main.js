@@ -57,7 +57,7 @@ const trainingData = {
     meta: "Deep (POST Luxembourg Group) · 5-day course · Mar 23–27, 2026",
     desc: "Attended a 5-day advanced training course on automating Windows Server administration with PowerShell. Covered scripting fundamentals, pipeline usage, remote management, and task automation for administrator roles. Hosted by Deep (POST Luxembourg Group) and conducted by a trainer from their team, as part of my BTS Cloud Computing program at LGK.",
     skills: ["PowerShell Scripting", "Task Automation", "Remote Administration", "Azure PowerShell"],
-    takeaway: "Gained practical confidence in writing reusable PowerShell scripts for real administrative tasks. The pipeline approach and remote session management are now part of my regular workflow.",
+    takeaway: "Gained solid exposure to PowerShell scripting for Windows administration, including pipelines, remote sessions, and task automation cmdlets. While these approaches are not yet part of my regular workflow, the training built a practical foundation I can apply in future server management and scripting tasks.",
     img: "./assets/img/powershell-logo.webp"
   },
   "luxembourg-army": {
