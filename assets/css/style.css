@@ -1236,6 +1236,10 @@ ul.bullets li {
   .skills-cards {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .skills-cards .skill-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
 }
 
 .skill-card {

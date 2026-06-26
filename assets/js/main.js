@@ -62,6 +62,8 @@ const translations = {
     "skills.title": "Skills",
     "skills.soft": "Soft Skills",
     "skills.hard": "Hard Skills",
+    "skills.itCloud": "IT & Cloud",
+    "skills.industrial": "Industrial Automation",
     "projects.title": "Projects",
     "projects.viewDetails": "View details",
     "projects.viewMore": "View more projects",
@@ -133,6 +135,8 @@ const translations = {
     "skills.title": "Compétences",
     "skills.soft": "Compétences douces",
     "skills.hard": "Compétences techniques",
+    "skills.itCloud": "IT & Cloud",
+    "skills.industrial": "Automatisation industrielle",
     "projects.title": "Projets",
     "projects.viewDetails": "Voir les détails",
     "projects.viewMore": "Voir plus de projets",
@@ -204,6 +208,8 @@ const translations = {
     "skills.title": "Fähigkeiten",
     "skills.soft": "Soziale Kompetenzen",
     "skills.hard": "Technische Fähigkeiten",
+    "skills.itCloud": "IT & Cloud",
+    "skills.industrial": "Industrielle Automation",
     "projects.title": "Projekte",
     "projects.viewDetails": "Details ansehen",
     "projects.viewMore": "Weitere Projekte",
@@ -330,6 +336,14 @@ const io = new IntersectionObserver(
 revealEls.forEach((el) => io.observe(el));
 
 const trainingData = {
+  "project-management-reboost": {
+    title: "Project Management & IT Worklife — Jamey Jaden Jager",
+    meta: "10-hour session · Intro Worklife (2h) + Project Management (8h) · May–June 2026",
+    desc: "Two-part session led by Jamey Jaden Jager at LetzToken. The first part, \"Intro Worklife,\" covered the day-to-day reality of an IT project manager in a company: typical tasks, responsibilities, and personal advice for navigating a tech career. The second part dove into project management fundamentals and the practical frameworks Jamey uses in his own work.\n\nWe covered OKRs (Objectives & Key Results) as a way to set direction, KPIs (Key Performance Indicators) as health metrics for a project — with examples like target uptime — and milestones as dated checkpoints that break work into tasks and highlight required resources. We also went through the GTD (Getting Things Done) workflow: Capture, Clarify, Organise, Reflect, and Engage. The session closed with an Azure project example that brought everything together: one OKR, two KPIs, three milestones, grouped elements, and a daily task overview.",
+    skills: ["Project Management", "OKRs", "KPIs", "Milestones", "GTD", "Azure Project Planning", "IT Worklife"],
+    takeaway: "Got a practical picture of how project management works in a real company. OKRs give direction, KPIs measure project health, milestones create dated checkpoints, and GTD is a useful personal system for staying on top of tasks. The Azure example showed how these pieces fit together in one concrete project.",
+    img: "./assets/img/letztoken-logo.png"
+  },
   "aws-architecture": {
     title: "AWS Architecture Workshop — ARHS Group",
     meta: "ARHS Group · 28-hour workshop · May 2026",
