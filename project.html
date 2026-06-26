@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Details · Marios M. Sarkis</title>
+  <meta name="description" content="Detailed case-study page for a selected project from the portfolio of Marios M. Sarkis." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/project-detail.css" />
+  <script defer src="assets/js/projects-data.js"></script>
+  <script defer src="assets/js/project-detail.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="project-header">
+    <div class="container">
+      <nav class="nav" aria-label="Project page navigation">
+        <a class="brand" href="./index.html#top" aria-label="Back to portfolio home">
+          <span class="dot" aria-hidden="true"></span>
+          <span>MS.</span>
+        </a>
+        <a class="btn btn-ghost project-back" href="./index.html#projects" aria-label="Back to all projects">
+          ← Back to portfolio
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="project-hero" id="projectHero">
+      <div class="container">
+        <div class="project-hero-grid">
+          <div class="project-hero-text">
+            <span class="project-category" id="projectCategory">Project</span>
+            <h1 id="projectTitle">Loading project…</h1>
+            <p class="project-summary" id="projectSummary"></p>
+            <div class="project-meta-tags" id="projectTags"></div>
+            <div class="project-actions" id="projectActions"></div>
+          </div>
+          <div class="project-hero-media">
+            <img id="projectHeroImg" src="" alt="" loading="eager" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-body-section">
+      <div class="container">
+        <div class="project-body-grid">
+          <aside class="project-sidebar">
+            <div class="project-card" id="projectInfoCard" hidden>
+              <h2>Project info</h2>
+              <dl class="project-specs" id="projectInfo"></dl>
+            </div>
+            <div class="project-card" id="projectSpecsCard" hidden>
+              <h2>Tech specs</h2>
+              <dl class="project-specs" id="projectSpecs"></dl>
+            </div>
+            <div class="project-card" id="projectResourcesCard" hidden>
+              <h2>Resources</h2>
+              <ul class="project-resources" id="projectResources"></ul>
+            </div>
+          </aside>
+
+          <div class="project-content">
+            <article class="project-block" id="projectContextBlock" hidden>
+              <h2>Context</h2>
+              <p id="projectContext"></p>
+            </article>
+            <article class="project-block" id="projectObjectivesBlock" hidden>
+              <h2>Objectives</h2>
+              <p id="projectObjectives"></p>
+            </article>
+            <article class="project-block" id="projectTechBlock" hidden>
+              <h2>Technical implementation</h2>
+              <p id="projectTech"></p>
+            </article>
+            <article class="project-block" id="projectResultsBlock" hidden>
+              <h2>Results & key outcomes</h2>
+              <p id="projectResults"></p>
+            </article>
+            <article class="project-block" id="projectOutcomeBlock" hidden>
+              <h2>Concrete outcome</h2>
+              <p id="projectOutcome"></p>
+            </article>
+            <article class="project-block" id="projectChallengesBlock" hidden>
+              <h2>Challenges & problem solving</h2>
+              <p id="projectChallenges"></p>
+            </article>
+            <article class="project-block" id="projectLessonsBlock" hidden>
+              <h2>Lessons learned</h2>
+              <p id="projectLessons"></p>
+            </article>
+            <article class="project-block" id="projectFutureBlock" hidden>
+              <h2>Future work</h2>
+              <p id="projectFuture"></p>
+            </article>
+            <article class="project-block" id="projectHighlightsBlock" hidden>
+              <h2>Highlights</h2>
+              <ul id="projectHighlights"></ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-gallery-section" id="projectGallerySection" hidden>
+      <div class="container">
+        <h2>Project gallery</h2>
+        <p class="project-gallery-note">Selected images and documentation from the project.</p>
+        <div class="project-gallery" id="projectGallery"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-nav">
+        <a href="./index.html#projects">All projects</a>
+        <a href="./index.html#contact">Get in touch</a>
+        <a href="#projectHero">Back to top</a>
+      </div>
+      <div class="footer-copy">
+        © <span id="year"></span> Marios M. Sarkis · Designed &amp; Built with Care
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

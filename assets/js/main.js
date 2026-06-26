@@ -3,6 +3,284 @@ if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
 
+/* Theme toggle */
+const themeToggle = document.getElementById("themeToggle");
+const root = document.documentElement;
+
+const applyTheme = (theme) => {
+  if (theme === "light") {
+    root.setAttribute("data-theme", "light");
+  } else {
+    root.removeAttribute("data-theme");
+  }
+  if (themeToggle) {
+    themeToggle.setAttribute("aria-pressed", String(theme === "light"));
+    themeToggle.setAttribute("aria-label", theme === "light" ? "Switch to dark mode" : "Switch to light mode");
+  }
+};
+
+const savedTheme = localStorage.getItem("theme");
+const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+applyTheme(savedTheme || (prefersLight ? "light" : "dark"));
+
+themeToggle?.addEventListener("click", () => {
+  const isLight = root.hasAttribute("data-theme");
+  const newTheme = isLight ? "dark" : "light";
+  applyTheme(newTheme);
+  localStorage.setItem("theme", newTheme);
+});
+
+/* Internationalization */
+const translations = {
+  en: {
+    "nav.about": "About",
+    "nav.experience": "Experience",
+    "nav.skills": "Skills",
+    "nav.projects": "Projects",
+    "nav.contact": "Contact",
+    "nav.viewWork": "View work",
+    "nav.getInTouch": "Get in touch",
+    "nav.closeMenu": "Close",
+    "nav.mobileNav": "Mobile navigation",
+    "hero.label": "Hello, I'm",
+    "hero.role": "BTS Cloud Computing Student · Infrastructure Focus",
+    "hero.tagline": "BTS Cloud Computing student focused on cloud infrastructure, networking, virtualization, and reliable IT operations.",
+    "hero.viewProjects": "View Projects",
+    "hero.getInTouch": "Get in Touch",
+    "about.title": "About Me",
+    "about.background": "Background",
+    "about.approach": "Approach",
+    "about.languages": "Languages",
+    "about.interests": "Interests",
+    "about.backgroundText": "BTS Cloud Computing student at Lycée Guillaume Kroll, Luxembourg, completing a two-year program focused on cloud infrastructure, virtualization, IP networking, and server administration. Previously trained as an industrial electrician and automation technician, bringing strong systems thinking, disciplined troubleshooting, and extensive hands-on technical experience.",
+    "about.approachText": "I build iteratively, validate outcomes, and document everything so setups stay clear, reliable, and repeatable.",
+    "education.title": "Education & Experience",
+    "education.education": "Education",
+    "education.experience": "Experience",
+    "education.electricalInternships": "Electrical Technician Internships",
+    "education.automotiveInternships": "Automotive Technician Internships",
+    "skills.title": "Skills",
+    "skills.soft": "Soft Skills",
+    "skills.hard": "Hard Skills",
+    "projects.title": "Projects",
+    "projects.viewDetails": "View details",
+    "projects.viewMore": "View more projects",
+    "projects.showLess": "Show less",
+    "certifications.title": "Certifications & Training",
+    "certifications.certifications": "Certifications",
+    "certifications.training": "Training",
+    "training.viewMore": "View more trainings",
+    "training.showLess": "Show less",
+    "progress.title": "BTS Cloud Computing Progress",
+    "progress.summary": "Currently focused on cloud infrastructure fundamentals and independent lab work, with an emphasis on documentation, repeatable deployments, and clear communication. I'm building skills step by step, validating outcomes, and turning complex topics into structured, organized work.",
+    "progress.readFull": "Read full BTS reflection",
+    "progress.hide": "Hide BTS reflection",
+    "progress.loading": "Loading...",
+    "progress.loadError": "Could not load reflection.",
+    "progress.empty": "Reflection is empty.",
+    "contact.title": "Get in Touch",
+    "contact.text": "Open to opportunities in cloud, IT infrastructure, and networking. Have a project, internship, or role in mind? Let's talk.",
+    "contact.sayHello": "Say Hello",
+    "footer.certifications": "Certifications",
+    "footer.progress": "BTS Progress",
+    "footer.backToTop": "Back to top",
+    "modal.overview": "Overview",
+    "modal.objectives": "Objectives",
+    "modal.tech": "Technical Implementation",
+    "modal.results": "Results & Key Outcomes",
+    "modal.keyTakeaways": "Key Takeaways",
+    "modal.keySkills": "Key Skills",
+    "modal.close": "Close",
+    "modal.downloadPdf": "Download PDF",
+    "badge.inProgress": "In Progress",
+    "badge.learning": "Currently learning",
+    "profile.label": "From Wiring to Cloud",
+    "profile.headline": "Physical → Connected → Cloud",
+    "profile.text": "From cabling and PLCs to code and cloud. I bring a field-tested reliability mindset to digital infrastructure.",
+    "cv.title": "View CV",
+    "cv.download": "Download CV",
+    "cv.hint": "Choose the version you would like to view:",
+    "cv.english": "English",
+    "cv.french": "French"
+  },
+  fr: {
+    "nav.about": "À propos",
+    "nav.experience": "Parcours",
+    "nav.skills": "Compétences",
+    "nav.projects": "Projets",
+    "nav.contact": "Contact",
+    "nav.viewWork": "Voir les projets",
+    "nav.getInTouch": "Me contacter",
+    "nav.closeMenu": "Fermer",
+    "nav.mobileNav": "Navigation mobile",
+    "hero.label": "Bonjour, je suis",
+    "hero.role": "Étudiant BTS Cloud Computing · Infrastructure",
+    "hero.tagline": "Étudiant en BTS Cloud Computing, spécialisé dans l'infrastructure cloud, les réseaux, la virtualisation et les opérations IT fiables.",
+    "hero.viewProjects": "Voir les projets",
+    "hero.getInTouch": "Me contacter",
+    "about.title": "À propos",
+    "about.background": "Parcours",
+    "about.approach": "Approche",
+    "about.languages": "Langues",
+    "about.interests": "Intérêts",
+    "about.backgroundText": "Étudiant en BTS Cloud Computing au Lycée Guillaume Kroll au Luxembourg, dans un programme de deux ans axé sur l'infrastructure cloud, la virtualisation, les réseaux IP et l'administration de serveurs. Formé auparavant comme électricien industriel et technicien en automatisation, j'apporte une solide pensée systémique, un dépannage rigoureux et une grande expérience technique pratique.",
+    "about.approachText": "Je construis de manière itérative, je valide les résultats et je documente tout pour que les configurations restent claires, fiables et reproductibles.",
+    "education.title": "Formation & Expérience",
+    "education.education": "Formation",
+    "education.experience": "Expérience",
+    "education.electricalInternships": "Stages technicien électricien",
+    "education.automotiveInternships": "Stages technicien automobile",
+    "skills.title": "Compétences",
+    "skills.soft": "Compétences douces",
+    "skills.hard": "Compétences techniques",
+    "projects.title": "Projets",
+    "projects.viewDetails": "Voir les détails",
+    "projects.viewMore": "Voir plus de projets",
+    "projects.showLess": "Voir moins",
+    "certifications.title": "Certifications & Formations",
+    "certifications.certifications": "Certifications",
+    "certifications.training": "Formations",
+    "training.viewMore": "Voir plus de formations",
+    "training.showLess": "Voir moins",
+    "progress.title": "Progression BTS Cloud Computing",
+    "progress.summary": "Actuellement concentré sur les fondamentaux de l'infrastructure cloud et le travail de laboratoire autonome, avec un accent sur la documentation, les déploiements reproductibles et la communication claire. Je développe mes compétences étape par étape, en validant les résultats et en transformant les sujets complexes en travail structuré et organisé.",
+    "progress.readFull": "Lire la réflexion complète",
+    "progress.hide": "Masquer la réflexion",
+    "progress.loading": "Chargement...",
+    "progress.loadError": "Impossible de charger la réflexion.",
+    "progress.empty": "La réflexion est vide.",
+    "contact.title": "Contact",
+    "contact.text": "Ouvert aux opportunités dans le cloud, l'infrastructure IT et les réseaux. Vous avez un projet, un stage ou un poste en tête ? Parlons-en.",
+    "contact.sayHello": "Dire bonjour",
+    "footer.certifications": "Certifications",
+    "footer.progress": "Progression BTS",
+    "footer.backToTop": "Retour en haut",
+    "modal.overview": "Aperçu",
+    "modal.objectives": "Objectifs",
+    "modal.tech": "Implémentation technique",
+    "modal.results": "Résultats",
+    "modal.keyTakeaways": "Points clés",
+    "modal.keySkills": "Compétences clés",
+    "modal.close": "Fermer",
+    "modal.downloadPdf": "Télécharger le PDF",
+    "badge.inProgress": "En cours",
+    "badge.learning": "En cours d'apprentissage",
+    "profile.label": "Du câblage au cloud",
+    "profile.headline": "Physique → Connecté → Cloud",
+    "profile.text": "Du câblage et des automates au code et au cloud. J'apporte une mentalité de fiabilité éprouvée sur le terrain à l'infrastructure numérique.",
+    "cv.title": "Voir le CV",
+    "cv.download": "Télécharger le CV",
+    "cv.hint": "Choisissez la version que vous souhaitez consulter :",
+    "cv.english": "Anglais",
+    "cv.french": "Français"
+  },
+  de: {
+    "nav.about": "Über mich",
+    "nav.experience": "Werdegang",
+    "nav.skills": "Fähigkeiten",
+    "nav.projects": "Projekte",
+    "nav.contact": "Kontakt",
+    "nav.viewWork": "Projekte ansehen",
+    "nav.getInTouch": "Kontakt aufnehmen",
+    "nav.closeMenu": "Schließen",
+    "nav.mobileNav": "Mobile Navigation",
+    "hero.label": "Hallo, ich bin",
+    "hero.role": "BTS Cloud Computing Student · Infrastruktur",
+    "hero.tagline": "BTS Cloud Computing Student mit Fokus auf Cloud-Infrastruktur, Netzwerke, Virtualisierung und zuverlässige IT-Betriebsabläufe.",
+    "hero.viewProjects": "Projekte ansehen",
+    "hero.getInTouch": "Kontakt aufnehmen",
+    "about.title": "Über mich",
+    "about.background": "Hintergrund",
+    "about.approach": "Ansatz",
+    "about.languages": "Sprachen",
+    "about.interests": "Interessen",
+    "about.backgroundText": "BTS Cloud Computing Student am Lycée Guillaume Kroll in Luxemburg, in einem zweijährigen Programm mit Schwerpunkt auf Cloud-Infrastruktur, Virtualisierung, IP-Netzwerken und Serveradministration. Zuvor als Industrieelektriker und Automatisierungstechniker ausgebildet, mit starkem systemischem Denken, diszipliniertem Troubleshooting und umfangreicher praktischer technischer Erfahrung.",
+    "about.approachText": "Ich arbeite iterativ, validiere Ergebnisse und dokumentiere alles, damit Setups klar, zuverlässig und reproduzierbar bleiben.",
+    "education.title": "Ausbildung & Erfahrung",
+    "education.education": "Ausbildung",
+    "education.experience": "Erfahrung",
+    "education.electricalInternships": "Praktika als Elektrotechniker",
+    "education.automotiveInternships": "Praktika als Kfz-Techniker",
+    "skills.title": "Fähigkeiten",
+    "skills.soft": "Soziale Kompetenzen",
+    "skills.hard": "Technische Fähigkeiten",
+    "projects.title": "Projekte",
+    "projects.viewDetails": "Details ansehen",
+    "projects.viewMore": "Weitere Projekte",
+    "projects.showLess": "Weniger anzeigen",
+    "certifications.title": "Zertifizierungen & Schulungen",
+    "certifications.certifications": "Zertifizierungen",
+    "certifications.training": "Schulungen",
+    "training.viewMore": "Weitere Schulungen",
+    "training.showLess": "Weniger anzeigen",
+    "progress.title": "BTS Cloud Computing Fortschritt",
+    "progress.summary": "Derzeit fokussiert auf Cloud-Infrastruktur-Grundlagen und unabhängige Laborarbeit, mit Schwerpunkt auf Dokumentation, reproduzierbaren Bereitstellungen und klarer Kommunikation. Ich baue meine Fähigkeiten Schritt für Schritt auf, validiere Ergebnisse und verwandle komplexe Themen in strukturierte, organisierte Arbeit.",
+    "progress.readFull": "Vollständige Reflexion lesen",
+    "progress.hide": "Reflexion ausblenden",
+    "progress.loading": "Laden...",
+    "progress.loadError": "Reflexion konnte nicht geladen werden.",
+    "progress.empty": "Reflexion ist leer.",
+    "contact.title": "Kontakt",
+    "contact.text": "Offen für Möglichkeiten in den Bereichen Cloud, IT-Infrastruktur und Netzwerke. Sie haben ein Projekt, ein Praktikum oder eine Rolle im Sinn? Lassen Sie uns reden.",
+    "contact.sayHello": "Hallo sagen",
+    "footer.certifications": "Zertifizierungen",
+    "footer.progress": "BTS Fortschritt",
+    "footer.backToTop": "Zurück nach oben",
+    "modal.overview": "Übersicht",
+    "modal.objectives": "Ziele",
+    "modal.tech": "Technische Umsetzung",
+    "modal.results": "Ergebnisse",
+    "modal.keyTakeaways": "Wichtige Erkenntnisse",
+    "modal.keySkills": "Wichtige Fähigkeiten",
+    "modal.close": "Schließen",
+    "modal.downloadPdf": "PDF herunterladen",
+    "badge.inProgress": "In Bearbeitung",
+    "badge.learning": "Aktuell am Lernen",
+    "profile.label": "Vom Kabel zum Cloud",
+    "profile.headline": "Physisch → Vernetzt → Cloud",
+    "profile.text": "Von Kabeln und SPS zu Code und Cloud. Ich bringe eine praxiserprobte Zuverlässigkeitsmentalität in die digitale Infrastruktur ein.",
+    "cv.title": "Lebenslauf ansehen",
+    "cv.download": "Lebenslauf herunterladen",
+    "cv.hint": "Wählen Sie die Version, die Sie ansehen möchten:",
+    "cv.english": "Englisch",
+    "cv.french": "Französisch"
+  }
+};
+
+let currentLang = localStorage.getItem("lang") || "en";
+
+const setLanguage = (lang) => {
+  if (!translations[lang]) return;
+  currentLang = lang;
+  localStorage.setItem("lang", lang);
+
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.dataset.i18n;
+    const value = translations[lang][key];
+    if (value === undefined) return;
+    const attr = el.dataset.i18nAttr;
+    if (attr) {
+      el.setAttribute(attr, value);
+    } else if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+      el.placeholder = value;
+    } else {
+      el.textContent = value;
+    }
+  });
+
+  document.querySelectorAll(".lang-btn").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.lang === lang);
+  });
+
+  document.documentElement.lang = lang;
+};
+
+setLanguage(currentLang);
+
+document.querySelectorAll(".lang-btn").forEach((btn) => {
+  btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+});
+
 const menuBtn = document.getElementById("menuBtn");
 const overlay = document.getElementById("overlayMenu");
 const closeMenuBtn = document.getElementById("closeMenuBtn");
@@ -52,10 +330,18 @@ const io = new IntersectionObserver(
 revealEls.forEach((el) => io.observe(el));
 
 const trainingData = {
+  "aws-architecture": {
+    title: "AWS Architecture Workshop — ARHS Group",
+    meta: "ARHS Group · 28-hour workshop · May 2026",
+    desc: "Completed a 28-hour AWS Architecture workshop delivered by Arnaud Charlier from ARHS Group. The course walked us through AWS core services, architecture principles, and hands-on labs, all as part of my BTS Cloud Computing program at LGK.",
+    skills: ["AWS Architecture", "AWS Services", "Cloud Fundamentals", "Hands-on Labs"],
+    takeaway: "Built a practical foundation in AWS architecture and core services through guided labs and architecture discussions. The hands-on format helped connect cloud concepts to real service configuration.",
+    img: "./assets/img/aws-logo.webp"
+  },
   "az040": {
     title: "Automating Administration with PowerShell (AZ-040) Training — DEEP (POST Luxembourg Group)",
     meta: "Deep (POST Luxembourg Group) · 5-day course · Mar 23–27, 2026",
-    desc: "Attended a 5-day advanced training course on automating Windows Server administration with PowerShell. Covered scripting fundamentals, pipeline usage, remote management, and task automation for administrator roles. Hosted by Deep (POST Luxembourg Group) and conducted by a trainer from their team, as part of my BTS Cloud Computing program at LGK.",
+    desc: "Took part in a 5-day advanced course on automating Windows Server administration with PowerShell. We covered scripting basics, pipeline usage, remote management, and day-to-day task automation for administrators. The training was hosted by Deep (POST Luxembourg Group) and led by one of their trainers, as part of my BTS Cloud Computing program at LGK.",
     skills: ["PowerShell Scripting", "Task Automation", "Remote Administration", "Azure PowerShell"],
     takeaway: "Gained solid exposure to PowerShell scripting for Windows administration, including pipelines, remote sessions, and task automation cmdlets. While these approaches are not yet part of my regular workflow, the training built a practical foundation I can apply in future server management and scripting tasks.",
     img: "./assets/img/powershell-logo.webp"
@@ -63,7 +349,7 @@ const trainingData = {
   "luxembourg-army": {
     title: "Visit to the Luxembourg Army — Armée du Luxembourg",
     meta: "Armée du Luxembourg · Site visit · Half-day · Mar 13, 2026",
-    desc: "Visited the Luxembourg Army as part of our BTS Cloud Computing class at LGK. The visit covered how the military operates and its career paths, but what stood out most from a technical perspective was their satellite capabilities — Luxembourg's investment in space and defense communication is impressive. We also got insight into their cybersecurity operations and IT infrastructure. It was a good look at how national defense intersects with the kind of tech and infrastructure work we study.",
+    desc: "Visited the Luxembourg Army with my BTS Cloud Computing class at LGK. The tour covered military operations and career paths, but the technical highlight was their satellite capabilities — Luxembourg's investment in space and defense communication is impressive. We also learned about their cybersecurity operations and IT infrastructure, which showed how national defense overlaps with the infrastructure work we study.",
     skills: ["Defense IT Infrastructure", "Satellite Communications", "Cybersecurity Operations", "National Security Systems"],
     takeaway: "Saw firsthand how national defense relies on satellite and cybersecurity infrastructure at scale. It shifted my perspective on how critical uptime and secure comms are in high-stakes environments.",
     img: "./assets/img/luxembourg-army-logo.webp"
@@ -71,7 +357,7 @@ const trainingData = {
   "aws-recap": {
     title: "AWS re:Invent re:Cap 2026 — ARHS Group",
     meta: "ARHS Group · Half-day session · Mar 4, 2026 · Belval, Luxembourg",
-    desc: "Attended the afternoon AWS re:Invent re:Cap 2026 recap hosted and presented by ARHS Group in Belval, Luxembourg. Their team shared takeaways and demos from the event, covering Amazon Connect, security topics, the Kiro coding IDE, Model Context Protocol (MCP), and AI models and demonstrations they are working on. I attended as part of the Lycée Guillaume Kroll student group, representing the school through the BTS Cloud Computing program.",
+    desc: "Joined the afternoon AWS re:Invent re:Cap 2026 session hosted by ARHS Group in Belval, Luxembourg. Their team shared key takeaways and demos from the event, including Amazon Connect, cloud security, the Kiro coding IDE, Model Context Protocol (MCP), and AI models they are developing. I attended with the Lycée Guillaume Kroll student group as part of the BTS Cloud Computing program.",
     skills: ["Amazon Connect", "Cloud Security", "Kiro IDE", "Model Context Protocol", "Enterprise AI Models"],
     takeaway: "Learned that AWS is pushing heavily into AI-integrated developer tools and contact-center automation. The Model Context Protocol demo showed me how enterprise AI will reshape cloud service architecture.",
     img: "./assets/img/aws-logo.webp"
@@ -79,7 +365,7 @@ const trainingData = {
   "quantum": {
     title: "Introduction to Quantum Computing — DEEP (POST Luxembourg Group)",
     meta: "Deep (POST Luxembourg Group) · Presentation · 2 hours · Mar 3, 2026",
-    desc: "Attended a presentation introducing quantum computing concepts, covering the fundamentals of how quantum computers work, their potential applications, and what they mean for the future of computing and cloud infrastructure. Hosted by Deep (POST Luxembourg Group) and conducted by a trainer from their team, as part of my BTS Cloud Computing program at LGK.",
+    desc: "Attended an introductory presentation on quantum computing. It covered the basics of how quantum computers work, possible use cases, and what they could mean for the future of computing and cloud infrastructure. The session was hosted by Deep (POST Luxembourg Group) and presented by one of their trainers, as part of my BTS Cloud Computing program at LGK.",
     skills: ["Quantum Computing Fundamentals", "Quantum vs Classical Computing", "Emerging Technologies"],
     takeaway: "Understood that quantum computing is not a replacement for classical systems but a specialized accelerator for specific problem classes. It will impact cryptography and optimization long before general workloads.",
     img: "./assets/img/deep-logo.webp"
@@ -190,159 +476,6 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-const projectData = {
-  "rejectiongym": {
-    title: "RejectionGym — Challenge & Progress Platform",
-    overview: "A full-stack web platform built to gamify personal growth through daily challenge packs. The project was developed as part of the BTS Cloud Computing curriculum to demonstrate full-stack development skills from database design to deployment.",
-    objectives: "Create a habit-forming platform that encourages consistency through gamification. The system needed to handle user authentication, file uploads for proof of completion, streak tracking with visual dashboards, and social sharing of progress reports.",
-    tech: "Frontend built with React and modern CSS for responsive design. Backend API powered by Node.js and Express with RESTful endpoints. PostgreSQL handles relational data including users, challenges, streaks, and upload metadata. Docker containers ensure consistent environments across development and production. CI/CD pipeline automates testing and deployment.",
-    results: "Delivered a functional platform with user registration, challenge pack selection, daily task completion with proof upload, streak calculation, and shareable progress reports. The architecture is modular and ready for scaling.",
-    tags: ["React", "Node.js", "PostgreSQL", "Docker + CI/CD"],
-    pdf: "assets/downloads/RejectionGym \u2014 Challenge & Progress Platform.pdf",
-    img: "./assets/img/rejectiongym_logo.png"
-  },
-  "homelab": {
-    title: "Secure Family Private Cloud + Learning Lab",
-    overview: "A personal infrastructure project designing and deploying a private cloud for secure family data storage and a dedicated learning lab for testing IT and networking concepts. Built from consumer and enterprise hardware to simulate real-world infrastructure at home.",
-    objectives: "Build reliable, secure, self-hosted infrastructure with automated backups, remote access, network segmentation, and power resilience. The lab needed to support both production family services and experimental environments without cross-contamination.",
-    tech: "Proxmox VE provides the virtualization layer with ZFS-backed storage pools. TrueNAS handles file serving and snapshot-based backups. WireGuard and Tailscale provide encrypted remote access. Docker runs containerized services in isolated network segments. UPS integration ensures graceful shutdowns during power events. All configurations are documented for reproducibility.",
-    results: "Production-ready homelab serving family data with 99%+ uptime. Isolated VLANs separate production services from experimental workloads. Remote access works from any device. Backup strategy covers both local snapshots and off-site replication.",
-    tags: ["Private Cloud", "Backups", "Self-Hosting", "Network Security"],
-    pdf: "assets/downloads/Secure Family Private Cloud + Learning Lab.pdf",
-    img: "./assets/img/Homelab.png"
-  },
-  "nas": {
-    title: "NAS Server Setup & Configuration",
-    overview: "A BTS team project converting a bare-metal rack server into a production-ready network-attached storage solution. The goal was to design enterprise-grade storage with redundancy, cross-platform access, and automated monitoring using open-source tools.",
-    objectives: "Design and configure redundant storage with hardware RAID for performance, BTRFS for metadata integrity, cross-platform file sharing, granular user permissions, automated snapshots, and health monitoring with alerting.",
-    tech: "OpenMediaVault 8 serves as the management layer. Hardware RAID 5 provides striped parity across three disks for performance and fault tolerance. BTRFS RAID 1 mirrors metadata for additional integrity. SMB handles Windows clients, NFS serves Linux/macOS, and SFTP provides secure remote file transfer. User and group permissions are mapped consistently across all protocols. Snapshots run on a scheduled basis with retention policies.",
-    results: "Fully operational NAS serving mixed Windows, macOS, and Linux clients with no data loss events. Disk health is monitored continuously with email alerts for temperature and SMART anomalies. Snapshot restore has been tested and verified.",
-    tags: ["OpenMediaVault", "RAID 5", "BTRFS RAID 1", "SMB/NFS/SFTP"],
-    pdf: "assets/downloads/NAS_Project_Team2.pdf",
-    img: "./assets/img/OpenMediaVault-Logo.webp"
-  },
-  "lab8": {
-    title: "Lab 8 Windows Services: VPN + DirectAccess",
-    overview: "A comprehensive Windows Server lab exercise developed for the OSYCL-Windows module at Lycée Guillaume Kroll. Team project with Donovan Glodt under teacher Maurizio Spagnuolo. The client company was Flowdesk and the consultant company was DON&SAR IT.",
-    objectives: "Deploy a secure remote access infrastructure that supports both traditional VPN for legacy clients and DirectAccess for modern always-on connectivity. The solution needed to integrate with Active Directory, enforce network access policies, and support roaming user profiles.",
-    tech: "Windows Server 2022 hosts Active Directory Domain Services with integrated DNS and DHCP. SSTP VPN provides encrypted remote access over HTTPS. DirectAccess delivers seamless always-on connectivity using IPv6 transition technologies and certificate-based machine authentication. Network Access Protection enforces health policies. File Server hosts departmental shares with DFS namespace. Roaming Profiles synchronize user data across devices.",
-    results: "Complete remote access lab with full network topology diagrams, step-by-step configuration documentation, and troubleshooting guides. Both VPN and DirectAccess tested successfully from external clients. Group Policy enforces consistent security settings across all domain-joined machines.",
-    tags: ["Windows Server", "VPN", "DirectAccess", "AD DS"],
-    pdf: "assets/downloads/Lab8.WindowsServices.MariosDonovan.pdf",
-    img: "./assets/img/lab8.png"
-  },
-  "grademanagement": {
-    title: "Grade Management System",
-    overview: "A secure web application for managing academic grades, developed for the BTSCC Project Management module at Lycée Guillaume Kroll. Team project with Mustafa Murtadha and Yona Yarvis under teacher Sam Hoffman.",
-    objectives: "Design and build a grade management platform with role-based access control. Students must view their own grades. Professors must manage courses and enter grades. Administrators must oversee users, audit activity, and configure the system.",
-    tech: "FastAPI powers the backend with asynchronous request handling and automatic OpenAPI documentation. JWT tokens provide stateless authentication with expiration and refresh logic. PostgreSQL stores users, courses, grades, and audit logs with foreign key constraints. Docker containers run the API and database with Docker Compose for local development. Role-based access control middleware verifies permissions on every endpoint.",
-    results: "Functional web application with secure login, student grade viewing, professor grade management, and admin dashboards. API endpoints are documented and tested. The system handles concurrent users and maintains an audit trail of all grade modifications.",
-    tags: ["FastAPI", "JWT", "Docker"],
-    pdf: "assets/downloads/Planning document-GradingManagementSystem.pdf",
-    img: "./assets/img/Grademanagmentsystem.png"
-  },
-  "linuxloganalyser": {
-    title: "Linux Log Analyser",
-    overview: "A Python-based log analyser for Linux log files that reads real system logs, extracts structured information using regular expressions, and generates a monitoring summary. The project simulates real-world work in cloud infrastructure, system administration, and cybersecurity where logs are used to detect problems and incidents.",
-    objectives: "Build a parser that extracts at least 3 fields from each log entry including timestamp, hostname, program or service name, PID, message text, and IP address or username when present. Design a monitoring system with at least 2 statistics or counters and 1 time-based metric. Implement at least one alert rule that triggers a warning when suspicious activity exceeds defined thresholds.",
-    tech: "Python with regular expressions for log parsing. The analyser processes /var/log/syslog to extract structured data including timestamps, hostnames, service names, PIDs, and message text. Custom monitoring logic counts events, tracks top services producing log messages, and measures events per minute. Alert rules trigger on thresholds such as failed login spikes or excessive error messages.",
-    results: "Functional log analyser that parses syslog entries, generates statistics on top services and common error keywords, tracks events per minute, and triggers alerts when suspicious patterns are detected. Clear terminal output shows total parsed lines, unparsed lines, chosen statistics, time-based metric results, and any triggered alerts.",
-    tags: ["Python", "Regex", "Linux", "Syslog", "Monitoring"],
-    pdf: null,
-    img: "./assets/img/pytwo_log_analyzer.png"
-  },
-  "weekflow": {
-    title: "WeekFlow — PowerApps Week Planner",
-    overview: "A low-code weekly planner application built with the Microsoft Power Platform. Designed for team coordination with task tracking, status updates, and automated notifications without writing traditional application code.",
-    objectives: "Create an intuitive weekly planner that allows team members to create tasks, track status changes, and receive automated reminders. The solution needed to integrate with existing Microsoft 365 infrastructure and work on mobile and desktop.",
-    tech: "PowerApps Canvas App provides the user interface with custom galleries and forms. SharePoint lists serve as the relational data backend with versioning enabled. Power Automate flows trigger email reminders when tasks approach deadlines or when status changes. Role-based views filter tasks by owner and team. The app is responsive and works offline with sync on reconnect.",
-    results: "Deployed application used for team task coordination with real-time synchronization across devices. Automated reminders reduced missed deadlines. Managers gained visibility into team workload through summary dashboards.",
-    tags: ["PowerApps", "SharePoint", "Automation"],
-    pdf: null,
-    img: "./assets/img/Weekflow.logo.png"
-  },
-  "portfolio": {
-    title: "Portfolio Website — GitHub Pages",
-    overview: "A personal portfolio website designed and built to document BTS Cloud Computing progress, projects, certifications, and professional reflection. The site serves as both a showcase and a learning journal.",
-    objectives: "Build a fast, accessible, visually consistent portfolio following GRAP design principles: Grid structure, Rhythm in spacing, Alignment of elements, and Proportion in typography. The site needed to be maintainable without a backend and deploy automatically on push.",
-    tech: "Static HTML5 with semantic structure for accessibility. CSS custom properties define the dark theme with consistent colors and spacing. Vanilla JavaScript handles mobile navigation, scroll-triggered reveal animations via Intersection Observer, and modal interactions. GitHub Pages hosts the site with custom domain support. All assets are optimized for performance with lazy loading.",
-    results: "Live portfolio deployed at marios-debug.github.io with clean chapter-based navigation, responsive layouts, and smooth scroll animations. The site scores well on Lighthouse accessibility and performance metrics. Content is updated regularly as new projects and certifications are completed.",
-    tags: ["GitHub Pages", "Documentation", "Design"],
-    pdf: null,
-    img: "./assets/img/github.logo.png"
-  },
-  "pif": {
-    title: "PIF Smart Technologies (Coffee Fermentation)",
-    overview: "A BTS Smart Technologies E-Controls capstone project at Lycée Privé Émile Metz. Team project with Ayena Ezechiele under teacher Gilles Krantz. The project automated a coffee-bean fermentation process for Kaffeefabrik, integrating sensors, PLC control, and HMI visualization.",
-    objectives: "Design and build an automated coffee-bean fermentation system with real-time sensor monitoring, precise motor and valve control, safety device integration, and complete customer documentation including electrical schematics and operator manuals.",
-    tech: "Siemens TIA Portal programmed the S7-1200 PLC with ladder logic for discrete control and structured text for complex sequences. HMI panels built in WinCC provide process visualization, alarm handling, and manual override. Temperature and humidity sensors feed analog inputs for closed-loop control. Motor contactors, frequency drives, and pneumatic valves execute physical actions. Emergency stops, safety relays, and light curtains protect operators. Risk assessment documentation covers all hazards.",
-    results: "Complete automated system commissioned and tested. The PLC controls the entire fermentation cycle from loading through drying with automatic fault handling. HMI screens display real-time values and trend history. Customer received full documentation including electrical schematics, PLC code printouts, HMI backups, and maintenance schedules.",
-    tags: ["Smart Tech", "Sensors", "PLC/HMI", "Documentation"],
-    pdf: "assets/downloads/Kundenordner.pdf",
-    img: "./assets/img/PIF.png"
-  },
-  "erasmus": {
-    title: "Erasmus+",
-    overview: "Smart Technologies exchange program at Carl Benz Schule in Germany. A two-week intensive where teams designed, built, and raced autonomous line-following cars.",
-    objectives: "Build an autonomous line-following car as a team challenge, optimize it for speed and reliability, and present the technical approach and results to faculty and students.",
-    tech: "Arduino Uno programmed in C++ with PID control for line following. IR sensor arrays detect the track boundary and feed analog values to the microcontroller. Motor driver shields control DC motors with PWM for speed regulation. Chassis and wheel mounts designed in Fusion 360 and 3D-printed in PLA. Battery management ensures consistent power delivery during runs.",
-    results: "Best team time of 32 seconds on the competition track. The presentation covered design iterations, sensor calibration, PID tuning, and lessons learned. Audience of approximately 40 students and faculty. Emphasis on rapid prototyping, iterative testing, and cross-cultural teamwork.",
-    tags: ["3D Modeling", "C++ Programming", "Arduino"],
-    pdf: null,
-    img: "./assets/img/eu-flag-erasmus-logo.jpg"
-  }
-};
-
-const projectModal = document.getElementById("projectModal");
-const projectModalBackdrop = document.getElementById("projectModalBackdrop");
-const projectModalClose = document.getElementById("projectModalClose");
-const projectModalImg = document.getElementById("projectModalImg");
-const projectModalTitle = document.getElementById("projectModalTitle");
-const projectModalTags = document.getElementById("projectModalTags");
-const projectModalFooter = document.getElementById("projectModalFooter");
-
-const openProjectModal = (id) => {
-  const data = projectData[id];
-  if (!data || !projectModal) return;
-  projectModalImg.src = data.img;
-  projectModalImg.alt = data.title;
-  projectModalTitle.textContent = data.title;
-  projectModalTags.innerHTML = data.tags.map((t) => `<span class="mini-tag">${t}</span>`).join("");
-  document.getElementById("projectModalOverview").textContent = data.overview || "";
-  document.getElementById("projectModalObjectives").textContent = data.objectives || "";
-  document.getElementById("projectModalTech").textContent = data.tech || "";
-  document.getElementById("projectModalResults").textContent = data.results || "";
-  if (data.pdf) {
-    projectModalFooter.innerHTML = `<a class="btn btn-primary" href="${data.pdf}" target="_blank" rel="noopener" download>Download PDF</a>`;
-  } else {
-    projectModalFooter.innerHTML = "";
-  }
-  projectModal.hidden = false;
-  projectModal.classList.add("is-open");
-  document.body.style.overflow = "hidden";
-};
-
-const closeProjectModal = () => {
-  if (!projectModal) return;
-  projectModal.classList.remove("is-open");
-  projectModal.hidden = true;
-  document.body.style.overflow = "";
-};
-
-document.querySelectorAll(".project-modal-btn").forEach((btn) => {
-  const id = btn.dataset.projectId;
-  if (id) {
-    btn.addEventListener("click", () => openProjectModal(id));
-  }
-});
-
-projectModalClose?.addEventListener("click", closeProjectModal);
-projectModalBackdrop?.addEventListener("click", closeProjectModal);
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && projectModal?.classList.contains("is-open")) {
-    closeProjectModal();
-  }
-});
 
 const cvModal = document.getElementById("cvModal");
 const cvModalBackdrop = document.getElementById("cvModalBackdrop");
@@ -426,46 +559,70 @@ const reflectionToggle = document.querySelector(".reflection-toggle");
 const reflectionPanel = document.querySelector(".reflection-panel");
 const reflectionStatus = document.querySelector(".reflection-status");
 const reflectionContent = document.querySelector(".reflection-content");
+const reflectionTabs = document.querySelectorAll(".reflection-tab");
 
-const loadReflection = async () => {
+const loadReflection = async (semester = 1) => {
   if (!reflectionStatus || !reflectionContent) return;
-  reflectionStatus.textContent = "Loading...";
+  reflectionStatus.textContent = translations[currentLang]?.["progress.loading"] || "Loading...";
 
-  // Prefer inline template to avoid fetch/CORS issues
-  const inlineSource = document.getElementById("reflection-md");
+  const templateId = semester === 2 ? "reflection-md-s2" : "reflection-md";
+  const inlineSource = document.getElementById(templateId);
   let markdown = "";
   if (inlineSource) {
     markdown = inlineSource.innerHTML.trim();
   } else {
-    try {
-      const response = await fetch("Reflexion.md");
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      markdown = await response.text();
-    } catch (error) {
-      reflectionStatus.textContent = "Could not load reflection.";
-      return;
-    }
+    reflectionStatus.textContent = translations[currentLang]?.["progress.loadError"] || "Could not load reflection.";
+    return;
   }
 
   if (!markdown) {
-    reflectionStatus.textContent = "Reflection is empty.";
+    reflectionStatus.textContent = translations[currentLang]?.["progress.empty"] || "Reflection is empty.";
     return;
   }
+
   reflectionContent.innerHTML = window.marked ? window.marked.parse(markdown) : markdown;
   reflectionStatus.textContent = "";
+
+  reflectionTabs.forEach((tab) => {
+    const isSelected = Number(tab.dataset.semester) === semester;
+    tab.classList.toggle("is-active", isSelected);
+    tab.setAttribute("aria-selected", String(isSelected));
+  });
 };
 
 if (reflectionToggle && reflectionPanel) {
   let loaded = false;
-  reflectionToggle.addEventListener("click", async () => {
-    const isOpen = !reflectionPanel.hidden;
-    reflectionPanel.hidden = isOpen;
-    reflectionToggle.setAttribute("aria-expanded", String(!isOpen));
-    reflectionToggle.textContent = isOpen ? "Read full BTS reflection" : "Hide BTS reflection";
-    if (!loaded && !isOpen) {
+
+  const openPanel = async (semester = 1) => {
+    reflectionPanel.hidden = false;
+    reflectionToggle.setAttribute("aria-expanded", "true");
+    reflectionToggle.textContent = translations[currentLang]?.["progress.hide"] || "Hide BTS reflection";
+    if (!loaded) {
       loaded = true;
-      await loadReflection();
+      await loadReflection(semester);
     }
+  };
+
+  const closePanel = () => {
+    reflectionPanel.hidden = true;
+    reflectionToggle.setAttribute("aria-expanded", "false");
+    reflectionToggle.textContent = translations[currentLang]?.["progress.readFull"] || "Read full BTS reflection";
+  };
+
+  reflectionToggle.addEventListener("click", () => {
+    reflectionPanel.hidden ? openPanel(1) : closePanel();
+  });
+
+  reflectionTabs.forEach((tab) => {
+    tab.addEventListener("click", async () => {
+      const semester = Number(tab.dataset.semester);
+      if (reflectionPanel.hidden) {
+        loaded = false; // ensure content loads when opening directly to a tab
+        await openPanel(semester);
+      } else {
+        await loadReflection(semester);
+      }
+    });
   });
 }
 
@@ -480,7 +637,9 @@ if (trainingMoreBtn && collapsibleTrainingRows.length > 0) {
     });
     trainingMoreBtn.classList.toggle('is-expanded', !isExpanded);
     trainingMoreBtn.setAttribute('aria-expanded', String(!isExpanded));
-    trainingMoreBtn.textContent = isExpanded ? 'View more trainings' : 'Show less';
+    trainingMoreBtn.textContent = isExpanded
+      ? (translations[currentLang]?.["training.viewMore"] || 'View more trainings')
+      : (translations[currentLang]?.["training.showLess"] || 'Show less');
   });
 }
 
@@ -495,6 +654,8 @@ if (projectsMoreBtn && collapsibleProjectCards.length > 0) {
     });
     projectsMoreBtn.classList.toggle('is-expanded', !isExpanded);
     projectsMoreBtn.setAttribute('aria-expanded', String(!isExpanded));
-    projectsMoreBtn.textContent = isExpanded ? 'View more projects' : 'Show less';
+    projectsMoreBtn.textContent = isExpanded
+      ? (translations[currentLang]?.["projects.viewMore"] || 'View more projects')
+      : (translations[currentLang]?.["projects.showLess"] || 'Show less');
   });
 }
