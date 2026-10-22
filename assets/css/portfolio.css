@@ -162,8 +162,8 @@ section { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
 .training-info p { font-size: .75rem; }
 #certifications { border-top: 1px solid var(--color-border); }
 #contact { border-block: 1px solid var(--color-border); background: var(--color-accent-bg); }
-.chapter-center h2 { margin-inline: auto; max-width: 20ch; font-size: clamp(2.1rem, 4.3vw, 4rem); }
-.contact { max-width: 700px; }
+.chapter-center h2 { margin-inline: auto; max-width: 20ch; font-size: clamp(2.1rem, 4.3vw, 4rem); text-align: center; }
+.contact { max-width: 700px; margin-inline: auto; }
 .contact > p { font-size: .95rem; color: var(--color-meta); }
 .contact-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 1.7rem; }
 .contact-email { display: block; font: .75rem var(--font-mono); margin-top: 1.5rem; color: var(--color-accent); }
@@ -222,7 +222,6 @@ section { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
   .project-filters { gap: .4rem; }
   .filter-button { font-size: .65rem; padding-inline: .6rem; }
   .work-body { padding: 1.2rem; }
-  .chapter-center h2 { text-align: center; }
   .contact-email { font-size: .68rem; }
   .overlay-inner { padding: 1rem; overflow-y: auto; }
   .overlay-nav { padding: 1.1rem; }
