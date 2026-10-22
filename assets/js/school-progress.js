@@ -161,25 +161,28 @@ const portfolioEntries = [
 /* Project covers; original photos and evidence are retained. */
 const projectCovers = {
   "awssecurity": {
-    "path": "./assets/img/covers/awssecurity.webp",
-    "alt": "Illustrated project poster showing two servers connected through a secure network gate"
+    "path": "./assets/img/covers/awssecurity.svg",
+    "alt": "Official AWS logo on a white background",
+    "presentation": "brand"
   },
   "mysqldocker": {
     "path": "./assets/img/covers/mysqldocker.webp",
     "alt": "Illustrated project poster showing a persistent database on modular container infrastructure"
   },
   "chef": {
-    "path": "./assets/img/covers/chef.webp",
-    "alt": "Illustrated project poster showing one configuration recipe managing three consistent servers"
+    "path": "./assets/img/covers/chef.svg",
+    "alt": "Official Progress Chef logo on a white background",
+    "presentation": "brand"
   },
   "networkmonitoring": {
-    "path": "./assets/img/zabbix-logo-official.svg",
+    "path": "./assets/img/covers/networkmonitoring.svg",
     "alt": "Official Zabbix logo",
-    "presentation": "logo"
+    "presentation": "brand"
   },
   "terraformazure": {
-    "path": "./assets/img/covers/terraformazure.webp",
-    "alt": "Illustrated project poster showing cloud infrastructure assembled from reusable foundation modules"
+    "path": "./assets/img/covers/terraformazure.svg",
+    "alt": "Official Azure and Terraform logos side by side on a white background",
+    "presentation": "brand"
   },
   "serverdashboard": {
     "path": "./assets/img/covers/serverdashboard.webp",
@@ -212,6 +215,11 @@ const projectCovers = {
   "portfolio": {
     "path": "./assets/img/covers/portfolio.webp",
     "alt": "Illustrated project poster connecting electrical, network and cloud elements to a portfolio website"
+  },
+  "autovault": {
+    "path": "./assets/img/covers/autovault.svg",
+    "alt": "Complete AutoVault wordmark on a black background",
+    "presentation": "brand"
   }
 };
 Object.entries(projectCovers).forEach(([id, cover]) => {

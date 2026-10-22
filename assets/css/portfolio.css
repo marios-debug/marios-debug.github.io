@@ -93,15 +93,17 @@ section { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
 .work-grid { display: grid; grid-template-columns: 1fr; gap: 1.3rem; }
 .work-card { display: flex; flex-direction: column; min-width: 0; border: 1px solid var(--color-border); background: var(--color-surface-01); border-radius: 4px; overflow: hidden; transition: border-color .2s, transform .2s; }
 .work-card:hover { border-color: var(--color-accent-border-strong); transform: translateY(-3px); }
-.work-cover { display: block; position: relative; overflow: hidden; border-bottom: 1px solid var(--color-border); background: #1c221d; aspect-ratio: 16 / 9; }
-.work-cover > img { width: 100%; height: 100%; object-fit: contain; display: block; padding: .75rem; transition: transform .4s; }
-.work-cover[data-generated="true"] > img, .cover-erasmus > img { padding: 0; object-fit: cover; }
-.work-card:hover .work-cover > img { transform: scale(1.025); }
-.cover-nas > img { padding: 0; object-position: center; }
-.cover-nas { background: #5cacdf; }
-.cover-networkmonitoring { background: #fff; }
-.cover-networkmonitoring > img { padding: 16%; }
-.cover-vircl > img, .cover-minicflaz104 > img { padding: 0; object-fit: cover; }
+.work-cover, .project-hero-media { position: relative; overflow: hidden; background: var(--cover-background, #eef2f8); aspect-ratio: 16 / 9; }
+.work-cover { display: block; flex: none; border-bottom: 1px solid var(--color-border); }
+.work-cover > img, .project-hero-media > img { position: absolute; inset: 0; width: 100%; height: 100%; max-height: none; object-fit: contain; display: block; padding: 0; border-radius: 0; }
+.cover-erasmus > img { object-fit: cover; }
+.cover-nas { --cover-background: #5cacdf; }
+.cover-awssecurity, .cover-chef, .cover-terraformazure, .cover-networkmonitoring { --cover-background: #fff; }
+.cover-autovault { --cover-background: #0a0a0a; }
+.cover-openclaw { --cover-background: #020610; }
+.cover-linuxloganalyser { --cover-background: #070e0e; }
+.cover-homelab { --cover-background: #eaeef6; }
+.cover-rejectiongym { --cover-background: #edf1f5; }
 .cover-arrow { position: absolute; top: .7rem; right: .7rem; background: #101310cc; border: 1px solid #727c6f; color: #eeeae2; width: 28px; height: 28px; display: grid; place-items: center; font-size: .8rem; border-radius: 50%; }
 .work-body { display: flex; flex-direction: column; flex: 1; padding: 1.3rem; }
 .work-meta { display: flex; align-items: center; justify-content: space-between; gap: .5rem; font: .67rem var(--font-mono); color: var(--color-meta); text-transform: uppercase; letter-spacing: .04em; }
@@ -180,12 +182,9 @@ section { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
 .project-block h2 { font-weight: 500; letter-spacing: -.025em; }
 .project-block p { color: var(--color-meta); }
 .project-summary { font-size: 1rem; }
-.project-hero-media { border-radius: 4px; background: #1c221d; }
-.project-hero-media.generated-cover { padding: 0; overflow: hidden; }
-.project-hero-media.generated-cover img { display: block; border-radius: 0; max-height: none; }
-.project-hero-media.logo-cover { flex-direction: column; gap: 1.5rem; background: #fff; padding: 16%; }
-.project-hero-media.logo-cover img { border-radius: 0; }
-.project-image-credit { margin: 0; color: #4b514d; font-size: .72rem; text-align: center; }
+.project-hero-visual { min-width: 0; }
+.project-hero-media { border-radius: 4px; padding: 0; }
+.project-image-credit { margin: .75rem 0 0; color: var(--color-meta); font-size: .72rem; text-align: center; }
 .project-evidence-note { border-left: 2px solid var(--color-accent); background: var(--color-accent-bg); padding: 1rem 1.2rem; font-size: .8rem; margin-bottom: 2rem; color: var(--color-meta); }
 .project-evidence-note strong { display: block; color: var(--color-text); font-weight: 500; margin-bottom: .35rem; }
 .project-evidence-links { display: flex; flex-direction: column; gap: .7rem; margin-top: .8rem; }

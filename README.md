@@ -38,14 +38,19 @@ not replace visual or browser interaction testing.
 - `assets/css/portfolio.css`: the refresh design system, shared by both pages.
 - `assets/evidence/`: curated public summaries and source excerpts. Teacher
   worksheets, credentials and school management addresses are excluded.
-- `assets/img/covers/`: 12 active matching illustrated project posters, following the
+- `assets/img/covers/`: nine active matching illustrated project posters, following the
   existing Homelab and RejectionGym covers, exported as WebP for cards and
   case-study headers. Existing evidence
   photographs and screenshots remain in their original galleries. NAS uses the
-  existing OpenMediaVault image; Zabbix uses its unaltered official SVG logo.
+  existing OpenMediaVault image. Chef, AWS, Azure/Terraform and Zabbix use official
+  logos on full-size 16:9 SVG backgrounds; AutoVault's full wordmark uses a matching
+  black background. All cover frames have the same 16:9 ratio with no inset padding
+  or hover cropping. Original poster artwork remains fully visible.
 - `docs/project-cover-prompts.json`: exact prompts, style reference, alt text,
-  saved paths and official-logo provenance. The superseded generated Zabbix
-  poster is marked inactive.
+  saved paths and official-logo provenance. Superseded generated artwork is
+  marked inactive.
+- `scripts/build-logo-covers.py`: rebuilds the five brand cover canvases from
+  unchanged local source assets using Python's standard library.
 - `docs/school-content-audit.md`: sources, evidence limits and review notes.
 
 When adding a project, update its case-study data, the `portfolioEntries` metadata

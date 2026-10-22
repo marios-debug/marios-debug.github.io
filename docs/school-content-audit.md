@@ -94,4 +94,12 @@ both BCLC1 reflections; evidence links; galleries and their keyboard controls.
 - Restored the existing OpenMediaVault image for NAS and replaced Zabbix's generated
   poster with the primary RGB SVG from the [official Zabbix logo pack](https://www.zabbix.com/trademark).
   Both logos retain their proportions. The generated Zabbix poster is marked
-  inactive in the asset manifest; 12 generated covers remain active.
+  inactive in the asset manifest.
+- Replaced the Chef, AWS and Azure/Terraform generated posters with official
+  vendor logos. Asset provenance and source hashes are recorded in the manifest;
+  nine generated posters remain active. The original logo files are unmodified.
+- Unified all project-card and case-study cover frames at 16:9. Removed inset
+  image padding and hover zoom. The complete AutoVault wordmark now sits on a
+  full-size black canvas; existing poster text is preserved without cropping.
+  Logo covers can be rebuilt with `scripts/build-logo-covers.py`. Reviewed a
+  framing sheet of all 20 covers; this is asset review, separate from browser QA.

@@ -23,8 +23,7 @@
     heroImg.src = data.img || "";
     heroImg.alt = data.imageAlt || data.title;
     const media = heroImg.closest(".project-hero-media");
-    media?.classList.toggle("generated-cover", data.imagePresentation === "poster");
-    media?.classList.toggle("logo-cover", data.imagePresentation === "logo");
+    media?.classList.add(`cover-${id}`);
   }
   const imageCredit = document.getElementById("projectImageCredit");
   if (imageCredit && data.imageCredit) {
