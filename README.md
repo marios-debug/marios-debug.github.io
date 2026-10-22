@@ -38,12 +38,14 @@ not replace visual or browser interaction testing.
 - `assets/css/portfolio.css`: the refresh design system, shared by both pages.
 - `assets/evidence/`: curated public summaries and source excerpts. Teacher
   worksheets, credentials and school management addresses are excluded.
-- `assets/img/covers/`: 13 matching illustrated project posters, following the
+- `assets/img/covers/`: 12 active matching illustrated project posters, following the
   existing Homelab and RejectionGym covers, exported as WebP for cards and
   case-study headers. Existing evidence
-  photographs and screenshots remain in their original galleries.
-- `docs/project-cover-prompts.json`: exact prompts, style reference, alt text
-  and saved paths for the generated cover series.
+  photographs and screenshots remain in their original galleries. NAS uses the
+  existing OpenMediaVault image; Zabbix uses its unaltered official SVG logo.
+- `docs/project-cover-prompts.json`: exact prompts, style reference, alt text,
+  saved paths and official-logo provenance. The superseded generated Zabbix
+  poster is marked inactive.
 - `docs/school-content-audit.md`: sources, evidence limits and review notes.
 
 When adding a project, update its case-study data, the `portfolioEntries` metadata

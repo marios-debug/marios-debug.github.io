@@ -2,7 +2,7 @@
    Keep status and evidence together: source code is not a deployment record. */
 Object.assign(projectData, {
   awssecurity: {
-    title: "AWS — Prove the network boundary",
+    title: "AWS EC2 Network Security Lab",
     category: "Cloud networking · BCLC2",
     overview: "Two Amazon Linux instances, one private web connection, and a security-group rule tested in both directions. A second-year lab about proving what a network allows.",
     objectives: "Connect to EC2 through SSH, serve an Apache page on port 8080, and restrict instance-to-instance traffic with a security group.",
@@ -23,7 +23,7 @@ Object.assign(projectData, {
     }
   },
   mysqldocker: {
-    title: "MySQL — Make the data rules hold",
+    title: "MySQL & Docker Database Lab",
     category: "Containers & databases · BCLC2",
     overview: "A MySQL and phpMyAdmin lab using Docker Compose. The useful part: deliberately breaking constraints and checking that data survives a container restart.",
     objectives: "Create a relational customer table, insert data through the UI and SQL, explain primary and unique keys, and verify persistent storage.",
@@ -43,7 +43,7 @@ Object.assign(projectData, {
     }
   },
   chef: {
-    title: "Chef — Explain infrastructure as code",
+    title: "Chef Infrastructure as Code",
     category: "Technical communication · BCLC2",
     overview: "A joint presentation on configuration management: how a recipe describes a server, what idempotency means, and where Chef fits beside Terraform and Docker.",
     objectives: "Turn a configuration-management tool into a clear technical story, with an Nginx recipe, a client-run walkthrough, and a comparison of provisioning, configuration and application runtime.",
@@ -63,7 +63,7 @@ Object.assign(projectData, {
     }
   },
   terraformazure: {
-    title: "Azure — Infrastructure written down",
+    title: "Azure Infrastructure with Terraform",
     category: "Infrastructure as code · BCLC1",
     overview: "Terraform coursework defining an Azure Linux web-server environment: resource group, VNet, subnet, security group, public IP, network interface and VM.",
     objectives: "Express the dependencies of a small Azure environment in code and separate its configuration values from resource definitions.",
@@ -83,7 +83,7 @@ Object.assign(projectData, {
     }
   },
   serverdashboard: {
-    title: "Python — Give server metrics a face",
+    title: "Python Server Monitoring Dashboard",
     category: "Monitoring & scripting · BCLC1",
     overview: "A Streamlit client that fetches server metrics from a JSON API and presents CPU, memory and disk data with a short history.",
     objectives: "Make infrastructure metrics readable, handle failed API requests, and keep a bounded set of recent observations for charts.",
@@ -103,7 +103,7 @@ Object.assign(projectData, {
     }
   },
   networkmonitoring: {
-    title: "Zabbix — Plan for failure, then prove recovery",
+    title: "Zabbix Network Monitoring",
     category: "Infrastructure monitoring · BCLC2",
     overview: "A current two-person project planning Zabbix monitoring for two standalone Proxmox hosts, a test web service and a controlled incident demonstration.",
     objectives: "Inventory the infrastructure, choose checks that reflect service health, and define a repeatable problem → notification → recovery test.",
@@ -136,29 +136,29 @@ projectData.nas.details.specs.find(s => s.label === "Filesystem").value = "EXT4 
 
 /* The order is intentional: practical infrastructure evidence first. */
 const portfolioEntries = [
-  { id: "vircl", group: "infrastructure", year: "BCLC1", status: "documented", title: "Virtualization, with recovery built in", summary: "Two Proxmox nodes, shared NAS storage and a documented VM lifecycle. My focus: VM and hypervisor backups.", proof: "Technical report · PDF", featured: true },
-  { id: "awssecurity", group: "cloud", year: "BCLC2", status: "documented", title: "Prove the network boundary", summary: "AWS security groups tested through a successful request, a blocked connection and restored access.", proof: "Completed lab · recorded tests", featured: true },
-  { id: "nas", group: "infrastructure", year: "BCLC1", status: "documented", title: "From bare metal to shared storage", summary: "Hardware, RAID and OpenMediaVault shares. A team build with documented access from different operating systems.", proof: "Team report · hardware photos", featured: true },
-  { id: "mysqldocker", group: "code", year: "BCLC2", status: "documented", title: "Make the data rules hold", summary: "MySQL constraints, deliberate failures and persistent data across container recreation.", proof: "Completed worksheet · checks", featured: true },
-  { id: "chef", group: "code", year: "BCLC2", status: "research", title: "Explain infrastructure as code", summary: "A joint Chef presentation: recipes, desired state and the difference between provisioning and configuration.", proof: "15-slide authored presentation", featured: true },
-  { id: "networkmonitoring", group: "infrastructure", year: "BCLC2", status: "ongoing", title: "Plan for failure. Prove recovery.", summary: "Current Zabbix project: two Proxmox hosts, a monitoring matrix and a controlled incident test plan.", proof: "Project plan · tests not yet run", featured: true },
-  { id: "terraformazure", group: "cloud", year: "BCLC1", status: "source", title: "Azure infrastructure in Terraform", summary: "Networking and a Linux web-server VM described as resources, variables and outputs.", proof: "Inspectable Terraform excerpt" },
-  { id: "serverdashboard", group: "code", year: "BCLC1", status: "source", title: "Give server metrics a face", summary: "A Python metrics client with readable units, request-error handling and a bounded history.", proof: "Inspectable Python source" },
-  { id: "minicflaz104", group: "cloud", year: "BCLC1", status: "documented", title: "MiniCFL · Azure administration", summary: "A team train-simulator project. My role: the VNet, security groups and private PostgreSQL VM.", proof: "Architecture & simulator images" },
-  { id: "lab8", group: "infrastructure", year: "BCLC1", status: "documented", title: "Windows Server · Remote access", summary: "VPN and DirectAccess in a documented Windows Server lab with AD DS and supporting network services.", proof: "Lab documentation · PDF" },
-  { id: "linuxloganalyser", group: "code", year: "BCLC1", status: "documented", title: "Linux log analyser", summary: "Python and regex for structured Linux syslog analysis, statistics and suspicious-activity checks.", proof: "Project document · PDF" },
-  { id: "grademanagement", group: "code", year: "BCLC1", status: "documented", title: "Grade management system", summary: "A course project around role-based access for students, professors and administrators.", proof: "Planning document · PDF" },
-  { id: "weekflow", group: "code", year: "BCLC1", status: "documented", title: "WeekFlow · A practical planner", summary: "PowerApps, SharePoint and Power Automate for weekly tasks and reminders.", proof: "Project document · PDF" },
-  { id: "pif", group: "industrial", year: "2024–2025", status: "documented", title: "Coffee fermentation · PLC / HMI", summary: "Sensor integration and automation control, with the customer documentation that makes a system maintainable.", proof: "Customer documentation · PDF" },
-  { id: "erasmus", group: "industrial", year: "Erasmus+", status: "documented", title: "Build together. Explain clearly.", summary: "An autonomous-car team challenge at Carl Benz Schule, combining modelling, Arduino and communication.", proof: "Project photos" },
-  { id: "openclaw", group: "personal", year: "Personal", status: "ongoing", title: "OpenClaw · Isolated agent lab", summary: "An ongoing home VM experiment with agent skills, Telegram and a language-model backend.", proof: "Project notes" },
-  { id: "homelab", group: "personal", year: "Personal", status: "ongoing", title: "Family cloud & learning lab", summary: "An ongoing private-cloud project for family storage, backups and isolated experiments.", proof: "Project proposal · PDF" },
-  { id: "autovault", group: "personal", year: "Personal", status: "ongoing", title: "AutoVault · Marketplace build", summary: "An ongoing React and TypeScript marketplace project exploring inventory, admin tools and multilingual UX.", proof: "Project notes" },
-  { id: "rejectiongym", group: "personal", year: "Personal", status: "ongoing", title: "RejectionGym · Challenge platform", summary: "An application project exploring daily challenges, progress tracking and proof uploads.", proof: "Project document · PDF" },
-  { id: "portfolio", group: "personal", year: "2026", status: "ongoing", title: "This portfolio · Built to show the work", summary: "A buildless GitHub Pages site connecting capabilities to case studies and school progress.", proof: "Public GitHub repository" }
+  { id: "vircl", group: "infrastructure", year: "BCLC1", status: "documented", title: "VIRCL — Server Virtualization", summary: "Two Proxmox nodes, shared NAS storage and a documented VM lifecycle. My focus: VM and hypervisor backups.", proof: "Technical report · PDF", featured: true },
+  { id: "awssecurity", group: "cloud", year: "BCLC2", status: "documented", title: "AWS EC2 Network Security Lab", summary: "AWS security groups tested through a successful request, a blocked connection and restored access.", proof: "Completed lab · recorded tests", featured: true },
+  { id: "nas", group: "infrastructure", year: "BCLC1", status: "documented", title: "NAS Server Setup & Configuration", summary: "Hardware, RAID and OpenMediaVault shares. A team build with documented access from different operating systems.", proof: "Team report · hardware photos", featured: true },
+  { id: "mysqldocker", group: "code", year: "BCLC2", status: "documented", title: "MySQL & Docker Database Lab", summary: "MySQL constraints, deliberate failures and persistent data across container recreation.", proof: "Completed worksheet · checks", featured: true },
+  { id: "chef", group: "code", year: "BCLC2", status: "research", title: "Chef Infrastructure as Code", summary: "A joint Chef presentation: recipes, desired state and the difference between provisioning and configuration.", proof: "15-slide authored presentation", featured: true },
+  { id: "networkmonitoring", group: "infrastructure", year: "BCLC2", status: "ongoing", title: "Zabbix Network Monitoring", summary: "Current Zabbix project: two Proxmox hosts, a monitoring matrix and a controlled incident test plan.", proof: "Project plan · tests not yet run", featured: true },
+  { id: "terraformazure", group: "cloud", year: "BCLC1", status: "source", title: "Azure Infrastructure with Terraform", summary: "Networking and a Linux web-server VM described as resources, variables and outputs.", proof: "Inspectable Terraform excerpt" },
+  { id: "serverdashboard", group: "code", year: "BCLC1", status: "source", title: "Python Server Monitoring Dashboard", summary: "A Python metrics client with readable units, request-error handling and a bounded history.", proof: "Inspectable Python source" },
+  { id: "minicflaz104", group: "cloud", year: "BCLC1", status: "documented", title: "MiniCFL — Azure Train Simulator", summary: "A team train-simulator project. My role: the VNet, security groups and private PostgreSQL VM.", proof: "Architecture & simulator images" },
+  { id: "lab8", group: "infrastructure", year: "BCLC1", status: "documented", title: "Windows Server VPN & DirectAccess", summary: "VPN and DirectAccess in a documented Windows Server lab with AD DS and supporting network services.", proof: "Lab documentation · PDF" },
+  { id: "linuxloganalyser", group: "code", year: "BCLC1", status: "documented", title: "Linux Log Analyser", summary: "Python and regex for structured Linux syslog analysis, statistics and suspicious-activity checks.", proof: "Project document · PDF" },
+  { id: "grademanagement", group: "code", year: "BCLC1", status: "documented", title: "Grade Management System", summary: "A course project around role-based access for students, professors and administrators.", proof: "Planning document · PDF" },
+  { id: "weekflow", group: "code", year: "BCLC1", status: "documented", title: "WeekFlow — Weekly Task Planner", summary: "PowerApps, SharePoint and Power Automate for weekly tasks and reminders.", proof: "Project document · PDF" },
+  { id: "pif", group: "industrial", year: "2024–2025", status: "documented", title: "Smart Coffee Fermentation System", summary: "Sensor integration and automation control, with the customer documentation that makes a system maintainable.", proof: "Customer documentation · PDF" },
+  { id: "erasmus", group: "industrial", year: "Erasmus+", status: "documented", title: "Erasmus+ — Autonomous Car", summary: "An autonomous-car team challenge at Carl Benz Schule, combining modelling, Arduino and communication.", proof: "Project photos" },
+  { id: "openclaw", group: "personal", year: "Personal", status: "ongoing", title: "OpenClaw — Home AI Agent Lab", summary: "An ongoing home VM experiment with agent skills, Telegram and a language-model backend.", proof: "Project notes" },
+  { id: "homelab", group: "personal", year: "Personal", status: "ongoing", title: "Secure Family Private Cloud + Learning Lab", summary: "An ongoing private-cloud project for family storage, backups and isolated experiments.", proof: "Project proposal · PDF" },
+  { id: "autovault", group: "personal", year: "Personal", status: "ongoing", title: "AutoVault — Used-Car Marketplace", summary: "An ongoing React and TypeScript marketplace project exploring inventory, admin tools and multilingual UX.", proof: "Project notes" },
+  { id: "rejectiongym", group: "personal", year: "Personal", status: "ongoing", title: "RejectionGym — Challenge & Progress Platform", summary: "An application project exploring daily challenges, progress tracking and proof uploads.", proof: "Project document · PDF" },
+  { id: "portfolio", group: "personal", year: "2026", status: "ongoing", title: "Portfolio Website — GitHub Pages", summary: "A buildless GitHub Pages site connecting capabilities to case studies and school progress.", proof: "Public GitHub repository" }
 ];
 
-/* Matching illustrated project posters; original photos and evidence are retained. */
+/* Project covers; original photos and evidence are retained. */
 const projectCovers = {
   "awssecurity": {
     "path": "./assets/img/covers/awssecurity.webp",
@@ -173,8 +173,9 @@ const projectCovers = {
     "alt": "Illustrated project poster showing one configuration recipe managing three consistent servers"
   },
   "networkmonitoring": {
-    "path": "./assets/img/covers/networkmonitoring.webp",
-    "alt": "Illustrated project poster showing two servers connected to an infrastructure monitoring console"
+    "path": "./assets/img/zabbix-logo-official.svg",
+    "alt": "Official Zabbix logo",
+    "presentation": "logo"
   },
   "terraformazure": {
     "path": "./assets/img/covers/terraformazure.webp",
@@ -216,7 +217,11 @@ const projectCovers = {
 Object.entries(projectCovers).forEach(([id, cover]) => {
   projectData[id].img = cover.path;
   projectData[id].imageAlt = cover.alt;
+  projectData[id].imagePresentation = cover.presentation || "poster";
 });
+projectData.nas.imageAlt = "OpenMediaVault logo";
+projectData.nas.imagePresentation = "logo";
+projectData.networkmonitoring.imageCredit = "Zabbix is a registered trademark of Zabbix LLC.";
 projectData.erasmus.img = "./assets/img/projects/erasmus/erasmus-car-1.jpg";
 projectData.networkmonitoring.progressNote = "In progress — planning phase. Scope, inventory and acceptance tests are drafted. Installation and the first verified metric are next.";
 

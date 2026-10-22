@@ -22,7 +22,14 @@
   if (heroImg) {
     heroImg.src = data.img || "";
     heroImg.alt = data.imageAlt || data.title;
-    heroImg.closest(".project-hero-media")?.classList.toggle("generated-cover", Boolean(data.imageAlt));
+    const media = heroImg.closest(".project-hero-media");
+    media?.classList.toggle("generated-cover", data.imagePresentation === "poster");
+    media?.classList.toggle("logo-cover", data.imagePresentation === "logo");
+  }
+  const imageCredit = document.getElementById("projectImageCredit");
+  if (imageCredit && data.imageCredit) {
+    imageCredit.textContent = data.imageCredit;
+    imageCredit.hidden = false;
   }
 
   renderTags(data.tags);

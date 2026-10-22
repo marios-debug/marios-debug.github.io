@@ -88,4 +88,10 @@ both BCLC1 reflections; evidence links; galleries and their keyboard controls.
   place of the certification badge. Erasmus uses an existing project photo.
 - Covers are conceptual artwork; reports, actual photographs and screenshots
   remain the evidence. Exact prompts and asset paths are recorded in
-  `project-cover-prompts.json`. WebP exports total approximately 1.94 MiB.
+  `project-cover-prompts.json`. The original 13 WebP exports total approximately 1.94 MiB.
+- Replaced sentence-style headings with clear project names across all 20 cards,
+  accessible case-study links and detail pages.
+- Restored the existing OpenMediaVault image for NAS and replaced Zabbix's generated
+  poster with the primary RGB SVG from the [official Zabbix logo pack](https://www.zabbix.com/trademark).
+  Both logos retain their proportions. The generated Zabbix poster is marked
+  inactive in the asset manifest; 12 generated covers remain active.
