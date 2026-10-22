@@ -5,13 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Project Details · Marios M. Sarkis</title>
   <meta name="description" content="Detailed case-study page for a selected project from the portfolio of Marios M. Sarkis." />
+  <script src="assets/js/preferences.js"></script>
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <meta name="theme-color" content="#101310" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/project-detail.css" />
+  <link rel="stylesheet" href="assets/css/portfolio.css" />
   <script defer src="assets/js/projects-data.js"></script>
+  <script defer src="assets/js/school-progress.js"></script>
   <script defer src="assets/js/project-detail.js"></script>
 </head>
 
@@ -33,6 +38,7 @@
   </header>
 
   <main id="main">
+    <noscript><p class="container">Case studies use JavaScript to load their content. You can also <a href="index.html#projects">browse the portfolio</a> or <a href="https://github.com/marios-debug/marios-debug.github.io/tree/main/assets/downloads">view the original documents on GitHub</a>.</p></noscript>
     <section class="project-hero" id="projectHero">
       <div class="container">
         <div class="project-hero-grid">
@@ -44,7 +50,7 @@
             <div class="project-actions" id="projectActions"></div>
           </div>
           <div class="project-hero-media">
-            <img id="projectHeroImg" src="" alt="" loading="eager" />
+            <img id="projectHeroImg" alt="" loading="eager" />
           </div>
         </div>
       </div>
@@ -69,6 +75,7 @@
           </aside>
 
           <div class="project-content">
+            <aside class="project-evidence-note" id="projectEvidence" hidden></aside>
             <article class="project-block" id="projectContextBlock" hidden>
               <h2>Context</h2>
               <p id="projectContext"></p>

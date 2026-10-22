@@ -12,6 +12,7 @@
   }
 
   document.title = `${data.title} · Marios M. Sarkis`;
+  document.querySelector('meta[name="description"]').content = data.overview || data.title;
 
   setText("projectCategory", data.category || "Project");
   setText("projectTitle", data.title);
@@ -24,10 +25,11 @@
   }
 
   renderTags(data.tags);
-  renderActions(id, data.pdf);
+  renderActions(id, data.pdf, data.evidence);
   renderInfo(data.details);
   renderSpecs(data.details?.specs);
-  renderResources(data.pdf);
+  renderResources(data.pdf, data.evidence);
+  renderEvidence(data);
   renderBlock("projectContextBlock", "projectContext", data.details?.context || data.overview);
   renderBlock("projectObjectivesBlock", "projectObjectives", data.objectives);
   renderBlock("projectTechBlock", "projectTech", data.tech);
@@ -52,14 +54,17 @@
       .join("");
   }
 
-  function renderActions(projectId, pdf) {
+  function renderActions(projectId, pdf, evidence = []) {
     const container = document.getElementById("projectActions");
     if (!container) return;
     const back = `<a class="btn btn-ghost" href="./index.html#projects">← All projects</a>`;
     const download = pdf
       ? `<a class="btn btn-primary" href="${pdf}" target="_blank" rel="noopener" download>Download PDF</a>`
       : "";
-    container.innerHTML = `${back}${download ? " " + download : ""}`;
+    const source = !pdf && evidence.length
+      ? `<a class="btn btn-primary" href="${escapeHtml(evidence[0].url)}" target="_blank" rel="noopener">${escapeHtml(evidence[0].label)} ↗</a>`
+      : "";
+    container.innerHTML = `${back} ${download || source}`;
   }
 
   function renderSpecs(specs) {
@@ -102,7 +107,7 @@
     card.hidden = false;
   }
 
-  function renderResources(pdf) {
+  function renderResources(pdf, evidence = []) {
     const card = document.getElementById("projectResourcesCard");
     const list = document.getElementById("projectResources");
     if (!card || !list) return;
@@ -110,10 +115,27 @@
     if (pdf) {
       items.push(`<li><a href="${pdf}" target="_blank" rel="noopener" download>Download documentation (PDF)</a></li>`);
     }
+    evidence.forEach(item => items.push(`<li><a href="${escapeHtml(item.url)}" target="_blank" rel="noopener">${escapeHtml(item.label)} ↗</a></li>`));
     items.push(`<li><a href="./index.html#projects">Back to all projects</a></li>`);
     if (!items.length) return;
     list.innerHTML = items.join("");
     card.hidden = false;
+  }
+
+  function renderEvidence(project) {
+    const box = document.getElementById("projectEvidence");
+    const meta = project.portfolio;
+    if (!box || !meta) return;
+    const status = { documented: "Documented work", source: "Source available", research: "Research & presentation", planning: "Planning — implementation pending", ongoing: "In progress" }[meta.status];
+    const note = {
+      documented: "Explore the linked report, images or coursework, together with my role and the concrete project results below.",
+      source: "Inspectable coursework source. Deployment verification is a next step.",
+      research: "Research and technical communication, supported by an authored presentation. Practical deployment is a future step.",
+      planning: "As of 22 October 2026, scope, inventory and acceptance tests are drafted. The next milestone is installation and a first verified metric.",
+      ongoing: "An active personal project. The notes below describe its scope, current work and next steps."
+    }[meta.status];
+    box.innerHTML = `<strong>${escapeHtml(status)} · ${escapeHtml(meta.year)}</strong>${escapeHtml(note)}`;
+    box.hidden = false;
   }
 
   function renderBlock(blockId, textId, text) {
@@ -163,6 +185,7 @@
       lightbox.setAttribute("role", "dialog");
       lightbox.setAttribute("aria-modal", "true");
       lightbox.setAttribute("aria-label", "Image preview");
+      lightbox.hidden = true;
       lightbox.innerHTML = `
         <button class="btn btn-ghost project-lightbox-close" type="button" aria-label="Close preview">Close</button>
         <img src="" alt="" />
@@ -179,26 +202,45 @@
     }
 
     const img = lightbox.querySelector("img");
+    let returnFocus;
     container.querySelectorAll("img[data-lightbox]").forEach((thumb) => {
-      thumb.addEventListener("click", () => {
+      thumb.tabIndex = 0;
+      thumb.setAttribute("role", "button");
+      thumb.setAttribute("aria-label", `Enlarge ${thumb.alt}`);
+      const open = () => {
+        returnFocus = document.activeElement;
         img.src = thumb.dataset.lightbox;
         img.alt = thumb.alt;
+        lightbox.hidden = false;
         lightbox.classList.add("is-open");
+        document.querySelectorAll("body > header, body > main, body > footer").forEach(el => { el.inert = true; });
         document.body.style.overflow = "hidden";
+        lightbox.querySelector("button").focus();
+      };
+      thumb.addEventListener("click", open);
+      thumb.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") { event.preventDefault(); open(); }
       });
+    });
+    lightbox.addEventListener("keydown", event => {
+      if (event.key === "Tab") { event.preventDefault(); lightbox.querySelector("button").focus(); }
     });
 
     function close() {
       lightbox.classList.remove("is-open");
-      img.src = "";
+      lightbox.hidden = true;
+      img.removeAttribute("src");
       img.alt = "";
+      document.querySelectorAll("body > header, body > main, body > footer").forEach(el => { el.inert = false; });
       document.body.style.overflow = "";
+      returnFocus?.focus();
     }
   }
 
   function renderNotFound() {
     const main = document.querySelector("main");
     if (!main) return;
+    document.title = "Project not found · Marios M. Sarkis";
     main.innerHTML = `
       <section class="project-not-found">
         <h1>Project not found</h1>

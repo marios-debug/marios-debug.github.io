@@ -1,1068 +1,942 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio · Marios M. Sarkis</title>
-  <meta name="description" content="A calm, chapter-based portfolio: physical systems → connected systems → cloud infrastructure." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script defer src="assets/js/projects-data.js"></script>
-  <script defer src="assets/js/main.js"></script>
-</head>
-
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <header>
-    <div class="container">
-      <nav class="nav" aria-label="Primary">
-        <a class="brand" href="#top" aria-label="Go to top">
-          <span class="dot" aria-hidden="true"></span>
-          <span>MS.</span>
-        </a>
-
-        <div class="nav-links" role="navigation" aria-label="Section links">
-          <a href="#about" data-i18n="nav.about">About</a>
-          <a href="#education-experience" data-i18n="nav.experience">Experience</a>
-          <a href="#skills" data-i18n="nav.skills">Skills</a>
-          <a href="#projects" data-i18n="nav.projects">Projects</a>
-          <a href="#contact" data-i18n="nav.contact">Contact</a>
-        </div>
-
-        <div class="nav-cta">
-          <a class="btn btn-ghost" href="#projects" data-i18n="nav.viewWork">View work</a>
-          <a class="btn btn-primary" href="#contact" data-i18n="nav.getInTouch">Get in touch</a>
-        </div>
-
-        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="overlayMenu">
-          <span aria-hidden="true"></span>
-        </button>
-      </nav>
-    </div>
-  </header>
-
-  <div class="overlay" id="overlayMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation" data-i18n-attr="aria-label" data-i18n="nav.mobileNav">
-    <div class="overlay-inner">
-      <div class="overlay-nav">
-        <div class="overlay-top">
-          <div class="brand"><span class="dot" aria-hidden="true"></span><span>MS.</span></div>
-          <button class="btn btn-ghost" id="closeMenuBtn" aria-label="Close menu" data-i18n="nav.closeMenu">Close</button>
-        </div>
-
-        <div class="overlay-links">
-          <a href="#about" class="overlay-link" data-i18n="nav.about">About</a>
-          <a href="#education-experience" class="overlay-link" data-i18n="nav.experience">Experience</a>
-          <a href="#skills" class="overlay-link" data-i18n="nav.skills">Skills</a>
-          <a href="#projects" class="overlay-link" data-i18n="nav.projects">Projects</a>
-          <a href="#contact" class="overlay-link" data-i18n="nav.contact">Contact</a>
-        </div>
-
-        <div class="overlay-lang-switcher" role="group" aria-label="Language selection">
-          <button class="lang-btn active" type="button" data-lang="en" aria-label="English">EN</button>
-          <button class="lang-btn" type="button" data-lang="fr" aria-label="French">FR</button>
-          <button class="lang-btn" type="button" data-lang="de" aria-label="German">DE</button>
-        </div>
-
-        <div class="overlay-actions">
-          <a class="btn btn-secondary overlay-link" href="#projects" data-i18n="nav.viewWork">View work</a>
-          <a class="btn btn-primary overlay-link" href="#contact" data-i18n="nav.getInTouch">Get in touch</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <main id="main">
-    <section class="hero" id="top">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marios M. Sarkis · Cloud & Infrastructure Portfolio</title>
+    <meta name="description" content="Marios M. Sarkis — second-year BTS Cloud Computing student in Luxembourg. Explore documented cloud, networking, virtualization and automation projects, built on an industrial electrical background." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="assets/js/preferences.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+    <link rel="canonical" href="https://marios-debug.github.io/" />
+    <meta name="theme-color" content="#101310" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Marios M. Sarkis · From wiring to the cloud" />
+    <meta property="og:description" content="Cloud infrastructure, networking and automation. Practical projects, clear roles and evidence you can inspect." />
+    <meta property="og:url" content="https://marios-debug.github.io/" />
+    <meta property="og:image" content="https://marios-debug.github.io/assets/img/Portrait.jpg" />
+    <meta name="twitter:card" content="summary" />
+    <script defer src="assets/js/projects-data.js"></script>
+    <script defer src="assets/js/school-progress.js"></script>
+    <script defer src="assets/js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header>
       <div class="container">
-        <div class="hero-controls">
-          <div class="lang-switcher" role="group" aria-label="Language selection">
+        <nav class="nav" aria-label="Primary">
+          <a class="brand" href="#top" aria-label="Go to top">
+            <span class="dot" aria-hidden="true"></span>
+            <span>MS.</span>
+          </a>
+          <div class="nav-links" role="navigation" aria-label="Section links"><a href="#projects" data-i18n="nav.projects">Projects</a>
+            <a href="#skills" data-i18n="nav.skills">Capabilities</a>
+            <a href="#progress" data-i18n="nav.progress">Journey</a>
+            <a href="#about" data-i18n="nav.about">About</a>
+            <a href="#contact" data-i18n="nav.contact">Contact</a></div>
+          <div class="nav-cta"><button class="btn btn-secondary cv-modal-btn" type="button" data-i18n="hero.cv">View my CV</button></div>
+          <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="overlayMenu">
+            <span aria-hidden="true"></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+    <div class="overlay" id="overlayMenu" hidden role="dialog" aria-modal="true" aria-label="Mobile navigation" data-i18n-attr="aria-label" data-i18n="nav.mobileNav">
+      <div class="overlay-inner">
+        <div class="overlay-nav">
+          <div class="overlay-top">
+            <div class="brand"><span class="dot" aria-hidden="true"></span><span>MS.</span></div>
+            <button class="btn btn-ghost" id="closeMenuBtn" aria-label="Close menu" data-i18n="nav.closeMenu">Close</button>
+          </div>
+          <div class="overlay-links"><a class="overlay-link" href="#projects" data-i18n="nav.projects">Projects</a>
+            <a class="overlay-link" href="#skills" data-i18n="nav.skills">Capabilities</a>
+            <a class="overlay-link" href="#progress" data-i18n="nav.progress">Journey</a>
+            <a class="overlay-link" href="#about" data-i18n="nav.about">About</a>
+            <a class="overlay-link" href="#contact" data-i18n="nav.contact">Contact</a></div>
+          <div class="overlay-lang-switcher" role="group" aria-label="Language selection">
             <button class="lang-btn active" type="button" data-lang="en" aria-label="English">EN</button>
             <button class="lang-btn" type="button" data-lang="fr" aria-label="French">FR</button>
             <button class="lang-btn" type="button" data-lang="de" aria-label="German">DE</button>
           </div>
-          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
-            <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="currentColor"/>
-            </svg>
-            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-13V2m0 20v-2m8-8h2M2 12h2m13.657-5.657L19.071 4.93M4.929 19.071l1.414-1.414m0-11.314L4.929 4.93M19.071 19.071l-1.414-1.414" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
+          <div class="overlay-actions">
+            <a class="btn btn-secondary overlay-link" href="#projects" data-i18n="nav.viewWork">View work</a>
+            <a class="btn btn-primary overlay-link" href="#contact" data-i18n="nav.getInTouch">Get in touch</a>
+          </div>
         </div>
-        <div class="hero-grid reveal">
-          <div>
-            <div class="label" data-i18n="hero.label">Hello, I'm</div>
-            <h1>Marios M. Sarkis</h1>
-            <div class="role" data-i18n="hero.role">BTS Cloud Computing Student · Infrastructure Focus</div>
-            <p class="tagline" data-i18n="hero.tagline">
-              BTS Cloud Computing student focused on cloud infrastructure, networking, virtualization, and reliable IT operations.
-            </p>
-
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#projects" data-i18n="hero.viewProjects">View Projects</a>
-              <a class="btn btn-secondary" href="#contact" data-i18n="hero.getInTouch">Get in Touch</a>
+      </div>
+    </div>
+    <main id="main">
+      <section class="hero editorial-hero" id="top" aria-labelledby="heroTitle">
+        <div class="container">
+          <div class="hero-topline">
+            <div class="availability"><span aria-hidden="true"></span><span data-i18n="hero.availability">Open to internships &amp; junior IT opportunities</span></div>
+            <div class="hero-controls">
+              <div class="lang-switcher" role="group" aria-label="Language selection">
+                <button class="lang-btn active" type="button" data-lang="en" aria-label="English">EN</button>
+                <button class="lang-btn" type="button" data-lang="fr" aria-label="French">FR</button>
+                <button class="lang-btn" type="button" data-lang="de" aria-label="German">DE</button>
+              </div>
+              <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+                <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" fill="currentColor"/></svg>
+                <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l2 2m10 10 2 2M5 19l2-2M17 7l2-2" stroke="currentColor" stroke-width="2"/></svg>
+              </button>
             </div>
-
-            <div class="social" aria-label="Social links">
-              <a class="icon-link" href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 2C6.477 2 2 6.58 2 12.238c0 4.53 2.865 8.372 6.839 9.728.5.095.682-.22.682-.488 0-.24-.009-.877-.014-1.722-2.782.619-3.369-1.372-3.369-1.372-.454-1.18-1.11-1.494-1.11-1.494-.908-.637.069-.624.069-.624 1.004.073 1.532 1.055 1.532 1.055.892 1.56 2.341 1.11 2.91.849.091-.663.349-1.11.635-1.365-2.22-.26-4.555-1.136-4.555-5.056 0-1.117.39-2.031 1.03-2.748-.103-.26-.447-1.305.098-2.72 0 0 .84-.275 2.75 1.05A9.35 9.35 0 0 1 12 6.84c.85.004 1.705.12 2.504.35 1.909-1.325 2.748-1.05 2.748-1.05.546 1.415.202 2.46.1 2.72.64.717 1.028 1.631 1.028 2.748 0 3.93-2.339 4.793-4.566 5.048.359.317.679.942.679 1.9 0 1.37-.012 2.477-.012 2.814 0 .27.18.586.688.487C19.138 20.607 22 16.767 22 12.238 22 6.58 17.523 2 12 2Z" fill="currentColor"/>
-                </svg>
+          </div>
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <p class="eyebrow" data-i18n="hero.label">Marios M. Sarkis · Luxembourg</p>
+              <h1 id="heroTitle"><span data-i18n="hero.line1">From wiring</span><br><em data-i18n="hero.line2">to the cloud.</em></h1>
+              <p class="role" data-i18n="hero.role">BTS Cloud Computing · Year 2 of 2</p>
+              <p class="tagline" data-i18n="hero.tagline">I bring an industrial electrician’s eye for detail to cloud infrastructure. I build, troubleshoot and document systems — from the physical rack to the virtual machine.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#projects"><span data-i18n="hero.viewProjects">Explore my work</span><span aria-hidden="true">↗</span></a>
+                <button class="text-button cv-modal-btn" type="button"><span data-i18n="hero.cv">View my CV</span><span aria-hidden="true">↓</span></button>
+              </div>
+              <div class="hero-socials"><a href="https://github.com/marios-debug" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/marios-moshe-sarkis-75b22b210/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="mailto:marios_sarkis@hotmail.com">Email ↗</a></div>
+            </div>
+            <figure class="portrait-frame">
+              <div class="portrait-index" aria-hidden="true"><span>MS / 01</span><span>49° N · 6° E</span></div>
+              <img src="assets/img/Portrait.jpg" alt="Portrait of Marios M. Sarkis" width="1000" height="1250" fetchpriority="high" />
+              <figcaption><span data-i18n="hero.caption">A practical background. A cloud direction.</span><span class="portrait-cross" aria-hidden="true">+</span></figcaption>
+              <div class="portrait-tab" aria-hidden="true">PHYSICAL → DIGITAL</div>
+            </figure>
+          </div>
+          <div class="hero-bottom"><span data-i18n="hero.year">2026 / 2027 · BCLC2</span><a href="#progress"><span data-i18n="hero.journey">Follow the journey</span> <span aria-hidden="true">↓</span></a></div>
+        </div>
+      </section>
+      <div class="systems-strip" aria-label="My technical journey">
+        <div class="container systems-path">
+          <div><span class="path-index">01</span>
+            <div><strong data-i18n="rail.hardware">Physical systems</strong><span data-i18n="rail.hardwareNote">Electrical · PLC · HMI</span></div>
+          </div>
+          <span class="path-connector" aria-hidden="true">→</span>
+          <div><span class="path-index">02</span>
+            <div><strong data-i18n="rail.network">Connected systems</strong><span data-i18n="rail.networkNote">Networking · servers · storage</span></div>
+          </div>
+          <span class="path-connector" aria-hidden="true">→</span>
+          <div><span class="path-index">03</span>
+            <div><strong data-i18n="rail.cloud">Cloud infrastructure</strong><span data-i18n="rail.cloudNote">Azure · AWS · automation</span></div>
+          </div>
+        </div>
+      </div>
+      <section id="projects" aria-labelledby="workTitle">
+        <div class="container">
+          <div class="section-heading">
+            <div class="chapter">
+              <div class="num">01 / WORK</div>
+              <h2 id="workTitle" data-i18n="projects.title">The work behind the skills</h2>
+            </div>
+            <p data-i18n="projects.intro">A selection of labs, builds and technical decisions. Open a case study to see my role, the result and the evidence.</p>
+          </div>
+          <div class="project-filters" role="group" aria-label="Filter projects" hidden><button type="button" class="filter-button" data-filter="featured" aria-pressed="true" data-i18n="filter.featured">Selected</button><button type="button" class="filter-button" data-filter="all" aria-pressed="false" data-i18n="filter.all">All work</button><button type="button" class="filter-button" data-filter="cloud" aria-pressed="false" data-i18n="filter.cloud">Cloud</button><button type="button" class="filter-button" data-filter="infrastructure" aria-pressed="false" data-i18n="filter.infrastructure">Systems &amp; networks</button><button type="button" class="filter-button" data-filter="code" aria-pressed="false" data-i18n="filter.code">Code &amp; automation</button><button type="button" class="filter-button" data-filter="industrial" aria-pressed="false" data-i18n="filter.industrial">Industrial</button><button type="button" class="filter-button" data-filter="personal" aria-pressed="false" data-i18n="filter.personal">Personal labs</button><button type="button" class="filter-button" data-filter="bclc1" aria-pressed="false" data-i18n="filter.bclc1">BCLC1</button><button type="button" class="filter-button" data-filter="bclc2" aria-pressed="false" data-i18n="filter.bclc2">BCLC2</button></div>
+          <div class="work-grid" id="workGrid">
+            <article class="work-card" data-group="infrastructure" data-year="BCLC1" data-featured="true" >
+              <a class="work-cover cover-vircl" href="project.html?id=vircl" tabindex="-1" aria-hidden="true"><img src="./assets/img/vircl-thumb.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>BCLC1</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
+                <h3 lang="en"><a href="project.html?id=vircl">Virtualization, with recovery built in</a></h3>
+                <p lang="en">Two Proxmox nodes, shared NAS storage and a documented VM lifecycle. My focus: VM and hypervisor backups.</p>
+                <div class="work-tags"><span>Proxmox VE</span><span>VMware vSphere</span><span>KVM</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Technical report · PDF</div>
+                <a class="work-link" href="project.html?id=vircl"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Virtualization, with recovery built in</span></a></div>
+            </article>
+            <article class="work-card" data-group="cloud" data-year="BCLC2" data-featured="true" >
+              <a class="work-cover cover-awssecurity" href="project.html?id=awssecurity" tabindex="-1" aria-hidden="true"><img src="./assets/img/studies/aws-boundary.svg" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>BCLC2</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
+                <h3 lang="en"><a href="project.html?id=awssecurity">Prove the network boundary</a></h3>
+                <p lang="en">AWS security groups tested through a successful request, a blocked connection and restored access.</p>
+                <div class="work-tags"><span>AWS EC2</span><span>Security groups</span><span>Linux</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Completed lab · recorded tests</div>
+                <a class="work-link" href="project.html?id=awssecurity"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Prove the network boundary</span></a></div>
+            </article>
+            <article class="work-card" data-group="infrastructure" data-year="BCLC1" data-featured="true" >
+              <a class="work-cover cover-nas" href="project.html?id=nas" tabindex="-1" aria-hidden="true"><img src="./assets/img/projects/nas/nas-server.jpg" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>BCLC1</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
+                <h3 lang="en"><a href="project.html?id=nas">From bare metal to shared storage</a></h3>
+                <p lang="en">Hardware, RAID and OpenMediaVault shares. A team build with documented access from different operating systems.</p>
+                <div class="work-tags"><span>OpenMediaVault</span><span>RAID 5</span><span>BTRFS RAID 1</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Team report · hardware photos</div>
+                <a class="work-link" href="project.html?id=nas"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: From bare metal to shared storage</span></a></div>
+            </article>
+            <article class="work-card" data-group="code" data-year="BCLC2" data-featured="true" >
+              <a class="work-cover cover-mysqldocker" href="project.html?id=mysqldocker" tabindex="-1" aria-hidden="true"><img src="./assets/img/studies/database.svg" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>BCLC2</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
+                <h3 lang="en"><a href="project.html?id=mysqldocker">Make the data rules hold</a></h3>
+                <p lang="en">MySQL constraints, deliberate failures and persistent data across container recreation.</p>
+                <div class="work-tags"><span>Docker Compose</span><span>MySQL</span><span>SQL</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Completed worksheet · checks</div>
+                <a class="work-link" href="project.html?id=mysqldocker"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Make the data rules hold</span></a></div>
+            </article>
+            <article class="work-card" data-group="code" data-year="BCLC2" data-featured="true" >
+              <a class="work-cover cover-chef" href="project.html?id=chef" tabindex="-1" aria-hidden="true"><img src="./assets/img/studies/chef.svg" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>BCLC2</span><span class="work-status status-research" data-i18n="status.research">Research</span></div>
+                <h3 lang="en"><a href="project.html?id=chef">Explain infrastructure as code</a></h3>
+                <p lang="en">A joint Chef presentation: recipes, desired state and the difference between provisioning and configuration.</p>
+                <div class="work-tags"><span>Chef</span><span>IaC</span><span>Ruby DSL</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> 15-slide authored presentation</div>
+                <a class="work-link" href="project.html?id=chef"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Explain infrastructure as code</span></a></div>
+            </article>
+            <article class="work-card" data-group="infrastructure" data-year="BCLC2" data-featured="true" >
+              <a class="work-cover cover-networkmonitoring" href="project.html?id=networkmonitoring" tabindex="-1" aria-hidden="true"><img src="./assets/img/studies/zabbix.svg" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>BCLC2</span><span class="work-status status-planning" data-i18n="status.planning">Planning</span></div>
+                <h3 lang="en"><a href="project.html?id=networkmonitoring">Plan for failure. Prove recovery.</a></h3>
+                <p lang="en">Current Zabbix project: two Proxmox hosts, a monitoring matrix and a controlled incident test plan.</p>
+                <div class="work-tags"><span>Zabbix</span><span>Proxmox</span><span>SNMP</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Project plan · tests not yet run</div>
+                <a class="work-link" href="project.html?id=networkmonitoring"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Plan for failure. Prove recovery.</span></a></div>
+            </article>
+            <article class="work-card" data-group="cloud" data-year="BCLC1" data-featured="false" hidden>
+              <a class="work-cover cover-terraformazure" href="project.html?id=terraformazure" tabindex="-1" aria-hidden="true"><img src="./assets/img/studies/terraform.svg" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>BCLC1</span><span class="work-status status-source" data-i18n="status.source">Source available</span></div>
+                <h3 lang="en"><a href="project.html?id=terraformazure">Azure infrastructure in Terraform</a></h3>
+                <p lang="en">Networking and a Linux web-server VM described as resources, variables and outputs.</p>
+                <div class="work-tags"><span>Terraform</span><span>Azure</span><span>AzureRM</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Inspectable Terraform excerpt</div>
+                <a class="work-link" href="project.html?id=terraformazure"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Azure infrastructure in Terraform</span></a></div>
+            </article>
+            <article class="work-card" data-group="code" data-year="BCLC1" data-featured="false" hidden>
+              <a class="work-cover cover-serverdashboard" href="project.html?id=serverdashboard" tabindex="-1" aria-hidden="true"><img src="./assets/img/studies/monitoring.svg" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>BCLC1</span><span class="work-status status-source" data-i18n="status.source">Source available</span></div>
+                <h3 lang="en"><a href="project.html?id=serverdashboard">Give server metrics a face</a></h3>
+                <p lang="en">A Python metrics client with readable units, request-error handling and a bounded history.</p>
+                <div class="work-tags"><span>Python</span><span>Streamlit</span><span>REST API</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Inspectable Python source</div>
+                <a class="work-link" href="project.html?id=serverdashboard"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Give server metrics a face</span></a></div>
+            </article>
+            <article class="work-card" data-group="cloud" data-year="BCLC1" data-featured="false" hidden>
+              <a class="work-cover cover-minicflaz104" href="project.html?id=minicflaz104" tabindex="-1" aria-hidden="true"><img src="./assets/img/minicfl-thumb.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>BCLC1</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
+                <h3 lang="en"><a href="project.html?id=minicflaz104">MiniCFL · Azure administration</a></h3>
+                <p lang="en">A team train-simulator project. My role: the VNet, security groups and private PostgreSQL VM.</p>
+                <div class="work-tags"><span>Azure</span><span>AZ-104</span><span>Entra ID</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Architecture &amp; simulator images</div>
+                <a class="work-link" href="project.html?id=minicflaz104"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: MiniCFL · Azure administration</span></a></div>
+            </article>
+            <article class="work-card" data-group="infrastructure" data-year="BCLC1" data-featured="false" hidden>
+              <a class="work-cover cover-lab8" href="project.html?id=lab8" tabindex="-1" aria-hidden="true"><img src="./assets/img/lab8.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>BCLC1</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
+                <h3 lang="en"><a href="project.html?id=lab8">Windows Server · Remote access</a></h3>
+                <p lang="en">VPN and DirectAccess in a documented Windows Server lab with AD DS and supporting network services.</p>
+                <div class="work-tags"><span>Windows Server</span><span>VPN</span><span>DirectAccess</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Lab documentation · PDF</div>
+                <a class="work-link" href="project.html?id=lab8"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Windows Server · Remote access</span></a></div>
+            </article>
+            <article class="work-card" data-group="code" data-year="BCLC1" data-featured="false" hidden>
+              <a class="work-cover cover-linuxloganalyser" href="project.html?id=linuxloganalyser" tabindex="-1" aria-hidden="true"><img src="./assets/img/pytwo_log_analyzer.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>BCLC1</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
+                <h3 lang="en"><a href="project.html?id=linuxloganalyser">Linux log analyser</a></h3>
+                <p lang="en">Python and regex for structured Linux syslog analysis, statistics and suspicious-activity checks.</p>
+                <div class="work-tags"><span>Python</span><span>Regex</span><span>Linux</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Project document · PDF</div>
+                <a class="work-link" href="project.html?id=linuxloganalyser"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Linux log analyser</span></a></div>
+            </article>
+            <article class="work-card" data-group="code" data-year="BCLC1" data-featured="false" hidden>
+              <a class="work-cover cover-grademanagement" href="project.html?id=grademanagement" tabindex="-1" aria-hidden="true"><img src="./assets/img/Grademanagmentsystem.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>BCLC1</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
+                <h3 lang="en"><a href="project.html?id=grademanagement">Grade management system</a></h3>
+                <p lang="en">A course project around role-based access for students, professors and administrators.</p>
+                <div class="work-tags"><span>FastAPI</span><span>JWT</span><span>Docker</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Planning document · PDF</div>
+                <a class="work-link" href="project.html?id=grademanagement"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Grade management system</span></a></div>
+            </article>
+            <article class="work-card" data-group="code" data-year="BCLC1" data-featured="false" hidden>
+              <a class="work-cover cover-weekflow" href="project.html?id=weekflow" tabindex="-1" aria-hidden="true"><img src="./assets/img/Weekflow.logo.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>BCLC1</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
+                <h3 lang="en"><a href="project.html?id=weekflow">WeekFlow · A practical planner</a></h3>
+                <p lang="en">PowerApps, SharePoint and Power Automate for weekly tasks and reminders.</p>
+                <div class="work-tags"><span>PowerApps</span><span>SharePoint</span><span>Automation</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Project document · PDF</div>
+                <a class="work-link" href="project.html?id=weekflow"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: WeekFlow · A practical planner</span></a></div>
+            </article>
+            <article class="work-card" data-group="industrial" data-year="2024–2025" data-featured="false" hidden>
+              <a class="work-cover cover-pif" href="project.html?id=pif" tabindex="-1" aria-hidden="true"><img src="./assets/img/PIF.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>2024–2025</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
+                <h3 lang="en"><a href="project.html?id=pif">Coffee fermentation · PLC / HMI</a></h3>
+                <p lang="en">Sensor integration and automation control, with the customer documentation that makes a system maintainable.</p>
+                <div class="work-tags"><span>Smart Tech</span><span>Sensors</span><span>PLC/HMI</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Customer documentation · PDF</div>
+                <a class="work-link" href="project.html?id=pif"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Coffee fermentation · PLC / HMI</span></a></div>
+            </article>
+            <article class="work-card" data-group="industrial" data-year="Erasmus+" data-featured="false" hidden>
+              <a class="work-cover cover-erasmus" href="project.html?id=erasmus" tabindex="-1" aria-hidden="true"><img src="./assets/img/eu-flag-erasmus-logo.jpg" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>Erasmus+</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
+                <h3 lang="en"><a href="project.html?id=erasmus">Build together. Explain clearly.</a></h3>
+                <p lang="en">An autonomous-car team challenge at Carl Benz Schule, combining modelling, Arduino and communication.</p>
+                <div class="work-tags"><span>3D Modeling</span><span>C++ Programming</span><span>Arduino</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Project photos</div>
+                <a class="work-link" href="project.html?id=erasmus"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Build together. Explain clearly.</span></a></div>
+            </article>
+            <article class="work-card" data-group="personal" data-year="Personal" data-featured="false" hidden>
+              <a class="work-cover cover-openclaw" href="project.html?id=openclaw" tabindex="-1" aria-hidden="true"><img src="./assets/img/openclaw-thumb.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>Personal</span><span class="work-status status-ongoing" data-i18n="status.ongoing">In progress</span></div>
+                <h3 lang="en"><a href="project.html?id=openclaw">OpenClaw · Isolated agent lab</a></h3>
+                <p lang="en">An ongoing home VM experiment with agent skills, Telegram and a language-model backend.</p>
+                <div class="work-tags"><span>OpenClaw</span><span>AI Agents</span><span>Telegram</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Project notes</div>
+                <a class="work-link" href="project.html?id=openclaw"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: OpenClaw · Isolated agent lab</span></a></div>
+            </article>
+            <article class="work-card" data-group="personal" data-year="Personal" data-featured="false" hidden>
+              <a class="work-cover cover-homelab" href="project.html?id=homelab" tabindex="-1" aria-hidden="true"><img src="./assets/img/Homelab.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>Personal</span><span class="work-status status-ongoing" data-i18n="status.ongoing">In progress</span></div>
+                <h3 lang="en"><a href="project.html?id=homelab">Family cloud &amp; learning lab</a></h3>
+                <p lang="en">An ongoing private-cloud project for family storage, backups and isolated experiments.</p>
+                <div class="work-tags"><span>Private Cloud</span><span>Backups</span><span>Self-Hosting</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Project proposal · PDF</div>
+                <a class="work-link" href="project.html?id=homelab"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Family cloud &amp; learning lab</span></a></div>
+            </article>
+            <article class="work-card" data-group="personal" data-year="Personal" data-featured="false" hidden>
+              <a class="work-cover cover-autovault" href="project.html?id=autovault" tabindex="-1" aria-hidden="true"><img src="./assets/img/autovault-thumb.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>Personal</span><span class="work-status status-ongoing" data-i18n="status.ongoing">In progress</span></div>
+                <h3 lang="en"><a href="project.html?id=autovault">AutoVault · Marketplace build</a></h3>
+                <p lang="en">An ongoing React and TypeScript marketplace project exploring inventory, admin tools and multilingual UX.</p>
+                <div class="work-tags"><span>React 19</span><span>TypeScript</span><span>Supabase</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Project notes</div>
+                <a class="work-link" href="project.html?id=autovault"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: AutoVault · Marketplace build</span></a></div>
+            </article>
+            <article class="work-card" data-group="personal" data-year="Personal" data-featured="false" hidden>
+              <a class="work-cover cover-rejectiongym" href="project.html?id=rejectiongym" tabindex="-1" aria-hidden="true"><img src="./assets/img/rejectiongym_logo.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>Personal</span><span class="work-status status-ongoing" data-i18n="status.ongoing">In progress</span></div>
+                <h3 lang="en"><a href="project.html?id=rejectiongym">RejectionGym · Challenge platform</a></h3>
+                <p lang="en">An application project exploring daily challenges, progress tracking and proof uploads.</p>
+                <div class="work-tags"><span>React</span><span>Node.js</span><span>PostgreSQL</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Project document · PDF</div>
+                <a class="work-link" href="project.html?id=rejectiongym"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: RejectionGym · Challenge platform</span></a></div>
+            </article>
+            <article class="work-card" data-group="personal" data-year="2026" data-featured="false" hidden>
+              <a class="work-cover cover-portfolio" href="project.html?id=portfolio" tabindex="-1" aria-hidden="true"><img src="./assets/img/github.logo.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+              <div class="work-body">
+                <div class="work-meta"><span>2026</span><span class="work-status status-ongoing" data-i18n="status.ongoing">In progress</span></div>
+                <h3 lang="en"><a href="project.html?id=portfolio">This portfolio · Built to show the work</a></h3>
+                <p lang="en">A buildless GitHub Pages site connecting capabilities to case studies and school progress.</p>
+                <div class="work-tags"><span>GitHub Pages</span><span>Documentation</span><span>Design</span></div>
+                <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Public GitHub repository</div>
+                <a class="work-link" href="project.html?id=portfolio"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: This portfolio · Built to show the work</span></a></div>
+            </article>
+          </div>
+          <div class="work-footnote">
+            <p data-i18n="projects.note">Technical case studies and original evidence are in English.</p>
+            <p class="project-count" aria-live="polite" aria-atomic="true"><span id="projectCount">6</span> <span data-i18n="projects.showing">projects shown</span></p>
+          </div>
+          <noscript><style>.work-card[hidden]{display:flex}</style></noscript>
+        </div>
+      </section>
+      <section id="skills">
+        <div class="container">
+          <div class="section-heading">
+            <div class="chapter">
+              <div class="num">02 / CAPABILITIES</div>
+              <h2 data-i18n="skills.title">What I can bring to a team</h2>
+            </div>
+            <p data-i18n="skills.intro">Practical skills with work you can inspect. My second year is adding depth in automation, public cloud and operations.</p>
+          </div>
+          <div class="capability-grid">
+            <article class="capability">
+              <div class="capability-index" aria-hidden="true">01<span>+</span></div>
+              <h3 data-i18n="skill.systems">Build &amp; maintain</h3>
+              <p data-i18n="skill.systemsText">Proxmox, Windows Server, Linux and shared storage. I care about the recovery path as much as the initial setup.</p>
+              <div class="capability-tools">Proxmox · VMware · Linux · Windows Server · NAS</div>
+              <a href="project.html?id=vircl"><span data-i18n="skill.proof">See the evidence</span> ↗</a></article>
+            <article class="capability">
+              <div class="capability-index" aria-hidden="true">02<span>+</span></div>
+              <h3 data-i18n="skill.cloud">Connect &amp; isolate</h3>
+              <p data-i18n="skill.cloudText">Azure VNets and AWS security groups. Testing which traffic is allowed, which is blocked, and why.</p>
+              <div class="capability-tools">Azure · AWS · VLANs · VPN · Cisco IOS</div>
+              <a href="project.html?id=awssecurity"><span data-i18n="skill.proof">See the evidence</span> ↗</a></article>
+            <article class="capability">
+              <div class="capability-index" aria-hidden="true">03<span>+</span></div>
+              <h3 data-i18n="skill.code">Automate &amp; explain</h3>
+              <p data-i18n="skill.codeText">Python, Bash, PowerShell and Terraform coursework. Clear source files and documentation that someone else can follow.</p>
+              <div class="capability-tools">Python · Bash · PowerShell · Terraform · Git</div>
+              <a href="project.html?id=terraformazure"><span data-i18n="skill.proof">See the evidence</span> ↗</a></article>
+          </div>
+          <div class="learning-line"><span class="eyebrow" data-i18n="skill.learning">Now studying</span>
+            <p data-i18n="skill.learningText">Ansible playbooks &amp; idempotency · OSPF · SNMP &amp; syslog · relational modelling · Docker workflows</p>
+          </div>
+        </div>
+      </section>
+      <section id="progress">
+        <div class="container">
+          <div class="chapter reveal">
+            <div class="num">03 / PROGRESS</div>
+            <h2 data-i18n="progress.title">Same mindset. New layers.</h2>
+          </div>
+          <p class="section-intro" data-i18n="progress.summary">BCLC1 is my completed first year (2025–2026). BCLC2 is my current second year (2026–2027). Here is how the work is progressing.</p>
+          <div class="journey-grid">
+            <article class="journey-step step-first"><span class="journey-node" aria-hidden="true"></span>
+              <div class="eyebrow" data-i18n="journey.first">01 / Foundations</div>
+              <p class="journey-date">2025 — 2026</p>
+              <h3 data-i18n="journey.firstTitle">Learn it. Build it. Document it.</h3>
+              <p data-i18n="journey.firstText">Python and scripting, Windows and Linux, switching and routing, NAS storage and virtualization. First-year projects made the fundamentals tangible.</p>
+              <a href="#projects" data-year-filter="BCLC1">BCLC1 ↗</a></article>
+            <article class="journey-step step-second"><span class="journey-node" aria-hidden="true"></span>
+              <div class="eyebrow" data-i18n="journey.second">02 / Current year</div>
+              <p class="journey-date">2026 — 2027</p>
+              <h3 data-i18n="journey.secondTitle">Make the setup repeatable.</h3>
+              <p data-i18n="journey.secondText">AWS network tests, Docker and MySQL labs, Chef research, plus ongoing study in Ansible and OSPF. The focus is shifting toward infrastructure as code and operations.</p>
+              <a href="#projects" data-year-filter="BCLC2" data-i18n="journey.view">Explore second-year work</a></article>
+            <article class="journey-step step-next"><span class="journey-node" aria-hidden="true"></span>
+              <div class="eyebrow" data-i18n="journey.next">03 / Current project</div>
+              <p class="journey-date">OCTOBER 2026</p>
+              <h3 data-i18n="journey.nextTitle">Make failure visible.</h3>
+              <p data-i18n="journey.nextText">Plan Zabbix coverage for two Proxmox hosts, then prove a service incident, a notification and recovery. The inventory and tests are drafted; implementation is next.</p>
+              <a href="project.html?id=networkmonitoring" data-i18n="journey.plan">Read the current plan</a></article>
+          </div>
+          <p class="review-date" data-i18n="journey.date">Progress reviewed · 22 October 2026</p>        <div class="bts-reflection">
+            <button class="btn btn-ghost reflection-toggle" aria-controls="reflectionPanel" type="button" aria-expanded="false" data-i18n="progress.readFull">
+              Read full BTS reflection
+            </button>
+            <div class="reflection-panel" id="reflectionPanel" hidden>
+              <div class="reflection-tabs" role="tablist" aria-label="Select semester reflection">
+                <button class="btn btn-ghost reflection-tab is-active" type="button" role="tab" aria-selected="true" data-semester="1">BCLC1 · Semester 1</button>
+                <button class="btn btn-ghost reflection-tab" type="button" role="tab" aria-selected="false" data-semester="2">BCLC1 · Semester 2</button>
+              </div>
+              <p class="reflection-status" data-i18n="progress.loading">Loading...</p>
+              <div class="reflection-content" role="tabpanel" aria-label="BCLC1 reflection" tabindex="0"></div>
+            </div>
+          </div>
+          <template id="reflection-md">
+            <h2>BTS Cloud Computing — Reflection Report</h2>
+            <h3>Overview</h3>
+            <p>Starting the BTS Cloud Computing course marks a real new chapter for me. It is more demanding, with higher expectations, and it pushes me to become more independent and consistent. I am stepping into IT without a prior background, so every lesson is a learning opportunity.</p>
+            <hr>
+            <h3>SWOT Analysis</h3>
+            <h4>Strengths</h4>
+            <ul>
+              <li>Curious and eager to learn</li>
+              <li>Adaptable and able to integrate into a group</li>
+              <li>Strong teamwork skills</li>
+              <li>Good observation and attention to detail</li>
+            </ul>
+            <h4>Weaknesses</h4>
+            <ul>
+              <li>No prior IT background</li>
+              <li>Lack of confidence, especially in competitive environments</li>
+              <li>Difficulty maintaining focus and tendency to procrastinate</li>
+              <li>Forgetfulness — I need to take notes regularly</li>
+              <li>Low energy levels at times (sleep-related)</li>
+              <li>Communication difficulties under pressure (anxiety, language barriers)</li>
+              <li>Lack of autonomy and organizational skills</li>
+            </ul>
+            <h4>Opportunities</h4>
+            <ul>
+              <li>Learning project management and business skills</li>
+              <li>Internship opportunities in IT and cloud infrastructure</li>
+              <li>Exposure to professional environments and external experts</li>
+              <li>Supportive class and teaching staff</li>
+            </ul>
+            <h4>Threats / Challenges</h4>
+            <ul>
+              <li>Limited IT knowledge makes some lessons hard to follow</li>
+              <li>Being new to the field means catching up takes extra effort</li>
+              <li>Need to build autonomy and organizational skills quickly</li>
+            </ul>
+            <hr>
+            <h3>Progress &amp; Actions Taken</h3>
+            <p>I am actively working on improving my weaknesses. I now plan my week in advance, break tasks into smaller steps, and track my progress so I can stay calm and move forward steadily. I have learned that good documentation and communication are not &quot;extra&quot; — they are part of the job, just like the technical work.</p>
+            <hr>
+            <h3>Conclusion</h3>
+            <p>This portfolio shows my progress, my projects, and my mindset: learning step by step, testing, improving, and staying motivated. I am proud of how far I have come, and I am excited to keep building my skills and growing in this field.</p>
+          </template>
+          <template id="reflection-md-s2">
+            <h2>BTS Cloud Computing — Reflection Report (Second Semester)</h2>
+            <h3>Overview</h3>
+            <p>The second semester has been a continuation of the work I started, but with bigger projects, higher expectations, and more independence. I can see clear progress compared with the start of the BTS, even though some habits are still a work in progress.</p>
+            <hr>
+            <h3>SWOT Analysis</h3>
+            <h4>Strengths</h4>
+            <ul>
+              <li>More organized thanks to the method I learned at the BTS</li>
+              <li>Better at asking questions when I am stuck</li>
+              <li>Comfortable working on bigger projects</li>
+              <li>Improved documentation, planning, and presentation skills</li>
+              <li>Less anxious and more relaxed when presenting or working under pressure</li>
+              <li>Growing technical knowledge in cloud, infrastructure, and networking</li>
+            </ul>
+            <h4>Weaknesses</h4>
+            <ul>
+              <li>Still struggle to maintain focus and avoid procrastination</li>
+              <li>Forgetfulness — I still need reminders and consistent note-taking</li>
+              <li>Low energy levels at times, which affects productivity</li>
+              <li>Autonomy and self-organization still need work</li>
+              <li>Confidence can still drop in competitive or high-pressure moments</li>
+            </ul>
+            <h4>Opportunities</h4>
+            <ul>
+              <li>Internships and real-world IT environments</li>
+              <li>Further certifications and hands-on labs</li>
+              <li>Building a stronger professional network</li>
+              <li>Continuing to improve communication and technical skills</li>
+            </ul>
+            <h4>Threats / Challenges</h4>
+            <ul>
+              <li>Higher workload and more complex subjects</li>
+              <li>Need to keep improving independently to catch up with classmates who have an IT background</li>
+              <li>Managing time and energy across multiple projects</li>
+            </ul>
+            <hr>
+            <h3>Progress &amp; Actions Taken</h3>
+            <p>This semester I focused on applying the methods I learned: planning tasks, documenting steps, and asking for help early. I worked on larger team projects, presented my work more confidently, and improved my technical understanding through labs and coursework. I keep a weekly plan and break big tasks into smaller pieces to stay on track.</p>
+            <hr>
+            <h3>Conclusion</h3>
+            <p>I have grown noticeably since the first semester, especially in organization, communication, and technical skills. The remaining challenges — focus, energy, autonomy, and confidence — are the next areas I want to improve. I will keep using the BTS method, take notes consistently, and look for opportunities to practice in real projects.</p>
+          </template>
+        </div>
+      </section>
+      <section id="about">
+        <div class="container">
+          <div class="chapter reveal">
+            <div class="num">04 / ABOUT</div>
+            <h2 data-i18n="about.title">The person behind the projects</h2>
+          </div>
+          <div class="about-bento reveal">
+            <div class="bento-cell bento-wide">
+              <div class="bento-header">
+                <span class="bento-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 2.5c-4.1 0-7.5 3.2-7.5 7.3 0 5.4 7.5 11.8 7.5 11.8s7.5-6.4 7.5-11.8c0-4.1-3.4-7.3-7.5-7.3Zm0 10.2a2.9 2.9 0 1 1 0-5.8 2.9 2.9 0 0 1 0 5.8Z" fill="currentColor"/>
+                  </svg>
+                </span>
+                <span class="bento-label" data-i18n="about.background">Background</span>
+              </div>
+              <p class="bento-text" data-i18n="about.backgroundText">Before the cloud, there were cables, control cabinets and PLCs. I trained as an industrial electrician, then specialised in Smart Technologies. Now, in my second year of BTS Cloud Computing at Lycée Guillaume Kroll, I’m applying the same careful troubleshooting to networks, servers and cloud infrastructure.</p>
+            </div>
+            <div class="bento-cell bento-wide">
+              <div class="bento-header">
+                <span class="bento-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M13 2 4 14h6l-1 8 11-14h-7l2-6Z" fill="currentColor"/>
+                  </svg>
+                </span>
+                <span class="bento-label" data-i18n="about.approach">Approach</span>
+              </div>
+              <p class="bento-text" data-i18n="about.approachText">Understand the system. Make one change. Check the result. Write down what worked — and what didn’t. My industrial background taught me that someone else has to maintain what I build.</p>
+            </div>
+            <div class="bento-cell">
+              <div class="bento-header">
+                <span class="bento-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm7.3 8.5h-3.7a14.7 14.7 0 0 0-1.4-5.1 7.5 7.5 0 0 1 5.1 5.1ZM12 4.4c.8 1.2 1.7 3.3 2.2 6.6H9.8c.5-3.3 1.4-5.4 2.2-6.6ZM4.6 11a7.5 7.5 0 0 1 5.1-5.1A14.7 14.7 0 0 0 8.3 11H4.6Zm0 2h3.7c.3 1.8.8 3.5 1.4 5.1A7.5 7.5 0 0 1 4.6 13Zm7.4 6.6c-.8-1.2-1.7-3.3-2.2-6.6h4.4c-.5 3.3-1.4 5.4-2.2 6.6Zm2.3-1.5c.6-1.6 1.1-3.3 1.4-5.1h3.7a7.5 7.5 0 0 1-5.1 5.1Z" fill="currentColor"/>
+                  </svg>
+                </span>
+                <span class="bento-label" data-i18n="about.languages">Languages</span>
+              </div>
+              <div class="about-chip-list" aria-label="Languages">
+                <span class="about-chip">Arabic / Aramaic (Native)</span>
+                <span class="about-chip">Luxembourgish (C1)</span>
+                <span class="about-chip">English (C1)</span>
+                <span class="about-chip">French (B2)</span>
+                <span class="about-chip">German (B1)</span>
+              </div>
+            </div>
+            <div class="bento-cell">
+              <div class="bento-header">
+                <span class="bento-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 21s-7-4.6-7-10.6A4.4 4.4 0 0 1 9.4 6c1 0 2 .4 2.6 1.2A3.4 3.4 0 0 1 14.6 6 4.4 4.4 0 0 1 19 10.4C19 16.4 12 21 12 21Z" fill="currentColor"/>
+                  </svg>
+                </span>
+                <span class="bento-label" data-i18n="about.interests">Interests</span>
+              </div>
+              <div class="about-chip-list" aria-label="Interests">
+                <span class="about-chip">Strength Training</span>
+                <span class="about-chip">Basketball</span>
+                <span class="about-chip">Car Detailing</span>
+                <span class="about-chip">New Technologies &amp; AI</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="education-experience">
+        <div class="container">
+          <div class="chapter reveal">
+            <div class="num">05 / EXPERIENCE</div>
+            <h2 data-i18n="education.title">Education & Experience</h2>
+          </div>
+          <div class="section-block">
+            <h3 class="section-subtitle" data-i18n="education.education">Education</h3>
+            <div class="timeline reveal" aria-label="Education timeline">
+              <div class="entry">
+                <div class="meta">2025–2027</div>
+                <h3>BTS Cloud Computing</h3>
+                <span class="education-current" data-i18n="education.current">Current · BCLC2 / second year</span>
+                <div class="org">Lycée Guillaume Kroll</div>
+                <p class="entry-desc">
+                  Two-year program focused on cloud infrastructure, virtualization, networking, and IT service delivery. Covers Microsoft Azure fundamentals, Windows and Linux server administration, enterprise virtualization, containerization, and infrastructure automation. Also includes networking, security basics, scripting, and modern development practices through hands-on labs and real-world projects. Prepares for cloud operations and system administration roles with an emphasis on reliable, well-documented infrastructure.
+                </p>
+                <div class="mini-tags">
+                  <span class="mini-tag">Cloud</span>
+                  <span class="mini-tag">Networking</span>
+                  <span class="mini-tag">Windows Server</span>
+                  <span class="mini-tag">Linux</span>
+                  <span class="mini-tag">Virtualization</span>
+                  <span class="mini-tag">Docker</span>
+                  <span class="mini-tag">Scripting</span>
+                  <span class="mini-tag">AI Agents</span>
+                </div>
+              </div>
+              <div class="entry">
+                <div class="meta">2023–2025</div>
+                <h3>Smart Technologies Section "E-Controls"</h3>
+                <div class="org">Lycée Privé Émile Metz</div>
+                <p class="entry-desc">
+                  Two-year specialization in industrial automation and smart control systems. Covers Siemens TIA Portal PLC programming, HMI panel design, safety device integration, and industrial communication protocols. Students complete full project cycles from schematic design to wiring, commissioning, and customer documentation.
+                </p>
+                <div class="mini-tags">
+                  <span class="mini-tag">Automation</span>
+                  <span class="mini-tag">PLC</span>
+                  <span class="mini-tag">HMI</span>
+                  <span class="mini-tag">Troubleshooting</span>
+                </div>
+              </div>
+              <div class="entry">
+                <div class="meta">2020–2023</div>
+                <h3>Industrial Electrician (DAP)</h3>
+                <div class="org">Lycée Privé Émile Metz</div>
+                <p class="entry-desc">
+                  Three-year vocational program in industrial electrical systems and automation wiring. Covers electrical schematics, low-voltage power distribution, motor control with contactors and variable speed drives, and control cabinet assembly. Combines theoretical instruction with workshop practice for electrical maintenance and installation roles.
+                </p>
+                <div class="mini-tags">
+                  <span class="mini-tag">Electrical Installation</span>
+                  <span class="mini-tag">Motor Control</span>
+                  <span class="mini-tag">Industrial Safety</span>
+                  <span class="mini-tag">Maintenance</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section-block">
+            <h3 class="section-subtitle" data-i18n="education.experience">Experience</h3>
+            <div class="experience-groups">
+              <div class="experience-group reveal">
+                <h3 data-i18n="education.electricalInternships">Electrical Technician Internships</h3>
+                <div class="experience-list-compact">
+                  <div class="experience-row">
+                    <span class="experience-org">Administration des Ponts et Chaussées</span>
+                    <span class="experience-date duration" data-company="Administration des Ponts et Chaussées" data-tooltip="03.02.2025 – 28.02.2025">Feb 2025</span>
+                  </div>
+                  <div class="experience-row">
+                    <span class="experience-org">La Provençale Sàrl</span>
+                    <span class="experience-date duration" data-company="La Provençale Sàrl" data-tooltip="29.01.2024 – 23.02.2024">Jan 2024</span>
+                  </div>
+                  <div class="experience-row">
+                    <span class="experience-org">Hoffmann et Fils Sàrl</span>
+                    <span class="experience-date duration" data-company="Hoffmann et Fils Sàrl" data-tooltip="30.01.2023 – 24.02.2023">Jan 2023</span>
+                  </div>
+                  <div class="experience-row">
+                    <span class="experience-org">Commune de Mondercange</span>
+                    <span class="experience-date duration" data-company="Commune de Mondercange" data-tooltip="28.03.2022 – 22.04.2022">Mar 2022</span>
+                  </div>
+                  <div class="experience-row">
+                    <span class="experience-org">Creos – Luxembourg City Center</span>
+                    <span class="experience-date duration" data-company="Creos – Luxembourg City Center" data-tooltip="05.07.2021 – 30.07.2021">Jul 2021</span>
+                  </div>
+                </div>
+              </div>
+              <div class="experience-group reveal">
+                <h3 data-i18n="education.automotiveInternships">Automotive Technician Internships</h3>
+                <div class="experience-list-compact">
+                  <div class="experience-row">
+                    <span class="experience-org">Merbag S.A. Hollerich</span>
+                    <span class="experience-date duration" data-company="Merbag S.A. Hollerich" data-tooltip="25.05.2020 – 19.06.2020">May 2020</span>
+                  </div>
+                  <div class="experience-row">
+                    <span class="experience-org">Automotive Mechanic – Merbag S.A. Esch</span>
+                    <span class="experience-date duration" data-company="Automotive Mechanic" data-tooltip="22.01.2020 – 18.05.2020">Jan 2020</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="certifications">
+        <div class="container">
+          <div class="chapter reveal">
+            <div class="num">06 / LEARNING</div>
+            <h2 data-i18n="certifications.title">Certifications &amp; Training</h2>
+          </div>
+          <div class="cert-block">
+            <h3 class="section-subtitle" data-i18n="certifications.certifications">Certifications</h3>
+            <div class="cert-grid">
+              <a
+              class="cert-card reveal"
+              href="https://www.credly.com/earner/earned/badge/651b5e91-f565-4bf8-b397-5920e3400f2c"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+              <img
+              src="assets/img/microsoft-office-specialist-powerpoint-associate-microsoft-365-apps.png"
+                alt="Microsoft Office Specialist: PowerPoint Associate badge"
+                loading="lazy"
+                />
+                <div class="cert-body">
+                <h3>Microsoft Office Specialist: PowerPoint Associate</h3>
+                <p class="cert-issuer">Issuer: Microsoft</p>
+                <p class="cert-valid">Valid until Oct 20, 2030</p>
+                  <p class="cert-score">Score: 750</p>
+                </div>
               </a>
-
+              <a
+              class="cert-card reveal"
+              href="https://www.credly.com/earner/earned/badge/1b42769d-bf35-463c-a2d2-2e8746245302"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+              <img
+              src="assets/img/microsoft-office-specialist-word-associate-microsoft-365-apps.png"
+                alt="Microsoft Office Specialist: Word Associate badge"
+                loading="lazy"
+                />
+                <div class="cert-body">
+                <h3>Microsoft Office Specialist: Word Associate</h3>
+                <p class="cert-issuer">Issuer: Microsoft</p>
+                <p class="cert-valid">Valid until Nov 17, 2030</p>
+                  <p class="cert-score">Score: 700</p>
+                </div>
+              </a>
+              <a
+              class="cert-card reveal"
+              href="https://www.credly.com/earner/earned/badge/22f6022a-a9d2-4e3d-b81c-d6c6cec8abe9"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+              <img
+              src="assets/img/microsoft-office-specialist-word-expert-microsoft-365-apps.png"
+                alt="Microsoft Office Specialist: Word Expert badge"
+                loading="lazy"
+                />
+                <div class="cert-body">
+                <h3>Microsoft Office Specialist: Word Expert</h3>
+                <p class="cert-issuer">Issuer: Microsoft</p>
+                <p class="cert-valid">Valid until Jan 27, 2031</p>
+                  <p class="cert-score">Score: 700</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="cert-block">
+            <h3 class="section-subtitle" data-i18n="certifications.training">Training</h3>
+            <div class="training-list reveal">
+              <div class="training-row" data-training-id="project-management-reboost">
+                <img src="./assets/img/letztoken-logo.png" alt="Project Management &amp; IT Worklife — Jamey Jaden Jager" loading="lazy" />
+                <div class="training-info">
+                  <h4>Project Management &amp; IT Worklife — Jamey Jaden Jager</h4>
+                  <p>10-hour session · Intro Worklife (2h) + Project Management (8h) · May–June 2026</p>
+                </div>
+                <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
+              </div>
+              <div class="training-row" data-training-id="aws-architecture">
+                <img src="./assets/img/aws-logo.webp" alt="AWS Architecture Workshop — ARHS Group" loading="lazy" />
+                <div class="training-info">
+                  <h4>AWS Architecture Workshop — ARHS Group</h4>
+                  <p>28-hour workshop · May 2026</p>
+                </div>
+                <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
+              </div>
+              <div class="training-row" data-training-id="az040">
+                <img src="./assets/img/powershell-logo.webp" alt="Automating Administration with PowerShell (AZ-040) Training — DEEP (POST Luxembourg Group)" loading="lazy" />
+                <div class="training-info">
+                  <h4>Automating Administration with PowerShell (AZ-040) Training — DEEP (POST Luxembourg Group)</h4>
+                  <p>5-day course · Mar 23–27, 2026</p>
+                </div>
+                <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
+              </div>
+              <div class="training-row" data-training-id="luxembourg-army">
+                <img src="./assets/img/luxembourg-army-logo.webp" alt="Visit to the Luxembourg Army — Armée du Luxembourg" loading="lazy" />
+                <div class="training-info">
+                  <h4>Visit to the Luxembourg Army — Armée du Luxembourg</h4>
+                  <p>Site visit · Half-day · Mar 13, 2026</p>
+                </div>
+                <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
+              </div>
+              <div class="training-row" data-training-id="aws-recap">
+                <img src="./assets/img/aws-logo.webp" alt="AWS re:Invent re:Cap 2026 — ARHS Group" loading="lazy" />
+                <div class="training-info">
+                  <h4>AWS re:Invent re:Cap 2026 — ARHS Group</h4>
+                  <p>Half-day session · Mar 4, 2026 · Belval, Luxembourg</p>
+                </div>
+                <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
+              </div>
+              <div class="training-row" data-training-id="quantum">
+                <img src="./assets/img/deep-logo.webp" alt="Introduction to Quantum Computing — DEEP (POST Luxembourg Group)" loading="lazy" />
+                <div class="training-info">
+                  <h4>Introduction to Quantum Computing — DEEP (POST Luxembourg Group)</h4>
+                  <p>Presentation · 2 hours · Mar 3, 2026</p>
+                </div>
+                <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
+              </div>
+              <div class="training-row" data-training-id="blockchain">
+                <img src="./assets/img/blockchain-academy-logo.webp" alt="Blockchain Introduction — The Blockchain Academy" loading="lazy" />
+                <div class="training-info">
+                  <h4>Blockchain Introduction — The Blockchain Academy</h4>
+                  <p>Workshop series · 3 hours × 3 sessions · Jan–Feb 2026</p>
+                </div>
+                <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
+              </div>
+              <div class="training-row" data-collapsible data-training-id="phishing">
+                <img src="./assets/img/restena.png" alt="Phishing Workshop — Fondation Restena" loading="lazy" />
+                <div class="training-info">
+                  <h4>Phishing Workshop — Fondation Restena</h4>
+                  <p>Workshop · 3 hours</p>
+                </div>
+                <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
+              </div>
+              <div class="training-row" data-collapsible data-training-id="sustainable-cloud">
+                <img src="./assets/img/arns.png" alt="Sustainable Cloud — Arηs Group" loading="lazy" />
+                <div class="training-info">
+                  <h4>Sustainable Cloud — Arηs Group</h4>
+                  <p>Workshop · 3 hours</p>
+                </div>
+                <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
+              </div>
+              <div class="training-row" data-collapsible data-training-id="luxconnect">
+                <img src="./assets/img/luxconnect.png" alt="LuxConnect Tier IV Data Center Visit (Bettembourg)" loading="lazy" />
+                <div class="training-info">
+                  <h4>LuxConnect Tier IV Data Center Visit (Bettembourg)</h4>
+                  <p>Site visit · Tier IV</p>
+                </div>
+                <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
+              </div>
+              <div class="training-row" data-collapsible data-training-id="pluralsight-az900">
+                <img src="./assets/img/pluralsight.jpg" alt="Pluralsight" loading="lazy" />
+                <div class="training-info">
+                  <h4>Microsoft Azure Fundamentals (AZ-900)</h4>
+                  <p>Pluralsight · Completed · 100% · Dec 18, 2025</p>
+                </div>
+                <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
+              </div>
+              <div class="training-row" data-collapsible data-training-id="azure-deep">
+                <img src="./assets/img/azure-az900.png" alt="Azure Fundamentals (AZ-900) Training — DEEP (POST Luxembourg Group)" loading="lazy" />
+                <div class="training-info">
+                  <h4>Azure Fundamentals (AZ-900) Training — DEEP (POST Luxembourg Group)</h4>
+                  <p>Full-day session · 09:00–17:00</p>
+                </div>
+                <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
+              </div>
+              <div class="training-row" data-collapsible data-training-id="pl900">
+                <img src="./assets/img/Power Platform Fundamentals (PL-900)png.png" alt="Power Platform Fundamentals (PL-900) Training — DEEP (POST Luxembourg Group)" loading="lazy" />
+                <div class="training-info">
+                  <h4>Power Platform Fundamentals (PL-900) Training — DEEP (POST Luxembourg Group)</h4>
+                  <p>Full-day session · 09:00–17:00</p>
+                </div>
+                <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
+              </div>
+            </div>
+            <button class="btn btn-ghost training-more-btn" type="button" aria-expanded="false" data-i18n="training.viewMore">View more trainings</button>
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <div class="container">
+          <div class="chapter chapter-center reveal">
+            <h2 data-i18n="contact.title">Let’s build something that holds up.</h2>
+          </div>
+          <div class="contact reveal">
+            <p data-i18n="contact.text">Looking for a curious, practical junior teammate? I’m open to internships and opportunities in cloud infrastructure, systems administration and networking in Luxembourg.</p>
+            <div class="contact-actions"><a class="btn btn-primary" href="mailto:marios_sarkis@hotmail.com"><span data-i18n="contact.sayHello">Start a conversation</span> ↗</a><button class="text-button cv-modal-btn" type="button" data-i18n="contact.cv">View CV · EN / FR</button></div>
+            <a class="contact-email" href="mailto:marios_sarkis@hotmail.com">marios_sarkis@hotmail.com</a>
+            <div class="social" aria-label="Social links">
               <a class="icon-link" href="https://www.linkedin.com/in/marios-moshe-sarkis-75b22b210/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M6.94 6.5A2.2 2.2 0 1 0 6.94 2.1a2.2 2.2 0 0 0 0 4.4ZM5.2 21.9h3.5V8.2H5.2v13.7ZM12.2 8.2h3.35v1.87h.05c.47-.9 1.62-1.86 3.33-1.86 3.56 0 4.22 2.43 4.22 5.6v8.09h-3.5v-7.17c0-1.71-.03-3.91-2.3-3.91-2.3 0-2.65 1.85-2.65 3.79v7.29h-3.5V8.2Z" fill="currentColor"/>
                 </svg>
               </a>
-
+              <a class="icon-link" href="https://github.com/marios-debug" target="_blank" rel="noreferrer" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 2C6.477 2 2 6.58 2 12.238c0 4.53 2.865 8.372 6.839 9.728.5.095.682-.22.682-.488 0-.24-.009-.877-.014-1.722-2.782.619-3.369-1.372-3.369-1.372-.454-1.18-1.11-1.494-1.11-1.494-.908-.637.069-.624.069-.624 1.004.073 1.532 1.055 1.532 1.055.892 1.56 2.341 1.11 2.91.849.091-.663.349-1.11.635-1.365-2.22-.26-4.555-1.136-4.555-5.056 0-1.117.39-2.031 1.03-2.748-.103-.26-.447-1.305.098-2.72 0 0 .84-.275 2.75 1.05A9.35 9.35 0 0 1 12 6.84c.85.004 1.705.12 2.504.35 1.909-1.325 2.748-1.05 2.748-1.05.546 1.415.202 2.46.1 2.72.64.717 1.028 1.631 1.028 2.748 0 3.93-2.339 4.793-4.566 5.048.359.317.679.942.679 1.9 0 1.37-.012 2.477-.012 2.814 0 .27.18.586.688.487C19.138 20.607 22 16.767 22 12.238 22 6.58 17.523 2 12 2Z" fill="currentColor"/>
+                </svg>
+              </a>
               <a class="icon-link" href="mailto:marios_sarkis@hotmail.com" aria-label="Email">
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M4 6.5h16c.55 0 1 .45 1 1v9c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1v-9c0-.55.45-1 1-1Zm0 2.1v.2l8 4.9 8-4.9v-.2l-8 4.9-8-4.9Z" fill="currentColor"/>
                 </svg>
               </a>
-
-              <button class="icon-link cv-modal-btn" type="button" aria-label="Download CV" title="Download CV" data-i18n-attr="aria-label" data-i18n="cv.download">
-                CV
-              </button>
-
+              <button class="icon-link cv-modal-btn" type="button" aria-label="Download CV" title="Moshe Sarkis Marios CV" data-i18n-attr="aria-label" data-i18n="cv.download">CV</button>
               <a class="icon-link" href="https://linktr.ee/marios_sarkis" target="_blank" rel="noreferrer" aria-label="Linktree" title="Linktree">
                 <span style="font-size: 0.7rem; font-weight: 600;">LT</span>
               </a>
             </div>
           </div>
-
-          <div class="profile-card">
-            <div class="profile-img" aria-label="Profile photo">
-              <img src="assets/img/Portrait.jpg" alt="Marios M. Sarkis" loading="lazy" />
-            </div>
-            <div class="profile-card-body">
-              <div class="meta" data-i18n="profile.label">From Wiring to Cloud</div>
-              <div class="profile-card-headline" data-i18n="profile.headline">
-                Physical → Connected → Cloud
-              </div>
-              <p class="profile-card-text" data-i18n="profile.text">
-                From cabling and PLCs to code and cloud. I bring a field-tested reliability mindset to digital infrastructure.
-              </p>
-            </div>
-          </div>
-
         </div>
-      </div>
-    </section>
-
-    <section id="about">
+      </section>  </main>
+    <footer>
       <div class="container">
-        <div class="chapter reveal">
-          <div class="num">01</div>
-          <h2 data-i18n="about.title">About Me</h2>
+        <div class="footer-nav">
+          <a href="#certifications" data-i18n="footer.certifications">Certifications</a>
+          <a href="#progress" data-i18n="footer.progress">BTS Progress</a>
+          <a href="#top" data-i18n="footer.backToTop">Back to top</a>
         </div>
-
-        <div class="about-bento reveal">
-          <div class="bento-cell bento-wide">
-            <div class="bento-header">
-              <span class="bento-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 2.5c-4.1 0-7.5 3.2-7.5 7.3 0 5.4 7.5 11.8 7.5 11.8s7.5-6.4 7.5-11.8c0-4.1-3.4-7.3-7.5-7.3Zm0 10.2a2.9 2.9 0 1 1 0-5.8 2.9 2.9 0 0 1 0 5.8Z" fill="currentColor"/>
-                </svg>
-              </span>
-              <span class="bento-label" data-i18n="about.background">Background</span>
-            </div>
-            <p class="bento-text" data-i18n="about.backgroundText">
-              BTS Cloud Computing student at Lycée Guillaume Kroll, Luxembourg, completing a two-year program focused on cloud infrastructure, virtualization, IP networking, and server administration. Previously trained as an industrial electrician and automation technician, bringing strong systems thinking, disciplined troubleshooting, and extensive hands-on technical experience.
-            </p>
-          </div>
-
-          <div class="bento-cell bento-wide">
-            <div class="bento-header">
-              <span class="bento-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M13 2 4 14h6l-1 8 11-14h-7l2-6Z" fill="currentColor"/>
-                </svg>
-              </span>
-              <span class="bento-label" data-i18n="about.approach">Approach</span>
-            </div>
-            <p class="bento-text" data-i18n="about.approachText">
-              I build iteratively, validate outcomes, and document everything so setups stay clear, reliable, and repeatable.
-            </p>
-          </div>
-
-          <div class="bento-cell">
-            <div class="bento-header">
-              <span class="bento-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm7.3 8.5h-3.7a14.7 14.7 0 0 0-1.4-5.1 7.5 7.5 0 0 1 5.1 5.1ZM12 4.4c.8 1.2 1.7 3.3 2.2 6.6H9.8c.5-3.3 1.4-5.4 2.2-6.6ZM4.6 11a7.5 7.5 0 0 1 5.1-5.1A14.7 14.7 0 0 0 8.3 11H4.6Zm0 2h3.7c.3 1.8.8 3.5 1.4 5.1A7.5 7.5 0 0 1 4.6 13Zm7.4 6.6c-.8-1.2-1.7-3.3-2.2-6.6h4.4c-.5 3.3-1.4 5.4-2.2 6.6Zm2.3-1.5c.6-1.6 1.1-3.3 1.4-5.1h3.7a7.5 7.5 0 0 1-5.1 5.1Z" fill="currentColor"/>
-                </svg>
-              </span>
-              <span class="bento-label" data-i18n="about.languages">Languages</span>
-            </div>
-            <div class="about-chip-list" aria-label="Languages">
-              <span class="about-chip">Arabic / Aramaic (Native)</span>
-              <span class="about-chip">Luxembourgish (C1)</span>
-              <span class="about-chip">English (C1)</span>
-              <span class="about-chip">French (B2)</span>
-              <span class="about-chip">German (B1)</span>
-            </div>
-          </div>
-
-          <div class="bento-cell">
-            <div class="bento-header">
-              <span class="bento-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 21s-7-4.6-7-10.6A4.4 4.4 0 0 1 9.4 6c1 0 2 .4 2.6 1.2A3.4 3.4 0 0 1 14.6 6 4.4 4.4 0 0 1 19 10.4C19 16.4 12 21 12 21Z" fill="currentColor"/>
-                </svg>
-              </span>
-              <span class="bento-label" data-i18n="about.interests">Interests</span>
-            </div>
-            <div class="about-chip-list" aria-label="Interests">
-              <span class="about-chip">Strength Training</span>
-              <span class="about-chip">Basketball</span>
-              <span class="about-chip">Car Detailing</span>
-              <span class="about-chip">New Technologies &amp; AI</span>
-            </div>
-          </div>
+        <div class="footer-copy">
+          © <span id="year"></span> Marios M. Sarkis · Designed &amp; Built with Care
         </div>
       </div>
-    </section>
-
-    <section id="education-experience">
-      <div class="container">
-        <div class="chapter reveal">
-          <div class="num">02</div>
-          <h2 data-i18n="education.title">Education & Experience</h2>
-        </div>
-
-        <div class="section-block">
-          <h3 class="section-subtitle" data-i18n="education.education">Education</h3>
-          <div class="timeline reveal" aria-label="Education timeline">
-            <div class="entry">
-              <div class="meta">2025–2027</div>
-              <h3>BTS Cloud Computing</h3>
-              <div class="org">Lycée Guillaume Kroll</div>
-              <p class="entry-desc">
-                Two-year program focused on cloud infrastructure, virtualization, networking, and IT service delivery. Covers Microsoft Azure fundamentals, Windows and Linux server administration, enterprise virtualization, containerization, and infrastructure automation. Also includes networking, security basics, scripting, and modern development practices through hands-on labs and real-world projects. Prepares for cloud operations and system administration roles with an emphasis on reliable, well-documented infrastructure.
-              </p>
-              <div class="mini-tags">
-                <span class="mini-tag">Cloud</span>
-                <span class="mini-tag">Networking</span>
-                <span class="mini-tag">Windows Server</span>
-                <span class="mini-tag">Linux</span>
-                <span class="mini-tag">Virtualization</span>
-                <span class="mini-tag">Docker</span>
-                <span class="mini-tag">Scripting</span>
-                <span class="mini-tag">AI Agents</span>
-              </div>
-            </div>
-
-            <div class="entry">
-              <div class="meta">2023–2025</div>
-              <h3>Smart Technologies Section "E-Controls"</h3>
-              <div class="org">Lycée Privé Émile Metz</div>
-              <p class="entry-desc">
-                Two-year specialization in industrial automation and smart control systems. Covers Siemens TIA Portal PLC programming, HMI panel design, safety device integration, and industrial communication protocols. Students complete full project cycles from schematic design to wiring, commissioning, and customer documentation.
-              </p>
-              <div class="mini-tags">
-                <span class="mini-tag">Automation</span>
-                <span class="mini-tag">PLC</span>
-                <span class="mini-tag">HMI</span>
-                <span class="mini-tag">Troubleshooting</span>
-              </div>
-            </div>
-
-            <div class="entry">
-              <div class="meta">2020–2023</div>
-              <h3>Industrial Electrician (DAP)</h3>
-              <div class="org">Lycée Privé Émile Metz</div>
-              <p class="entry-desc">
-                Three-year vocational program in industrial electrical systems and automation wiring. Covers electrical schematics, low-voltage power distribution, motor control with contactors and variable speed drives, and control cabinet assembly. Combines theoretical instruction with workshop practice for electrical maintenance and installation roles.
-              </p>
-              <div class="mini-tags">
-                <span class="mini-tag">Electrical Installation</span>
-                <span class="mini-tag">Motor Control</span>
-                <span class="mini-tag">Industrial Safety</span>
-                <span class="mini-tag">Maintenance</span>
-              </div>
-            </div>
+    </footer>
+    <div class="training-modal" id="trainingModal" role="dialog" aria-modal="true" aria-label="Training details" hidden>
+      <div class="training-modal-backdrop" id="trainingModalBackdrop"></div>
+      <div class="training-modal-content">
+        <div class="training-modal-header">
+          <img id="trainingModalImg" alt="" loading="lazy" />
+          <div>
+            <h3 id="trainingModalTitle"></h3>
+            <div class="training-modal-meta" id="trainingModalMeta"></div>
           </div>
+          <button class="btn btn-ghost training-modal-close" id="trainingModalClose" type="button" aria-label="Close" data-i18n="modal.close">Close</button>
         </div>
-
-        <div class="section-block">
-          <h3 class="section-subtitle" data-i18n="education.experience">Experience</h3>
-          <div class="experience-groups">
-            <div class="experience-group reveal">
-              <h3 data-i18n="education.electricalInternships">Electrical Technician Internships</h3>
-              <div class="experience-list-compact">
-                <div class="experience-row">
-                  <span class="experience-org">Administration des Ponts et Chaussées</span>
-                  <span class="experience-date duration" data-company="Administration des Ponts et Chaussées" data-tooltip="03.02.2025 – 28.02.2025">Feb 2025</span>
-                </div>
-                <div class="experience-row">
-                  <span class="experience-org">La Provençale Sàrl</span>
-                  <span class="experience-date duration" data-company="La Provençale Sàrl" data-tooltip="29.01.2024 – 23.02.2024">Jan 2024</span>
-                </div>
-                <div class="experience-row">
-                  <span class="experience-org">Hoffmann et Fils Sàrl</span>
-                  <span class="experience-date duration" data-company="Hoffmann et Fils Sàrl" data-tooltip="30.01.2023 – 24.02.2023">Jan 2023</span>
-                </div>
-                <div class="experience-row">
-                  <span class="experience-org">Commune de Mondercange</span>
-                  <span class="experience-date duration" data-company="Commune de Mondercange" data-tooltip="28.03.2022 – 22.04.2022">Mar 2022</span>
-                </div>
-                <div class="experience-row">
-                  <span class="experience-org">Creos – Luxembourg City Center</span>
-                  <span class="experience-date duration" data-company="Creos – Luxembourg City Center" data-tooltip="05.07.2021 – 30.07.2021">Jul 2021</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="experience-group reveal">
-              <h3 data-i18n="education.automotiveInternships">Automotive Technician Internships</h3>
-              <div class="experience-list-compact">
-                <div class="experience-row">
-                  <span class="experience-org">Merbag S.A. Hollerich</span>
-                  <span class="experience-date duration" data-company="Merbag S.A. Hollerich" data-tooltip="25.05.2020 – 19.06.2020">May 2020</span>
-                </div>
-                <div class="experience-row">
-                  <span class="experience-org">Automotive Mechanic – Merbag S.A. Esch</span>
-                  <span class="experience-date duration" data-company="Automotive Mechanic" data-tooltip="22.01.2020 – 18.05.2020">Jan 2020</span>
-                </div>
-              </div>
-            </div>
+        <div class="training-modal-body">
+          <p id="trainingModalDesc"></p>
+          <div class="training-modal-section">
+            <h4 data-i18n="modal.keyTakeaways">Key Takeaways</h4>
+            <p id="trainingModalTakeaway"></p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="container">
-        <div class="chapter reveal">
-          <div class="num">03</div>
-          <h2 data-i18n="skills.title">Skills</h2>
-        </div>
-
-        <div class="skills">
-          <div class="skill-group reveal">
-            <h3 data-i18n="skills.soft">Soft Skills</h3>
-            <div class="skills-chips">
-              <span class="tag">Professional</span>
-              <span class="tag">Self-Motivated</span>
-              <span class="tag">Teamwork</span>
-              <span class="tag">Curiosity</span>
-              <span class="tag">Problem Solving</span>
-              <span class="tag">Flexibility</span>
-            </div>
+          <div class="training-modal-section">
+            <h4 data-i18n="modal.keySkills">Key Skills</h4>
+            <div class="training-modal-skills" id="trainingModalSkills"></div>
           </div>
-
-          <div class="skill-group reveal">
-            <h3 data-i18n="skills.itCloud">IT &amp; Cloud</h3>
-            <div class="skills-cards">
-              <div class="skill-card">
-                <span class="badge learning skill-badge-corner" data-i18n="badge.learning">Currently learning</span>
-                <h4>Cloud Infrastructure Management</h4>
-                <p>Design, deployment, and maintenance of scalable, available cloud environments using IaaS and PaaS models. Hands-on experience with Azure Portal, resource groups, virtual machines, storage accounts, and App Service. Containerization with Docker, CI/CD pipeline basics, and infrastructure monitoring. Focus on high availability, disaster recovery, governance, and cost optimization aligned with AZ-104 areas.</p>
-              </div>
-              <div class="skill-card">
-                <span class="badge learning skill-badge-corner" data-i18n="badge.learning">Currently learning</span>
-                <h4>Networking &amp; Security</h4>
-                <p>Solid foundation in IP networking including TCP/IP, subnetting, DNS, DHCP, VPN, firewalls, and network segmentation. Switching and routing skills include VLANs, inter-VLAN routing, STP, EtherChannel, IPv4/IPv6 static routing, and Cisco IOS CLI configuration. Wireless LAN setup, switch hardening against LAN attacks, DHCPv4/v6 address allocation, and first-hop redundancy protocols. Hands-on Packet Tracer labs and practical Windows Server remote-access labs.</p>
-              </div>
-              <div class="skill-card">
-                <span class="badge learning skill-badge-corner" data-i18n="badge.learning">Currently learning</span>
-                <h4>Operating Systems &amp; Virtualization</h4>
-                <p>Windows Server administration including AD DS, DNS, DHCP, VPN, and DirectAccess. Linux server setup and command-line management. Enterprise virtualization with Proxmox VE and VMware ESXi/vSphere, plus virtual-machine lifecycle management. Docker container deployment and basic orchestration for development environments.</p>
-              </div>
-              <div class="skill-card">
-                <span class="badge learning skill-badge-corner" data-i18n="badge.learning">Currently learning</span>
-                <h4>Development, Scripting &amp; Automation</h4>
-                <p>Windows PowerShell for task automation, remote administration, and pipeline scripting (AZ-040 training). Python and Bash for scripting, data handling, and Linux server management. Full-stack web development with React, TypeScript, and Supabase. GitHub Actions CI/CD, repeatable deployment scripts, and configuration management workflows.</p>
-              </div>
-              <div class="skill-card">
-                <span class="badge learning skill-badge-corner" data-i18n="badge.learning">Currently learning</span>
-                <h4>AI Agents &amp; LLM Integration</h4>
-                <p>Building sandboxed AI-agent labs with OpenClaw, custom skills, and Telegram bot integration. Experience wiring LLM backends such as Kimi into agent workflows, isolating experiments in VMs, and iterating safely on autonomous tooling. Practical exposure to prompt engineering, agent orchestration, and responsible AI experimentation.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="skill-group reveal">
-            <h3 data-i18n="skills.industrial">Industrial Automation</h3>
-            <div class="skills-cards">
-              <div class="skill-card">
-                <h4>PLC Programming / HMI / Safety Devices</h4>
-                <p>Industrial automation programming using Siemens TIA Portal with ladder logic and structured text. HMI panel design and configuration for machine operator interfaces. Safety device integration including emergency stops, safety relays, light curtains, and risk assessment. Industrial communication protocols and sensor/actuator wiring.</p>
-              </div>
-              <div class="skill-card">
-                <h4>Electrical Installation &amp; Automation</h4>
-                <p>Hands-on electrical installation including reading schematics, panel wiring, and troubleshooting. Motor control systems with contactors, relays, timers, and variable speed drives. Experience with preventive maintenance, industrial safety standards, and control cabinet assembly. Background in both low-voltage power distribution and automation wiring.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="container">
-        <div class="chapter reveal">
-          <div class="num">04</div>
-          <h2 data-i18n="projects.title">Projects</h2>
-        </div>
-
-        <div class="projects-grid">
-          <article class="card reveal">
-            <div class="card-body">
-              <img class="project-thumb" src="./assets/img/openclaw-thumb.png" alt="OpenClaw Home AI Agent Lab" loading="lazy" />
-              <div class="mini-tags">
-                <span class="mini-tag">OpenClaw</span>
-                <span class="mini-tag">AI Agents</span>
-                <span class="mini-tag">Telegram</span>
-                <span class="mini-tag">Kimi</span>
-              </div>
-              <h3>OpenClaw — Home AI Agent Lab <span class="badge learning" data-i18n="badge.inProgress">In Progress</span></h3>
-              <p>
-                A sandboxed AI-agent lab running OpenClaw in an isolated home VM. Custom skills, Telegram remote control, and Kimi as the language-model backend.
-              </p>
-              <a class="btn btn-ghost project-link" href="./project.html?id=openclaw"><span data-i18n="projects.viewDetails">View details</span></a>
-            </div>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-body">
-              <img class="project-thumb" src="./assets/img/autovault-thumb.png" alt="AutoVault Used-Car Marketplace" loading="lazy" />
-              <div class="mini-tags">
-                <span class="mini-tag">React 19</span>
-                <span class="mini-tag">TypeScript</span>
-                <span class="mini-tag">Supabase</span>
-                <span class="mini-tag">Tailwind</span>
-              </div>
-              <h3>AutoVault — Used-Car Marketplace <span class="badge learning" data-i18n="badge.inProgress">In Progress</span></h3>
-              <p>
-                A premium used-car marketplace for Luxembourg. Curated inventory, advanced filters, trade-in valuation, multi-language support, and a full admin dashboard.
-              </p>
-              <a class="btn btn-ghost project-link" href="./project.html?id=autovault"><span data-i18n="projects.viewDetails">View details</span></a>
-            </div>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-body">
-              <img class="project-thumb" src="./assets/img/minicfl-thumb.png" alt="MiniCFL Azure AZ-104 Demonstration" loading="lazy" />
-              <div class="mini-tags">
-                <span class="mini-tag">Azure</span>
-                <span class="mini-tag">AZ-104</span>
-                <span class="mini-tag">Entra ID</span>
-                <span class="mini-tag">App Service</span>
-              </div>
-              <h3>MiniCFL — Azure AZ-104 Demonstration</h3>
-              <p>
-                A CFL train simulator running on Azure, built to demonstrate the five AZ-104 skill areas: identity, governance, compute, networking, and monitoring across dev and prod regions.
-              </p>
-              <a class="btn btn-ghost project-link" href="./project.html?id=minicflaz104"><span data-i18n="projects.viewDetails">View details</span></a>
-            </div>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-body">
-              <img class="project-thumb" src="./assets/img/rejectiongym_logo.png" alt="RejectionGym Challenge and Progress Platform" loading="lazy" />
-              <div class="mini-tags">
-                <span class="mini-tag">React</span>
-                <span class="mini-tag">Node.js</span>
-                <span class="mini-tag">PostgreSQL</span>
-                <span class="mini-tag">Docker + CI/CD</span>
-              </div>
-              <h3>RejectionGym — Challenge &amp; Progress Platform <span class="badge learning" data-i18n="badge.inProgress">In Progress</span></h3>
-              <p>
-                Daily challenge packs with streak tracking, proof uploads, and shareable progress reports.
-              </p>
-              <a class="btn btn-ghost project-link" href="./project.html?id=rejectiongym"><span data-i18n="projects.viewDetails">View details</span></a>
-            </div>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-body">
-              <img class="project-thumb" src="./assets/img/Homelab.png" alt="Secure Family Private Cloud and Learning Lab" loading="lazy" />
-              <div class="mini-tags">
-                <span class="mini-tag">Private Cloud</span>
-                <span class="mini-tag">Backups</span>
-                <span class="mini-tag">Self-Hosting</span>
-                <span class="mini-tag">Network Security</span>
-              </div>
-              <h3>Secure Family Private Cloud + Learning Lab <span class="badge learning" data-i18n="badge.inProgress">In Progress</span></h3>
-              <p>
-                Secure family storage, reliable backups, and self-hosted services. An isolated lab environment for testing IT and networking concepts.
-              </p>
-              <a class="btn btn-ghost project-link" href="./project.html?id=homelab"><span data-i18n="projects.viewDetails">View details</span></a>
-            </div>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-body">
-              <img class="project-thumb" src="./assets/img/vircl-thumb.png" alt="VIRCL — Server Virtualization in the Cloud" loading="lazy" />
-              <div class="mini-tags">
-                <span class="mini-tag">Proxmox VE</span>
-                <span class="mini-tag">VMware vSphere</span>
-                <span class="mini-tag">KVM</span>
-                <span class="mini-tag">ESXi</span>
-              </div>
-              <h3>VIRCL — Server Virtualization in the Cloud</h3>
-              <p>
-                BTS VIRCL module project deploying Proxmox VE and VMware ESXi/vSphere on HP ProLiant servers. Covered the full virtualization lifecycle, with a focus on VM and hypervisor backup strategies.
-              </p>
-              <a class="btn btn-ghost project-link" href="./project.html?id=vircl"><span data-i18n="projects.viewDetails">View details</span></a>
-            </div>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-body">
-              <img class="project-thumb" src="./assets/img/OpenMediaVault-Logo.webp" alt="NAS Server Setup and Configuration" loading="lazy" />
-              <div class="mini-tags">
-                <span class="mini-tag">OpenMediaVault</span>
-                <span class="mini-tag">RAID 5</span>
-                <span class="mini-tag">BTRFS RAID 1</span>
-                <span class="mini-tag">SMB/NFS/SFTP</span>
-              </div>
-              <h3>NAS Server Setup &amp; Configuration</h3>
-              <p>
-                Turned a bare-metal rack server into a production-ready NAS using OpenMediaVault 8, hardware RAID 5, BTRFS RAID 1, and cross-platform access controls.
-              </p>
-              <a class="btn btn-ghost project-link" href="./project.html?id=nas"><span data-i18n="projects.viewDetails">View details</span></a>
-            </div>
-          </article>
-
-          <article class="card reveal" data-collapsible>
-            <div class="card-body">
-              <img class="project-thumb" src="./assets/img/lab8.png" alt="Lab 8 Windows Services: VPN + DirectAccess" loading="lazy" />
-              <div class="mini-tags">
-                <span class="mini-tag">Windows Server</span>
-                <span class="mini-tag">VPN</span>
-                <span class="mini-tag">DirectAccess</span>
-                <span class="mini-tag">AD DS</span>
-              </div>
-              <h3>Lab 8 Windows Services: VPN + DirectAccess</h3>
-              <p>
-                Windows Server lab deploying VPN and DirectAccess for secure remote access, fully documented.
-              </p>
-              <a class="btn btn-ghost project-link" href="./project.html?id=lab8"><span data-i18n="projects.viewDetails">View details</span></a>
-            </div>
-          </article>
-
-          <article class="card reveal" data-collapsible>
-            <div class="card-body">
-              <img class="project-thumb" src="./assets/img/Grademanagmentsystem.png" alt="Grade Management System" loading="lazy" />
-              <div class="mini-tags">
-                <span class="mini-tag">FastAPI</span>
-                <span class="mini-tag">JWT</span>
-                <span class="mini-tag">Docker</span>
-              </div>
-              <h3>Grade Management System</h3>
-              <p>Secure grade management with role-based access for students, professors, and admins.</p>
-              <a class="btn btn-ghost project-link" href="./project.html?id=grademanagement"><span data-i18n="projects.viewDetails">View details</span></a>
-            </div>
-          </article>
-
-          <article class="card reveal" data-collapsible>
-            <div class="card-body">
-              <img class="project-thumb" src="./assets/img/pytwo_log_analyzer.png" alt="Linux Log Analyser" loading="lazy" />
-              <div class="mini-tags">
-                <span class="mini-tag">Python</span>
-                <span class="mini-tag">Regex</span>
-                <span class="mini-tag">Linux</span>
-                <span class="mini-tag">Syslog</span>
-                <span class="mini-tag">Monitoring</span>
-              </div>
-              <h3>Linux Log Analyser</h3>
-              <p>Python-based log parser for Linux syslog files. Extracts structured data with regex, generates statistics, tracks time-based metrics, and triggers alerts on suspicious activity.</p>
-              <a class="btn btn-ghost project-link" href="./project.html?id=linuxloganalyser"><span data-i18n="projects.viewDetails">View details</span></a>
-            </div>
-          </article>
-
-          <article class="card reveal" data-collapsible>
-            <div class="card-body">
-              <img class="project-thumb" src="./assets/img/Weekflow.logo.png" alt="WeekFlow — PowerApps Week Planner" loading="lazy" />
-              <div class="mini-tags">
-                <span class="mini-tag">PowerApps</span>
-                <span class="mini-tag">SharePoint</span>
-                <span class="mini-tag">Automation</span>
-              </div>
-              <h3>WeekFlow — PowerApps Week Planner</h3>
-              <p>Weekly planner built for speed and clarity. Task creation, status tracking, and automated reminders via Power Automate and SharePoint.</p>
-              <a class="btn btn-ghost project-link" href="./project.html?id=weekflow"><span data-i18n="projects.viewDetails">View details</span></a>
-            </div>
-          </article>
-
-          <article class="card reveal" data-collapsible>
-            <div class="card-body">
-              <img class="project-thumb" src="./assets/img/github.logo.png" alt="Portfolio Website — GitHub Pages" loading="lazy" />
-              <div class="mini-tags">
-                <span class="mini-tag">GitHub Pages</span>
-                <span class="mini-tag">Documentation</span>
-                <span class="mini-tag">Design</span>
-              </div>
-              <h3>Portfolio Website — GitHub Pages</h3>
-              <p>BTS-aligned portfolio documenting progress, skills, and reflection. Designed with GRAP principles and deployed on GitHub Pages.</p>
-              <a class="btn btn-ghost project-link" href="./project.html?id=portfolio"><span data-i18n="projects.viewDetails">View details</span></a>
-            </div>
-          </article>
-
-          <article class="card reveal" data-collapsible>
-            <div class="card-body">
-              <img class="project-thumb" src="./assets/img/PIF.png" alt="PIF Smart Technologies (Coffee Fermentation)" loading="lazy" />
-              <div class="mini-tags">
-                <span class="mini-tag">Smart Tech</span>
-                <span class="mini-tag">Sensors</span>
-                <span class="mini-tag">PLC/HMI</span>
-                <span class="mini-tag">Documentation</span>
-              </div>
-              <h3>PIF Smart Technologies (Coffee Fermentation)</h3>
-              <p>Automated coffee-bean fermentation system with sensor integration, PLC/HMI control, and full customer documentation.</p>
-              <a class="btn btn-ghost project-link" href="./project.html?id=pif"><span data-i18n="projects.viewDetails">View details</span></a>
-            </div>
-          </article>
-
-          <article class="card reveal" data-collapsible>
-            <div class="card-body">
-              <img class="project-thumb" src="./assets/img/eu-flag-erasmus-logo.jpg" alt="Erasmus+" loading="lazy" />
-              <div class="mini-tags">
-                <span class="mini-tag">3D Modeling</span>
-                <span class="mini-tag">C++ Programming</span>
-                <span class="mini-tag">Arduino</span>
-              </div>
-              <h3>Erasmus+</h3>
-              <p>Smart Technologies exchange at Carl Benz Schule (Germany). Built an autonomous car as a team challenge—best time: 32 seconds—and presented to ~40 people. Focus on teamwork, technical communication, and rapid prototyping.</p>
-              <a class="btn btn-ghost project-link" href="./project.html?id=erasmus"><span data-i18n="projects.viewDetails">View details</span></a>
-            </div>
-          </article>
-        </div>
-        <button class="btn btn-ghost projects-more-btn" type="button" aria-expanded="false" data-i18n="projects.viewMore">View more projects</button>
-      </div>
-    </section>
-
-    <section id="certifications">
-      <div class="container">
-        <div class="chapter reveal">
-          <div class="num">05</div>
-          <h2 data-i18n="certifications.title">Certifications &amp; Training</h2>
-        </div>
-
-        <div class="cert-block">
-          <h3 class="section-subtitle" data-i18n="certifications.certifications">Certifications</h3>
-          <div class="cert-grid">
-            <a
-              class="cert-card reveal"
-              href="https://www.credly.com/earner/earned/badge/651b5e91-f565-4bf8-b397-5920e3400f2c"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="assets/img/microsoft-office-specialist-powerpoint-associate-microsoft-365-apps.png"
-                alt="Microsoft Office Specialist: PowerPoint Associate badge"
-                loading="lazy"
-              />
-              <div class="cert-body">
-                <h3>Microsoft Office Specialist: PowerPoint Associate</h3>
-                <p class="cert-issuer">Issuer: Microsoft</p>
-                <p class="cert-valid">Valid until Oct 20, 2030</p>
-                <p class="cert-score">Score: 750</p>
-              </div>
-            </a>
-
-            <a
-              class="cert-card reveal"
-              href="https://www.credly.com/earner/earned/badge/1b42769d-bf35-463c-a2d2-2e8746245302"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="assets/img/microsoft-office-specialist-word-associate-microsoft-365-apps.png"
-                alt="Microsoft Office Specialist: Word Associate badge"
-                loading="lazy"
-              />
-              <div class="cert-body">
-                <h3>Microsoft Office Specialist: Word Associate</h3>
-                <p class="cert-issuer">Issuer: Microsoft</p>
-                <p class="cert-valid">Valid until Nov 17, 2030</p>
-                <p class="cert-score">Score: 700</p>
-              </div>
-            </a>
-
-            <a
-              class="cert-card reveal"
-              href="https://www.credly.com/earner/earned/badge/22f6022a-a9d2-4e3d-b81c-d6c6cec8abe9"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="assets/img/microsoft-office-specialist-word-expert-microsoft-365-apps.png"
-                alt="Microsoft Office Specialist: Word Expert badge"
-                loading="lazy"
-              />
-              <div class="cert-body">
-                <h3>Microsoft Office Specialist: Word Expert</h3>
-                <p class="cert-issuer">Issuer: Microsoft</p>
-                <p class="cert-valid">Valid until Jan 27, 2031</p>
-                <p class="cert-score">Score: 700</p>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="cert-block">
-          <h3 class="section-subtitle" data-i18n="certifications.training">Training</h3>
-
-          <div class="training-list reveal">
-            <div class="training-row" data-training-id="project-management-reboost">
-              <img src="./assets/img/letztoken-logo.png" alt="Project Management &amp; IT Worklife — Jamey Jaden Jager" loading="lazy" />
-              <div class="training-info">
-                <h4>Project Management &amp; IT Worklife — Jamey Jaden Jager</h4>
-                <p>10-hour session · Intro Worklife (2h) + Project Management (8h) · May–June 2026</p>
-              </div>
-              <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
-            </div>
-
-
-            <div class="training-row" data-training-id="aws-architecture">
-              <img src="./assets/img/aws-logo.webp" alt="AWS Architecture Workshop — ARHS Group" loading="lazy" />
-              <div class="training-info">
-                <h4>AWS Architecture Workshop — ARHS Group</h4>
-                <p>28-hour workshop · May 2026</p>
-              </div>
-              <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
-            </div>
-
-            <div class="training-row" data-training-id="az040">
-              <img src="./assets/img/powershell-logo.webp" alt="Automating Administration with PowerShell (AZ-040) Training — DEEP (POST Luxembourg Group)" loading="lazy" />
-              <div class="training-info">
-                <h4>Automating Administration with PowerShell (AZ-040) Training — DEEP (POST Luxembourg Group)</h4>
-                <p>5-day course · Mar 23–27, 2026</p>
-              </div>
-              <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
-            </div>
-
-            <div class="training-row" data-training-id="luxembourg-army">
-              <img src="./assets/img/luxembourg-army-logo.webp" alt="Visit to the Luxembourg Army — Armée du Luxembourg" loading="lazy" />
-              <div class="training-info">
-                <h4>Visit to the Luxembourg Army — Armée du Luxembourg</h4>
-                <p>Site visit · Half-day · Mar 13, 2026</p>
-              </div>
-              <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
-            </div>
-
-            <div class="training-row" data-training-id="aws-recap">
-              <img src="./assets/img/aws-logo.webp" alt="AWS re:Invent re:Cap 2026 — ARHS Group" loading="lazy" />
-              <div class="training-info">
-                <h4>AWS re:Invent re:Cap 2026 — ARHS Group</h4>
-                <p>Half-day session · Mar 4, 2026 · Belval, Luxembourg</p>
-              </div>
-              <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
-            </div>
-
-            <div class="training-row" data-training-id="quantum">
-              <img src="./assets/img/deep-logo.webp" alt="Introduction to Quantum Computing — DEEP (POST Luxembourg Group)" loading="lazy" />
-              <div class="training-info">
-                <h4>Introduction to Quantum Computing — DEEP (POST Luxembourg Group)</h4>
-                <p>Presentation · 2 hours · Mar 3, 2026</p>
-              </div>
-              <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
-            </div>
-
-            <div class="training-row" data-training-id="blockchain">
-              <img src="./assets/img/blockchain-academy-logo.webp" alt="Blockchain Introduction — The Blockchain Academy" loading="lazy" />
-              <div class="training-info">
-                <h4>Blockchain Introduction — The Blockchain Academy</h4>
-                <p>Workshop series · 3 hours × 3 sessions · Jan–Feb 2026</p>
-              </div>
-              <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
-            </div>
-
-            <div class="training-row" data-collapsible data-training-id="phishing">
-              <img src="./assets/img/restena.png" alt="Phishing Workshop — Fondation Restena" loading="lazy" />
-              <div class="training-info">
-                <h4>Phishing Workshop — Fondation Restena</h4>
-                <p>Workshop · 3 hours</p>
-              </div>
-              <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
-            </div>
-
-            <div class="training-row" data-collapsible data-training-id="sustainable-cloud">
-              <img src="./assets/img/arns.png" alt="Sustainable Cloud — Arηs Group" loading="lazy" />
-              <div class="training-info">
-                <h4>Sustainable Cloud — Arηs Group</h4>
-                <p>Workshop · 3 hours</p>
-              </div>
-              <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
-            </div>
-
-            <div class="training-row" data-collapsible data-training-id="luxconnect">
-              <img src="./assets/img/luxconnect.png" alt="LuxConnect Tier IV Data Center Visit (Bettembourg)" loading="lazy" />
-              <div class="training-info">
-                <h4>LuxConnect Tier IV Data Center Visit (Bettembourg)</h4>
-                <p>Site visit · Tier IV</p>
-              </div>
-              <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
-            </div>
-
-            <div class="training-row" data-collapsible data-training-id="pluralsight-az900">
-              <img src="./assets/img/pluralsight.jpg" alt="Pluralsight" loading="lazy" />
-              <div class="training-info">
-                <h4>Microsoft Azure Fundamentals (AZ-900)</h4>
-                <p>Pluralsight · Completed · 100% · Dec 18, 2025</p>
-              </div>
-              <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
-            </div>
-
-            <div class="training-row" data-collapsible data-training-id="azure-deep">
-              <img src="./assets/img/azure-az900.png" alt="Azure Fundamentals (AZ-900) Training — DEEP (POST Luxembourg Group)" loading="lazy" />
-              <div class="training-info">
-                <h4>Azure Fundamentals (AZ-900) Training — DEEP (POST Luxembourg Group)</h4>
-                <p>Full-day session · 09:00–17:00</p>
-              </div>
-              <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
-            </div>
-
-            <div class="training-row" data-collapsible data-training-id="pl900">
-              <img src="./assets/img/Power Platform Fundamentals (PL-900)png.png" alt="Power Platform Fundamentals (PL-900) Training — DEEP (POST Luxembourg Group)" loading="lazy" />
-              <div class="training-info">
-                <h4>Power Platform Fundamentals (PL-900) Training — DEEP (POST Luxembourg Group)</h4>
-                <p>Full-day session · 09:00–17:00</p>
-              </div>
-              <button class="btn btn-ghost training-modal-btn" type="button"><span data-i18n="projects.viewDetails">View details</span></button>
-            </div>
-          </div>
-          <button class="btn btn-ghost training-more-btn" type="button" aria-expanded="false" data-i18n="training.viewMore">View more trainings</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="progress">
-      <div class="container">
-        <div class="chapter reveal">
-          <div class="num">06</div>
-          <h2 data-i18n="progress.title">BTS Cloud Computing Progress</h2>
-        </div>
-
-        <div class="bts-block">
-          <div class="bts-card bts-summary reveal">
-            <p data-i18n="progress.summary">
-              Currently focused on cloud infrastructure fundamentals and independent lab work, with an emphasis on documentation, repeatable deployments, and clear communication. I'm building skills step by step, validating outcomes, and turning complex topics into structured, organized work.
-            </p>
-          </div>
-        </div>
-
-        <div class="bts-reflection">
-          <button class="btn btn-ghost reflection-toggle" type="button" aria-expanded="false" data-i18n="progress.readFull">
-            Read full BTS reflection
-          </button>
-          <div class="reflection-panel" hidden>
-            <div class="reflection-tabs" role="tablist" aria-label="Select semester reflection">
-              <button class="btn btn-ghost reflection-tab is-active" type="button" role="tab" aria-selected="true" data-semester="1">Semester 1</button>
-              <button class="btn btn-ghost reflection-tab" type="button" role="tab" aria-selected="false" data-semester="2">Semester 2</button>
-            </div>
-            <p class="reflection-status" data-i18n="progress.loading">Loading...</p>
-            <div class="reflection-content"></div>
-          </div>
-        </div>
-
-        <template id="reflection-md">
-# BTS Cloud Computing — Reflection Report
-
-## Overview
-Starting the BTS Cloud Computing course marks a real new chapter for me. It is more demanding, with higher expectations, and it pushes me to become more independent and consistent. I am stepping into IT without a prior background, so every lesson is a learning opportunity.
-
----
-
-## SWOT Analysis
-
-### Strengths
-- Curious and eager to learn
-- Adaptable and able to integrate into a group
-- Strong teamwork skills
-- Good observation and attention to detail
-
-### Weaknesses
-- No prior IT background
-- Lack of confidence, especially in competitive environments
-- Difficulty maintaining focus and tendency to procrastinate
-- Forgetfulness — I need to take notes regularly
-- Low energy levels at times (sleep-related)
-- Communication difficulties under pressure (anxiety, language barriers)
-- Lack of autonomy and organizational skills
-
-### Opportunities
-- Learning project management and business skills
-- Internship opportunities in IT and cloud infrastructure
-- Exposure to professional environments and external experts
-- Supportive class and teaching staff
-
-### Threats / Challenges
-- Limited IT knowledge makes some lessons hard to follow
-- Being new to the field means catching up takes extra effort
-- Need to build autonomy and organizational skills quickly
-
----
-
-## Progress & Actions Taken
-I am actively working on improving my weaknesses. I now plan my week in advance, break tasks into smaller steps, and track my progress so I can stay calm and move forward steadily. I have learned that good documentation and communication are not "extra" — they are part of the job, just like the technical work.
-
----
-
-## Conclusion
-This portfolio shows my progress, my projects, and my mindset: learning step by step, testing, improving, and staying motivated. I am proud of how far I have come, and I am excited to keep building my skills and growing in this field.
-        </template>
-
-        <template id="reflection-md-s2">
-# BTS Cloud Computing — Reflection Report (Second Semester)
-
-## Overview
-The second semester has been a continuation of the work I started, but with bigger projects, higher expectations, and more independence. I can see clear progress compared with the start of the BTS, even though some habits are still a work in progress.
-
----
-
-## SWOT Analysis
-
-### Strengths
-- More organized thanks to the method I learned at the BTS
-- Better at asking questions when I am stuck
-- Comfortable working on bigger projects
-- Improved documentation, planning, and presentation skills
-- Less anxious and more relaxed when presenting or working under pressure
-- Growing technical knowledge in cloud, infrastructure, and networking
-
-### Weaknesses
-- Still struggle to maintain focus and avoid procrastination
-- Forgetfulness — I still need reminders and consistent note-taking
-- Low energy levels at times, which affects productivity
-- Autonomy and self-organization still need work
-- Confidence can still drop in competitive or high-pressure moments
-
-### Opportunities
-- Internships and real-world IT environments
-- Further certifications and hands-on labs
-- Building a stronger professional network
-- Continuing to improve communication and technical skills
-
-### Threats / Challenges
-- Higher workload and more complex subjects
-- Need to keep improving independently to catch up with classmates who have an IT background
-- Managing time and energy across multiple projects
-
----
-
-## Progress & Actions Taken
-This semester I focused on applying the methods I learned: planning tasks, documenting steps, and asking for help early. I worked on larger team projects, presented my work more confidently, and improved my technical understanding through labs and coursework. I keep a weekly plan and break big tasks into smaller pieces to stay on track.
-
----
-
-## Conclusion
-I have grown noticeably since the first semester, especially in organization, communication, and technical skills. The remaining challenges — focus, energy, autonomy, and confidence — are the next areas I want to improve. I will keep using the BTS method, take notes consistently, and look for opportunities to practice in real projects.
-        </template>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <div class="chapter chapter-center reveal">
-          <h2 data-i18n="contact.title">Get in Touch</h2>
-        </div>
-
-        <div class="contact reveal">
-          <p data-i18n="contact.text">
-            Open to opportunities in cloud, IT infrastructure, and networking. Have a project, internship, or role in mind? Let's talk.
-          </p>
-          <a class="btn btn-primary" href="mailto:marios_sarkis@hotmail.com" data-i18n="contact.sayHello">Say Hello</a>
-
-          <div class="social" aria-label="Social links">
-            <a class="icon-link" href="https://www.linkedin.com/in/marios-moshe-sarkis-75b22b210/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M6.94 6.5A2.2 2.2 0 1 0 6.94 2.1a2.2 2.2 0 0 0 0 4.4ZM5.2 21.9h3.5V8.2H5.2v13.7ZM12.2 8.2h3.35v1.87h.05c.47-.9 1.62-1.86 3.33-1.86 3.56 0 4.22 2.43 4.22 5.6v8.09h-3.5v-7.17c0-1.71-.03-3.91-2.3-3.91-2.3 0-2.65 1.85-2.65 3.79v7.29h-3.5V8.2Z" fill="currentColor"/>
-              </svg>
-            </a>
-            <a class="icon-link" href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 2C6.477 2 2 6.58 2 12.238c0 4.53 2.865 8.372 6.839 9.728.5.095.682-.22.682-.488 0-.24-.009-.877-.014-1.722-2.782.619-3.369-1.372-3.369-1.372-.454-1.18-1.11-1.494-1.11-1.494-.908-.637.069-.624.069-.624 1.004.073 1.532 1.055 1.532 1.055.892 1.56 2.341 1.11 2.91.849.091-.663.349-1.11.635-1.365-2.22-.26-4.555-1.136-4.555-5.056 0-1.117.39-2.031 1.03-2.748-.103-.26-.447-1.305.098-2.72 0 0 .84-.275 2.75 1.05A9.35 9.35 0 0 1 12 6.84c.85.004 1.705.12 2.504.35 1.909-1.325 2.748-1.05 2.748-1.05.546 1.415.202 2.46.1 2.72.64.717 1.028 1.631 1.028 2.748 0 3.93-2.339 4.793-4.566 5.048.359.317.679.942.679 1.9 0 1.37-.012 2.477-.012 2.814 0 .27.18.586.688.487C19.138 20.607 22 16.767 22 12.238 22 6.58 17.523 2 12 2Z" fill="currentColor"/>
-              </svg>
-            </a>
-            <a class="icon-link" href="mailto:marios_sarkis@hotmail.com" aria-label="Email">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 6.5h16c.55 0 1 .45 1 1v9c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1v-9c0-.55.45-1 1-1Zm0 2.1v.2l8 4.9 8-4.9v-.2l-8 4.9-8-4.9Z" fill="currentColor"/>
-              </svg>
-            </a>
-            <button class="icon-link cv-modal-btn" type="button" aria-label="Download CV" title="Moshe Sarkis Marios CV" data-i18n-attr="aria-label" data-i18n="cv.download">
-              CV
-            </button>
-
-            <a class="icon-link" href="https://linktr.ee/marios_sarkis" target="_blank" rel="noreferrer" aria-label="Linktree" title="Linktree">
-              <span style="font-size: 0.7rem; font-weight: 600;">LT</span>
-            </a>
-          </div>
-          <img class="contact-qr" src="./assets/img/QRcodelinkedin.png" alt="LinkedIn QR code" loading="lazy" />
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-nav">
-        <a href="#certifications" data-i18n="footer.certifications">Certifications</a>
-        <a href="#progress" data-i18n="footer.progress">BTS Progress</a>
-        <a href="#top" data-i18n="footer.backToTop">Back to top</a>
-      </div>
-      <div class="footer-copy">
-        © <span id="year"></span> Marios M. Sarkis · Designed &amp; Built with Care
-      </div>
-    </div>
-  </footer>
-
-  <div class="training-modal" id="trainingModal" role="dialog" aria-modal="true" aria-label="Training details" hidden>
-    <div class="training-modal-backdrop" id="trainingModalBackdrop"></div>
-    <div class="training-modal-content">
-      <div class="training-modal-header">
-        <img id="trainingModalImg" src="" alt="" loading="lazy" />
-        <div>
-          <h3 id="trainingModalTitle"></h3>
-          <div class="training-modal-meta" id="trainingModalMeta"></div>
-        </div>
-        <button class="btn btn-ghost training-modal-close" id="trainingModalClose" type="button" aria-label="Close" data-i18n="modal.close">Close</button>
-      </div>
-      <div class="training-modal-body">
-        <p id="trainingModalDesc"></p>
-        <div class="training-modal-section">
-          <h4 data-i18n="modal.keyTakeaways">Key Takeaways</h4>
-          <p id="trainingModalTakeaway"></p>
-        </div>
-        <div class="training-modal-section">
-          <h4 data-i18n="modal.keySkills">Key Skills</h4>
-          <div class="training-modal-skills" id="trainingModalSkills"></div>
         </div>
       </div>
     </div>
-  </div>
-
-
-  <div class="cv-modal" id="cvModal" role="dialog" aria-modal="true" aria-label="View CV" hidden>
-    <div class="cv-modal-backdrop" id="cvModalBackdrop"></div>
-    <div class="cv-modal-content">
-      <div class="cv-modal-header">
-        <h3 data-i18n="cv.title">View CV</h3>
-        <button class="btn btn-ghost cv-modal-close" id="cvModalClose" type="button" aria-label="Close" data-i18n="modal.close">Close</button>
-      </div>
-      <div class="cv-modal-body">
-        <p class="cv-modal-hint" data-i18n="cv.hint">Choose the version you would like to view:</p>
-        <div class="cv-modal-options">
-          <a class="btn btn-primary cv-option" href="./assets/downloads/CV-Marios2026.pdf" target="_blank" rel="noopener noreferrer">
-            <span data-i18n="cv.english">English</span>
-          </a>
-          <a class="btn btn-primary cv-option" href="./assets/downloads/CVFR-Marios2026.pdf" target="_blank" rel="noopener noreferrer">
-            <span data-i18n="cv.french">French</span>
-          </a>
+    <div class="cv-modal" id="cvModal" role="dialog" aria-modal="true" aria-label="View CV" hidden>
+      <div class="cv-modal-backdrop" id="cvModalBackdrop"></div>
+      <div class="cv-modal-content">
+        <div class="cv-modal-header">
+          <h3 data-i18n="cv.title">View CV</h3>
+          <button class="btn btn-ghost cv-modal-close" id="cvModalClose" type="button" aria-label="Close" data-i18n="modal.close">Close</button>
+        </div>
+        <div class="cv-modal-body">
+          <p class="cv-modal-hint" data-i18n="cv.hint">Choose the version you would like to view:</p>
+          <div class="cv-modal-options">
+            <a class="btn btn-primary cv-option" href="./assets/downloads/CV-Marios2026.pdf" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="cv.english">English</span>
+            </a>
+            <a class="btn btn-primary cv-option" href="./assets/downloads/CVFR-Marios2026.pdf" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="cv.french">French</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>

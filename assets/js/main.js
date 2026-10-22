@@ -19,7 +19,7 @@ const applyTheme = (theme) => {
   }
 };
 
-const savedTheme = localStorage.getItem("theme");
+const savedTheme = preferenceStorage.getItem("theme");
 const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
 applyTheme(savedTheme || (prefersLight ? "light" : "dark"));
 
@@ -27,7 +27,7 @@ themeToggle?.addEventListener("click", () => {
   const isLight = root.hasAttribute("data-theme");
   const newTheme = isLight ? "dark" : "light";
   applyTheme(newTheme);
-  localStorage.setItem("theme", newTheme);
+  preferenceStorage.setItem("theme", newTheme);
 });
 
 /* Internationalization */
@@ -253,12 +253,14 @@ const translations = {
   }
 };
 
-let currentLang = localStorage.getItem("lang") || "en";
+Object.entries(portfolioTranslations).forEach(([lang, additions]) => Object.assign(translations[lang], additions));
+const storedLanguage = preferenceStorage.getItem("lang");
+let currentLang = translations[storedLanguage] ? storedLanguage : "en";
 
 const setLanguage = (lang) => {
   if (!translations[lang]) return;
   currentLang = lang;
-  localStorage.setItem("lang", lang);
+  preferenceStorage.setItem("lang", lang);
 
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.dataset.i18n;
@@ -276,6 +278,7 @@ const setLanguage = (lang) => {
 
   document.querySelectorAll(".lang-btn").forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.lang === lang);
+    btn.setAttribute("aria-pressed", String(btn.dataset.lang === lang));
   });
 
   document.documentElement.lang = lang;
@@ -287,6 +290,30 @@ document.querySelectorAll(".lang-btn").forEach((btn) => {
   btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
 });
 
+/* Dialog focus is kept inside the active surface and restored on close. */
+const showDialog = (dialog) => {
+  dialog.returnFocus = document.activeElement;
+  dialog.hidden = false;
+  document.querySelectorAll("body > header, body > main, body > footer").forEach(el => { el.inert = true; });
+  document.body.style.overflow = "hidden";
+  dialog.querySelector("button, a[href]")?.focus();
+};
+const hideDialog = (dialog) => {
+  dialog.hidden = true;
+  document.querySelectorAll("body > header, body > main, body > footer").forEach(el => { el.inert = false; });
+  document.body.style.overflow = "";
+  dialog.returnFocus?.focus();
+};
+document.addEventListener("keydown", event => {
+  if (event.key !== "Tab") return;
+  const dialog = [...document.querySelectorAll('[role="dialog"]')].find(el => !el.hidden && (el.classList.contains("open") || el.classList.contains("is-open")));
+  if (!dialog) return;
+  const items = [...dialog.querySelectorAll('a[href], button, [tabindex="0"]')].filter(el => !el.disabled && el.getClientRects().length);
+  const first = items[0], last = items.at(-1);
+  if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+  else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+});
+
 const menuBtn = document.getElementById("menuBtn");
 const overlay = document.getElementById("overlayMenu");
 const closeMenuBtn = document.getElementById("closeMenuBtn");
@@ -296,14 +323,14 @@ const openMenu = () => {
   if (!overlay || !menuBtn) return;
   overlay.classList.add("open");
   menuBtn.setAttribute("aria-expanded", "true");
-  document.body.style.overflow = "hidden";
+  showDialog(overlay);
 };
 
 const closeMenu = () => {
   if (!overlay || !menuBtn) return;
   overlay.classList.remove("open");
   menuBtn.setAttribute("aria-expanded", "false");
-  document.body.style.overflow = "";
+  hideDialog(overlay);
 };
 
 menuBtn?.addEventListener("click", () => {
@@ -462,16 +489,14 @@ const openTrainingModal = (id) => {
   trainingModalDesc.textContent = data.desc;
   trainingModalTakeaway.textContent = data.takeaway || "";
   trainingModalSkills.innerHTML = data.skills.map((s) => `<span class="skill-tag">${s}</span>`).join("");
-  trainingModal.hidden = false;
   trainingModal.classList.add("is-open");
-  document.body.style.overflow = "hidden";
+  showDialog(trainingModal);
 };
 
 const closeTrainingModal = () => {
   if (!trainingModal) return;
   trainingModal.classList.remove("is-open");
-  trainingModal.hidden = true;
-  document.body.style.overflow = "";
+  hideDialog(trainingModal);
 };
 
 document.querySelectorAll(".training-modal-btn").forEach((btn) => {
@@ -497,16 +522,14 @@ const cvModalClose = document.getElementById("cvModalClose");
 
 const openCvModal = () => {
   if (!cvModal) return;
-  cvModal.hidden = false;
   cvModal.classList.add("is-open");
-  document.body.style.overflow = "hidden";
+  showDialog(cvModal);
 };
 
 const closeCvModal = () => {
   if (!cvModal) return;
   cvModal.classList.remove("is-open");
-  cvModal.hidden = true;
-  document.body.style.overflow = "";
+  hideDialog(cvModal);
 };
 
 document.querySelectorAll(".cv-modal-btn").forEach((btn) => {
@@ -594,13 +617,16 @@ const loadReflection = async (semester = 1) => {
     return;
   }
 
-  reflectionContent.innerHTML = window.marked ? window.marked.parse(markdown) : markdown;
+  // Both sources are authored HTML templates in this document.
+  reflectionContent.innerHTML = markdown;
   reflectionStatus.textContent = "";
+  reflectionStatus.removeAttribute("data-i18n");
 
   reflectionTabs.forEach((tab) => {
     const isSelected = Number(tab.dataset.semester) === semester;
     tab.classList.toggle("is-active", isSelected);
     tab.setAttribute("aria-selected", String(isSelected));
+    tab.tabIndex = isSelected ? 0 : -1;
   });
 };
 
@@ -611,6 +637,7 @@ if (reflectionToggle && reflectionPanel) {
     reflectionPanel.hidden = false;
     reflectionToggle.setAttribute("aria-expanded", "true");
     reflectionToggle.textContent = translations[currentLang]?.["progress.hide"] || "Hide BTS reflection";
+    reflectionToggle.dataset.i18n = "progress.hide";
     if (!loaded) {
       loaded = true;
       await loadReflection(semester);
@@ -621,6 +648,7 @@ if (reflectionToggle && reflectionPanel) {
     reflectionPanel.hidden = true;
     reflectionToggle.setAttribute("aria-expanded", "false");
     reflectionToggle.textContent = translations[currentLang]?.["progress.readFull"] || "Read full BTS reflection";
+    reflectionToggle.dataset.i18n = "progress.readFull";
   };
 
   reflectionToggle.addEventListener("click", () => {
@@ -628,6 +656,16 @@ if (reflectionToggle && reflectionPanel) {
   });
 
   reflectionTabs.forEach((tab) => {
+    tab.tabIndex = tab.getAttribute("aria-selected") === "true" ? 0 : -1;
+    tab.addEventListener("keydown", event => {
+      const tabs = [...reflectionTabs];
+      const index = tabs.indexOf(tab);
+      const next = event.key === "ArrowRight" ? (index + 1) % tabs.length : event.key === "ArrowLeft" ? (index + tabs.length - 1) % tabs.length : event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1 : -1;
+      if (next < 0) return;
+      event.preventDefault();
+      tabs[next].click();
+      tabs[next].focus();
+    });
     tab.addEventListener("click", async () => {
       const semester = Number(tab.dataset.semester);
       if (reflectionPanel.hidden) {
@@ -651,25 +689,34 @@ if (trainingMoreBtn && collapsibleTrainingRows.length > 0) {
     });
     trainingMoreBtn.classList.toggle('is-expanded', !isExpanded);
     trainingMoreBtn.setAttribute('aria-expanded', String(!isExpanded));
+    trainingMoreBtn.dataset.i18n = isExpanded ? "training.viewMore" : "training.showLess";
     trainingMoreBtn.textContent = isExpanded
       ? (translations[currentLang]?.["training.viewMore"] || 'View more trainings')
       : (translations[currentLang]?.["training.showLess"] || 'Show less');
   });
 }
 
-const projectsMoreBtn = document.querySelector('.projects-more-btn');
-const collapsibleProjectCards = document.querySelectorAll('.projects-grid .card[data-collapsible]');
-
-if (projectsMoreBtn && collapsibleProjectCards.length > 0) {
-  projectsMoreBtn.addEventListener('click', () => {
-    const isExpanded = projectsMoreBtn.classList.contains('is-expanded');
-    collapsibleProjectCards.forEach((card) => {
-      card.classList.toggle('is-visible', !isExpanded);
-    });
-    projectsMoreBtn.classList.toggle('is-expanded', !isExpanded);
-    projectsMoreBtn.setAttribute('aria-expanded', String(!isExpanded));
-    projectsMoreBtn.textContent = isExpanded
-      ? (translations[currentLang]?.["projects.viewMore"] || 'View more projects')
-      : (translations[currentLang]?.["projects.showLess"] || 'Show less');
+/* Buildless project explorer: all cards and destinations also exist in HTML. */
+const projectFilters = document.querySelector(".project-filters");
+const workCards = [...document.querySelectorAll(".work-card")];
+const filterButtons = [...document.querySelectorAll("[data-filter]")];
+const filterWork = filter => {
+  let count = 0;
+  workCards.forEach(card => {
+    const visible = filter === "all" || (filter === "featured" && card.dataset.featured === "true") || card.dataset.group === filter || card.dataset.year.toLowerCase() === filter;
+    card.hidden = !visible;
+    if (visible) count++;
   });
+  filterButtons.forEach(button => button.setAttribute("aria-pressed", String(button.dataset.filter === filter)));
+  const counter = document.getElementById("projectCount");
+  if (counter) counter.textContent = count;
+};
+if (projectFilters) {
+  projectFilters.hidden = false;
+  filterButtons.forEach(button => button.addEventListener("click", () => filterWork(button.dataset.filter)));
+  document.querySelectorAll("[data-year-filter]").forEach(link => link.addEventListener("click", () => {
+    const filter = link.dataset.yearFilter.toLowerCase();
+    filterWork(filter);
+    filterButtons.find(button => button.dataset.filter === filter)?.focus({ preventScroll: true });
+  }));
 }

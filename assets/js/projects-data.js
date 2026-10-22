@@ -665,4 +665,4 @@ const projectData = {
   },
 };
 
-const getProjectById = (id) => projectData[id] || null;
+const getProjectById = (id) => Object.hasOwn(projectData, id) ? projectData[id] : null;
