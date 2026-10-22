@@ -94,7 +94,7 @@ const projectData = {
     },
   },
   vircl: {
-    title: "VIRCL — Server Virtualization in the Cloud",
+    title: "VIRCL — Server Virtualization",
     category: "Virtualization Lab",
     overview:
       "A BTS VIRCL module project documenting the implementation of server virtualization infrastructure using Proxmox VE 9.1.1 on two HP ProLiant servers (HP01 and HP03) and VMware ESXi/vSphere on two additional HP ProLiant servers (HP02 and HP04). The project covers the full virtualization lifecycle from hypervisor deployment to advanced operations including live migration, remote storage integration, user management, and patching.",
@@ -190,7 +190,7 @@ const projectData = {
     },
   },
   lab8: {
-    title: "Lab 8 Windows Services: VPN + DirectAccess",
+    title: "Windows Server VPN & DirectAccess",
     category: "Windows Server & Remote Access",
     overview:
       "A comprehensive Windows Server lab exercise developed for the OSYCL-Windows module at Lycée Guillaume Kroll. Team project with Donovan Glodt under teacher Maurizio Spagnuolo. The client company was Flowdesk and the consultant company was DON&SAR IT.",
@@ -328,7 +328,7 @@ const projectData = {
     },
   },
   weekflow: {
-    title: "WeekFlow — PowerApps Week Planner",
+    title: "WeekFlow — Weekly Task Planner",
     category: "Low-Code Business App",
     overview:
       "A low-code weekly planner application built with the Microsoft Power Platform. Designed for team coordination with task tracking, status updates, and automated notifications without writing traditional application code.",
@@ -419,7 +419,7 @@ const projectData = {
     },
   },
   pif: {
-    title: "PIF Smart Technologies (Coffee Fermentation)",
+    title: "Smart Coffee Fermentation System",
     category: "Industrial Automation",
     overview:
       "A BTS Smart Technologies E-Controls capstone project at Lycée Privé Émile Metz. Team project with Ayena Ezechiele under teacher Gilles Krantz. The project automated a coffee-bean fermentation process for Kaffeefabrik, integrating sensors, PLC control, and HMI visualization.",
@@ -466,7 +466,7 @@ const projectData = {
     },
   },
   erasmus: {
-    title: "Erasmus+",
+    title: "Erasmus+ — Autonomous Car",
     category: "Exchange Project",
     overview:
       "Smart Technologies exchange program at Carl Benz Schule in Germany. A two-week intensive where teams designed, built, and raced autonomous line-following cars.",
@@ -608,7 +608,7 @@ const projectData = {
     },
   },
   minicflaz104: {
-    title: "MiniCFL — Azure AZ-104 Demonstration",
+    title: "MiniCFL — Azure Train Simulator",
     category: "Cloud Infrastructure",
     overview:
       "A three-person AZ-104 (Azure Administrator) demonstration project built for the BTS Cloud Computing course. The visible part is a CFL train simulator that moves one train along the real Petange \u2192 Luxembourg line, showing live position, next stop, delay and timetable. The simulator exists to give every Azure resource a concrete reason to be there: around it the team built and administered a complete environment covering the five AZ-104 skill areas, deployed across development and production in two different Azure regions.",
@@ -665,4 +665,4 @@ const projectData = {
   },
 };
 
-const getProjectById = (id) => projectData[id] || null;
+const getProjectById = (id) => Object.hasOwn(projectData, id) ? projectData[id] : null;
