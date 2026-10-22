@@ -38,8 +38,9 @@ not replace visual or browser interaction testing.
 - `assets/css/portfolio.css`: the refresh design system, shared by both pages.
 - `assets/evidence/`: curated public summaries and source excerpts. Teacher
   worksheets, credentials and school management addresses are excluded.
-- `assets/img/covers/`: 13 matching generated concept illustrations, exported
-  as WebP for the project cards and case-study headers. Existing evidence
+- `assets/img/covers/`: 13 matching illustrated project posters, following the
+  existing Homelab and RejectionGym covers, exported as WebP for cards and
+  case-study headers. Existing evidence
   photographs and screenshots remain in their original galleries.
 - `docs/project-cover-prompts.json`: exact prompts, style reference, alt text
   and saved paths for the generated cover series.

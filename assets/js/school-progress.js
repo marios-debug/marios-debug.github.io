@@ -158,59 +158,59 @@ const portfolioEntries = [
   { id: "portfolio", group: "personal", year: "2026", status: "ongoing", title: "This portfolio · Built to show the work", summary: "A buildless GitHub Pages site connecting capabilities to case studies and school progress.", proof: "Public GitHub repository" }
 ];
 
-/* Matching editorial covers; original photos and evidence are retained. */
+/* Matching illustrated project posters; original photos and evidence are retained. */
 const projectCovers = {
   "awssecurity": {
     "path": "./assets/img/covers/awssecurity.webp",
-    "alt": "Concept illustration of two servers connected through a secure network gate"
+    "alt": "Illustrated project poster showing two servers connected through a secure network gate"
   },
   "mysqldocker": {
     "path": "./assets/img/covers/mysqldocker.webp",
-    "alt": "Concept illustration of a persistent database on modular container infrastructure"
+    "alt": "Illustrated project poster showing a persistent database on modular container infrastructure"
   },
   "chef": {
     "path": "./assets/img/covers/chef.webp",
-    "alt": "Concept illustration of one configuration recipe managing three consistent servers"
+    "alt": "Illustrated project poster showing one configuration recipe managing three consistent servers"
   },
   "networkmonitoring": {
     "path": "./assets/img/covers/networkmonitoring.webp",
-    "alt": "Concept illustration of two servers connected to an infrastructure monitoring console"
+    "alt": "Illustrated project poster showing two servers connected to an infrastructure monitoring console"
   },
   "terraformazure": {
     "path": "./assets/img/covers/terraformazure.webp",
-    "alt": "Concept illustration of cloud infrastructure assembled from reusable foundation modules"
+    "alt": "Illustrated project poster showing cloud infrastructure assembled from reusable foundation modules"
   },
   "serverdashboard": {
     "path": "./assets/img/covers/serverdashboard.webp",
-    "alt": "Concept illustration of a server-metrics client presenting charts and a short data history"
+    "alt": "Illustrated project poster showing a server-metrics client presenting charts and a short data history"
   },
   "minicflaz104": {
     "path": "./assets/img/covers/minicflaz104.webp",
-    "alt": "Concept illustration of a train simulator backed by cloud compute and a private database"
+    "alt": "Illustrated project poster showing a train simulator backed by cloud compute and a private database"
   },
   "vircl": {
     "path": "./assets/img/covers/vircl.webp",
-    "alt": "Concept illustration of virtual machines hosted by servers and connected to backup storage"
+    "alt": "Illustrated project poster showing virtual machines hosted by servers and connected to backup storage"
   },
   "lab8": {
     "path": "./assets/img/covers/lab8.webp",
-    "alt": "Concept illustration of a remote laptop linked securely to a Windows Server environment"
+    "alt": "Illustrated project poster showing a remote laptop linked securely to a Windows Server environment"
   },
   "grademanagement": {
     "path": "./assets/img/covers/grademanagement.webp",
-    "alt": "Concept illustration of student records, database storage and role-based access"
+    "alt": "Illustrated project poster showing student records, database storage and role-based access"
   },
   "weekflow": {
     "path": "./assets/img/covers/weekflow.webp",
-    "alt": "Concept illustration of a weekly task planner and connected workflow steps"
+    "alt": "Illustrated project poster showing a weekly task planner and connected workflow steps"
   },
   "pif": {
     "path": "./assets/img/covers/pif.webp",
-    "alt": "Concept illustration of a coffee fermentation vessel with sensors and industrial controls"
+    "alt": "Illustrated project poster showing a coffee fermentation vessel with sensors and industrial controls"
   },
   "portfolio": {
     "path": "./assets/img/covers/portfolio.webp",
-    "alt": "Concept illustration connecting electrical, network and cloud elements to a portfolio website"
+    "alt": "Illustrated project poster connecting electrical, network and cloud elements to a portfolio website"
   }
 };
 Object.entries(projectCovers).forEach(([id, cover]) => {

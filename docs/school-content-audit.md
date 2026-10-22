@@ -83,9 +83,9 @@ both BCLC1 reflections; evidence links; galleries and their keyboard controls.
   implementation in the case study. The new progress filter includes the six
   unfinished projects already identified in the catalogue.
 - Added **Homelab** to the interests list.
-- Generated 13 matching editorial cover illustrations for school diagrams,
-  logo-only and title-only cards. MiniCFL now has a train-and-cloud cover in
+- Generated 13 matching blue-and-white illustrated project posters for school diagrams,
+  logo-only and title-only cards, using the existing Homelab and RejectionGym artwork as style references. MiniCFL now has a train-and-cloud cover in
   place of the certification badge. Erasmus uses an existing project photo.
 - Covers are conceptual artwork; reports, actual photographs and screenshots
   remain the evidence. Exact prompts and asset paths are recorded in
-  `project-cover-prompts.json`. WebP exports total approximately 1.16 MiB.
+  `project-cover-prompts.json`. WebP exports total approximately 1.94 MiB.
