@@ -132,10 +132,11 @@
             </div>
             <p data-i18n="projects.intro">A selection of labs, builds and technical decisions. Open a case study to see my role, the result and the evidence.</p>
           </div>
-          <div class="project-filters" role="group" aria-label="Filter projects" hidden><button type="button" class="filter-button" data-filter="featured" aria-pressed="true" data-i18n="filter.featured">Selected</button><button type="button" class="filter-button" data-filter="all" aria-pressed="false" data-i18n="filter.all">All work</button><button type="button" class="filter-button" data-filter="cloud" aria-pressed="false" data-i18n="filter.cloud">Cloud</button><button type="button" class="filter-button" data-filter="infrastructure" aria-pressed="false" data-i18n="filter.infrastructure">Systems &amp; networks</button><button type="button" class="filter-button" data-filter="code" aria-pressed="false" data-i18n="filter.code">Code &amp; automation</button><button type="button" class="filter-button" data-filter="industrial" aria-pressed="false" data-i18n="filter.industrial">Industrial</button><button type="button" class="filter-button" data-filter="personal" aria-pressed="false" data-i18n="filter.personal">Personal labs</button><button type="button" class="filter-button" data-filter="bclc1" aria-pressed="false" data-i18n="filter.bclc1">BCLC1</button><button type="button" class="filter-button" data-filter="bclc2" aria-pressed="false" data-i18n="filter.bclc2">BCLC2</button></div>
+          <div class="project-filters" role="group" aria-label="Filter projects" hidden><button type="button" class="filter-button" data-filter="featured" aria-pressed="true" data-i18n="filter.featured">Selected</button><button type="button" class="filter-button" data-filter="all" aria-pressed="false" data-i18n="filter.all">All work</button><button type="button" class="filter-button" data-filter="cloud" aria-pressed="false" data-i18n="filter.cloud">Cloud</button><button type="button" class="filter-button" data-filter="infrastructure" aria-pressed="false" data-i18n="filter.infrastructure">Systems &amp; networks</button><button type="button" class="filter-button" data-filter="code" aria-pressed="false" data-i18n="filter.code">Code &amp; automation</button><button type="button" class="filter-button" data-filter="industrial" aria-pressed="false" data-i18n="filter.industrial">Industrial</button><button type="button" class="filter-button" data-filter="personal" aria-pressed="false" data-i18n="filter.personal">Personal labs</button><button type="button" class="filter-button" data-filter="ongoing" aria-pressed="false" data-i18n="filter.ongoing">In progress</button>
+            <button type="button" class="filter-button" data-filter="bclc1" aria-pressed="false" data-i18n="filter.bclc1">BCLC1</button><button type="button" class="filter-button" data-filter="bclc2" aria-pressed="false" data-i18n="filter.bclc2">BCLC2</button></div>
           <div class="work-grid" id="workGrid">
-            <article class="work-card" data-group="infrastructure" data-year="BCLC1" data-featured="true" >
-              <a class="work-cover cover-vircl" href="project.html?id=vircl" tabindex="-1" aria-hidden="true"><img src="./assets/img/vircl-thumb.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+            <article class="work-card" data-project="vircl" data-status="documented" data-group="infrastructure" data-year="BCLC1" data-featured="true" >
+              <a class="work-cover cover-vircl" data-generated="true" href="project.html?id=vircl" tabindex="-1" aria-hidden="true"><img src="./assets/img/covers/vircl.webp" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
                 <div class="work-meta"><span>BCLC1</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
                 <h3 lang="en"><a href="project.html?id=vircl">Virtualization, with recovery built in</a></h3>
@@ -144,8 +145,8 @@
                 <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Technical report · PDF</div>
                 <a class="work-link" href="project.html?id=vircl"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Virtualization, with recovery built in</span></a></div>
             </article>
-            <article class="work-card" data-group="cloud" data-year="BCLC2" data-featured="true" >
-              <a class="work-cover cover-awssecurity" href="project.html?id=awssecurity" tabindex="-1" aria-hidden="true"><img src="./assets/img/studies/aws-boundary.svg" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+            <article class="work-card" data-project="awssecurity" data-status="documented" data-group="cloud" data-year="BCLC2" data-featured="true" >
+              <a class="work-cover cover-awssecurity" data-generated="true" href="project.html?id=awssecurity" tabindex="-1" aria-hidden="true"><img src="./assets/img/covers/awssecurity.webp" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
                 <div class="work-meta"><span>BCLC2</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
                 <h3 lang="en"><a href="project.html?id=awssecurity">Prove the network boundary</a></h3>
@@ -154,7 +155,7 @@
                 <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Completed lab · recorded tests</div>
                 <a class="work-link" href="project.html?id=awssecurity"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Prove the network boundary</span></a></div>
             </article>
-            <article class="work-card" data-group="infrastructure" data-year="BCLC1" data-featured="true" >
+            <article class="work-card" data-project="nas" data-status="documented" data-group="infrastructure" data-year="BCLC1" data-featured="true" >
               <a class="work-cover cover-nas" href="project.html?id=nas" tabindex="-1" aria-hidden="true"><img src="./assets/img/projects/nas/nas-server.jpg" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
                 <div class="work-meta"><span>BCLC1</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
@@ -164,8 +165,8 @@
                 <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Team report · hardware photos</div>
                 <a class="work-link" href="project.html?id=nas"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: From bare metal to shared storage</span></a></div>
             </article>
-            <article class="work-card" data-group="code" data-year="BCLC2" data-featured="true" >
-              <a class="work-cover cover-mysqldocker" href="project.html?id=mysqldocker" tabindex="-1" aria-hidden="true"><img src="./assets/img/studies/database.svg" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+            <article class="work-card" data-project="mysqldocker" data-status="documented" data-group="code" data-year="BCLC2" data-featured="true" >
+              <a class="work-cover cover-mysqldocker" data-generated="true" href="project.html?id=mysqldocker" tabindex="-1" aria-hidden="true"><img src="./assets/img/covers/mysqldocker.webp" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
                 <div class="work-meta"><span>BCLC2</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
                 <h3 lang="en"><a href="project.html?id=mysqldocker">Make the data rules hold</a></h3>
@@ -174,8 +175,8 @@
                 <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Completed worksheet · checks</div>
                 <a class="work-link" href="project.html?id=mysqldocker"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Make the data rules hold</span></a></div>
             </article>
-            <article class="work-card" data-group="code" data-year="BCLC2" data-featured="true" >
-              <a class="work-cover cover-chef" href="project.html?id=chef" tabindex="-1" aria-hidden="true"><img src="./assets/img/studies/chef.svg" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+            <article class="work-card" data-project="chef" data-status="research" data-group="code" data-year="BCLC2" data-featured="true" >
+              <a class="work-cover cover-chef" data-generated="true" href="project.html?id=chef" tabindex="-1" aria-hidden="true"><img src="./assets/img/covers/chef.webp" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
                 <div class="work-meta"><span>BCLC2</span><span class="work-status status-research" data-i18n="status.research">Research</span></div>
                 <h3 lang="en"><a href="project.html?id=chef">Explain infrastructure as code</a></h3>
@@ -184,18 +185,18 @@
                 <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> 15-slide authored presentation</div>
                 <a class="work-link" href="project.html?id=chef"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Explain infrastructure as code</span></a></div>
             </article>
-            <article class="work-card" data-group="infrastructure" data-year="BCLC2" data-featured="true" >
-              <a class="work-cover cover-networkmonitoring" href="project.html?id=networkmonitoring" tabindex="-1" aria-hidden="true"><img src="./assets/img/studies/zabbix.svg" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+            <article class="work-card" data-project="networkmonitoring" data-status="ongoing" data-group="infrastructure" data-year="BCLC2" data-featured="true" >
+              <a class="work-cover cover-networkmonitoring" data-generated="true" href="project.html?id=networkmonitoring" tabindex="-1" aria-hidden="true"><img src="./assets/img/covers/networkmonitoring.webp" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
-                <div class="work-meta"><span>BCLC2</span><span class="work-status status-planning" data-i18n="status.planning">Planning</span></div>
+                <div class="work-meta"><span>BCLC2</span><span class="work-status status-ongoing" data-i18n="status.ongoing">In progress</span></div>
                 <h3 lang="en"><a href="project.html?id=networkmonitoring">Plan for failure. Prove recovery.</a></h3>
                 <p lang="en">Current Zabbix project: two Proxmox hosts, a monitoring matrix and a controlled incident test plan.</p>
                 <div class="work-tags"><span>Zabbix</span><span>Proxmox</span><span>SNMP</span></div>
                 <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Project plan · tests not yet run</div>
                 <a class="work-link" href="project.html?id=networkmonitoring"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Plan for failure. Prove recovery.</span></a></div>
             </article>
-            <article class="work-card" data-group="cloud" data-year="BCLC1" data-featured="false" hidden>
-              <a class="work-cover cover-terraformazure" href="project.html?id=terraformazure" tabindex="-1" aria-hidden="true"><img src="./assets/img/studies/terraform.svg" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+            <article class="work-card" data-project="terraformazure" data-status="source" data-group="cloud" data-year="BCLC1" data-featured="false" hidden>
+              <a class="work-cover cover-terraformazure" data-generated="true" href="project.html?id=terraformazure" tabindex="-1" aria-hidden="true"><img src="./assets/img/covers/terraformazure.webp" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
                 <div class="work-meta"><span>BCLC1</span><span class="work-status status-source" data-i18n="status.source">Source available</span></div>
                 <h3 lang="en"><a href="project.html?id=terraformazure">Azure infrastructure in Terraform</a></h3>
@@ -204,8 +205,8 @@
                 <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Inspectable Terraform excerpt</div>
                 <a class="work-link" href="project.html?id=terraformazure"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Azure infrastructure in Terraform</span></a></div>
             </article>
-            <article class="work-card" data-group="code" data-year="BCLC1" data-featured="false" hidden>
-              <a class="work-cover cover-serverdashboard" href="project.html?id=serverdashboard" tabindex="-1" aria-hidden="true"><img src="./assets/img/studies/monitoring.svg" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+            <article class="work-card" data-project="serverdashboard" data-status="source" data-group="code" data-year="BCLC1" data-featured="false" hidden>
+              <a class="work-cover cover-serverdashboard" data-generated="true" href="project.html?id=serverdashboard" tabindex="-1" aria-hidden="true"><img src="./assets/img/covers/serverdashboard.webp" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
                 <div class="work-meta"><span>BCLC1</span><span class="work-status status-source" data-i18n="status.source">Source available</span></div>
                 <h3 lang="en"><a href="project.html?id=serverdashboard">Give server metrics a face</a></h3>
@@ -214,8 +215,8 @@
                 <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Inspectable Python source</div>
                 <a class="work-link" href="project.html?id=serverdashboard"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Give server metrics a face</span></a></div>
             </article>
-            <article class="work-card" data-group="cloud" data-year="BCLC1" data-featured="false" hidden>
-              <a class="work-cover cover-minicflaz104" href="project.html?id=minicflaz104" tabindex="-1" aria-hidden="true"><img src="./assets/img/minicfl-thumb.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+            <article class="work-card" data-project="minicflaz104" data-status="documented" data-group="cloud" data-year="BCLC1" data-featured="false" hidden>
+              <a class="work-cover cover-minicflaz104" data-generated="true" href="project.html?id=minicflaz104" tabindex="-1" aria-hidden="true"><img src="./assets/img/covers/minicflaz104.webp" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
                 <div class="work-meta"><span>BCLC1</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
                 <h3 lang="en"><a href="project.html?id=minicflaz104">MiniCFL · Azure administration</a></h3>
@@ -224,8 +225,8 @@
                 <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Architecture &amp; simulator images</div>
                 <a class="work-link" href="project.html?id=minicflaz104"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: MiniCFL · Azure administration</span></a></div>
             </article>
-            <article class="work-card" data-group="infrastructure" data-year="BCLC1" data-featured="false" hidden>
-              <a class="work-cover cover-lab8" href="project.html?id=lab8" tabindex="-1" aria-hidden="true"><img src="./assets/img/lab8.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+            <article class="work-card" data-project="lab8" data-status="documented" data-group="infrastructure" data-year="BCLC1" data-featured="false" hidden>
+              <a class="work-cover cover-lab8" data-generated="true" href="project.html?id=lab8" tabindex="-1" aria-hidden="true"><img src="./assets/img/covers/lab8.webp" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
                 <div class="work-meta"><span>BCLC1</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
                 <h3 lang="en"><a href="project.html?id=lab8">Windows Server · Remote access</a></h3>
@@ -234,7 +235,7 @@
                 <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Lab documentation · PDF</div>
                 <a class="work-link" href="project.html?id=lab8"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Windows Server · Remote access</span></a></div>
             </article>
-            <article class="work-card" data-group="code" data-year="BCLC1" data-featured="false" hidden>
+            <article class="work-card" data-project="linuxloganalyser" data-status="documented" data-group="code" data-year="BCLC1" data-featured="false" hidden>
               <a class="work-cover cover-linuxloganalyser" href="project.html?id=linuxloganalyser" tabindex="-1" aria-hidden="true"><img src="./assets/img/pytwo_log_analyzer.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
                 <div class="work-meta"><span>BCLC1</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
@@ -244,8 +245,8 @@
                 <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Project document · PDF</div>
                 <a class="work-link" href="project.html?id=linuxloganalyser"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Linux log analyser</span></a></div>
             </article>
-            <article class="work-card" data-group="code" data-year="BCLC1" data-featured="false" hidden>
-              <a class="work-cover cover-grademanagement" href="project.html?id=grademanagement" tabindex="-1" aria-hidden="true"><img src="./assets/img/Grademanagmentsystem.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+            <article class="work-card" data-project="grademanagement" data-status="documented" data-group="code" data-year="BCLC1" data-featured="false" hidden>
+              <a class="work-cover cover-grademanagement" data-generated="true" href="project.html?id=grademanagement" tabindex="-1" aria-hidden="true"><img src="./assets/img/covers/grademanagement.webp" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
                 <div class="work-meta"><span>BCLC1</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
                 <h3 lang="en"><a href="project.html?id=grademanagement">Grade management system</a></h3>
@@ -254,8 +255,8 @@
                 <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Planning document · PDF</div>
                 <a class="work-link" href="project.html?id=grademanagement"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Grade management system</span></a></div>
             </article>
-            <article class="work-card" data-group="code" data-year="BCLC1" data-featured="false" hidden>
-              <a class="work-cover cover-weekflow" href="project.html?id=weekflow" tabindex="-1" aria-hidden="true"><img src="./assets/img/Weekflow.logo.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+            <article class="work-card" data-project="weekflow" data-status="documented" data-group="code" data-year="BCLC1" data-featured="false" hidden>
+              <a class="work-cover cover-weekflow" data-generated="true" href="project.html?id=weekflow" tabindex="-1" aria-hidden="true"><img src="./assets/img/covers/weekflow.webp" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
                 <div class="work-meta"><span>BCLC1</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
                 <h3 lang="en"><a href="project.html?id=weekflow">WeekFlow · A practical planner</a></h3>
@@ -264,8 +265,8 @@
                 <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Project document · PDF</div>
                 <a class="work-link" href="project.html?id=weekflow"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: WeekFlow · A practical planner</span></a></div>
             </article>
-            <article class="work-card" data-group="industrial" data-year="2024–2025" data-featured="false" hidden>
-              <a class="work-cover cover-pif" href="project.html?id=pif" tabindex="-1" aria-hidden="true"><img src="./assets/img/PIF.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+            <article class="work-card" data-project="pif" data-status="documented" data-group="industrial" data-year="2024–2025" data-featured="false" hidden>
+              <a class="work-cover cover-pif" data-generated="true" href="project.html?id=pif" tabindex="-1" aria-hidden="true"><img src="./assets/img/covers/pif.webp" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
                 <div class="work-meta"><span>2024–2025</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
                 <h3 lang="en"><a href="project.html?id=pif">Coffee fermentation · PLC / HMI</a></h3>
@@ -274,8 +275,8 @@
                 <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Customer documentation · PDF</div>
                 <a class="work-link" href="project.html?id=pif"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Coffee fermentation · PLC / HMI</span></a></div>
             </article>
-            <article class="work-card" data-group="industrial" data-year="Erasmus+" data-featured="false" hidden>
-              <a class="work-cover cover-erasmus" href="project.html?id=erasmus" tabindex="-1" aria-hidden="true"><img src="./assets/img/eu-flag-erasmus-logo.jpg" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+            <article class="work-card" data-project="erasmus" data-status="documented" data-group="industrial" data-year="Erasmus+" data-featured="false" hidden>
+              <a class="work-cover cover-erasmus" href="project.html?id=erasmus" tabindex="-1" aria-hidden="true"><img src="./assets/img/projects/erasmus/erasmus-car-1.jpg" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
                 <div class="work-meta"><span>Erasmus+</span><span class="work-status status-documented" data-i18n="status.documented">Documented</span></div>
                 <h3 lang="en"><a href="project.html?id=erasmus">Build together. Explain clearly.</a></h3>
@@ -284,7 +285,7 @@
                 <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Project photos</div>
                 <a class="work-link" href="project.html?id=erasmus"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Build together. Explain clearly.</span></a></div>
             </article>
-            <article class="work-card" data-group="personal" data-year="Personal" data-featured="false" hidden>
+            <article class="work-card" data-project="openclaw" data-status="ongoing" data-group="personal" data-year="Personal" data-featured="false" hidden>
               <a class="work-cover cover-openclaw" href="project.html?id=openclaw" tabindex="-1" aria-hidden="true"><img src="./assets/img/openclaw-thumb.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
                 <div class="work-meta"><span>Personal</span><span class="work-status status-ongoing" data-i18n="status.ongoing">In progress</span></div>
@@ -294,7 +295,7 @@
                 <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Project notes</div>
                 <a class="work-link" href="project.html?id=openclaw"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: OpenClaw · Isolated agent lab</span></a></div>
             </article>
-            <article class="work-card" data-group="personal" data-year="Personal" data-featured="false" hidden>
+            <article class="work-card" data-project="homelab" data-status="ongoing" data-group="personal" data-year="Personal" data-featured="false" hidden>
               <a class="work-cover cover-homelab" href="project.html?id=homelab" tabindex="-1" aria-hidden="true"><img src="./assets/img/Homelab.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
                 <div class="work-meta"><span>Personal</span><span class="work-status status-ongoing" data-i18n="status.ongoing">In progress</span></div>
@@ -304,7 +305,7 @@
                 <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Project proposal · PDF</div>
                 <a class="work-link" href="project.html?id=homelab"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: Family cloud &amp; learning lab</span></a></div>
             </article>
-            <article class="work-card" data-group="personal" data-year="Personal" data-featured="false" hidden>
+            <article class="work-card" data-project="autovault" data-status="ongoing" data-group="personal" data-year="Personal" data-featured="false" hidden>
               <a class="work-cover cover-autovault" href="project.html?id=autovault" tabindex="-1" aria-hidden="true"><img src="./assets/img/autovault-thumb.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
                 <div class="work-meta"><span>Personal</span><span class="work-status status-ongoing" data-i18n="status.ongoing">In progress</span></div>
@@ -314,7 +315,7 @@
                 <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Project notes</div>
                 <a class="work-link" href="project.html?id=autovault"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: AutoVault · Marketplace build</span></a></div>
             </article>
-            <article class="work-card" data-group="personal" data-year="Personal" data-featured="false" hidden>
+            <article class="work-card" data-project="rejectiongym" data-status="ongoing" data-group="personal" data-year="Personal" data-featured="false" hidden>
               <a class="work-cover cover-rejectiongym" href="project.html?id=rejectiongym" tabindex="-1" aria-hidden="true"><img src="./assets/img/rejectiongym_logo.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
                 <div class="work-meta"><span>Personal</span><span class="work-status status-ongoing" data-i18n="status.ongoing">In progress</span></div>
@@ -324,8 +325,8 @@
                 <div class="work-evidence" lang="en"><span aria-hidden="true">↳</span> Project document · PDF</div>
                 <a class="work-link" href="project.html?id=rejectiongym"><span data-i18n="projects.caseStudy">Read case study</span><span aria-hidden="true">↗</span><span class="sr-only">: RejectionGym · Challenge platform</span></a></div>
             </article>
-            <article class="work-card" data-group="personal" data-year="2026" data-featured="false" hidden>
-              <a class="work-cover cover-portfolio" href="project.html?id=portfolio" tabindex="-1" aria-hidden="true"><img src="./assets/img/github.logo.png" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
+            <article class="work-card" data-project="portfolio" data-status="ongoing" data-group="personal" data-year="2026" data-featured="false" hidden>
+              <a class="work-cover cover-portfolio" data-generated="true" href="project.html?id=portfolio" tabindex="-1" aria-hidden="true"><img src="./assets/img/covers/portfolio.webp" alt="" loading="lazy" width="640" height="360"/><span class="cover-arrow" aria-hidden="true">↗</span></a>
               <div class="work-body">
                 <div class="work-meta"><span>2026</span><span class="work-status status-ongoing" data-i18n="status.ongoing">In progress</span></div>
                 <h3 lang="en"><a href="project.html?id=portfolio">This portfolio · Built to show the work</a></h3>
@@ -563,6 +564,7 @@
                 <span class="about-chip">Strength Training</span>
                 <span class="about-chip">Basketball</span>
                 <span class="about-chip">Car Detailing</span>
+                <span class="about-chip">Homelab</span>
                 <span class="about-chip">New Technologies &amp; AI</span>
               </div>
             </div>

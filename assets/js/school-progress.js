@@ -113,7 +113,7 @@ Object.assign(projectData, {
     img: "./assets/img/studies/zabbix.svg",
     evidence: [{ label: "Read the monitoring plan", url: "./assets/evidence/network-monitoring-plan.md", kind: "Project plan" }],
     details: {
-      role: "Co-planning inventory, monitoring coverage and acceptance tests", team: "Marios & Donovan", timeline: "ITMOS · BCLC2 · October 2026", duration: "In progress · planning",
+      role: "Co-planning inventory, monitoring coverage and acceptance tests", team: "Marios & Donovan", timeline: "ITMOS · BCLC2 · October 2026", duration: "In progress", phase: "Planning · implementation pending",
       context: "First-year work built and backed up infrastructure. This project asks how to tell when that infrastructure, and the services inside it, stop working.",
       outcome: "A scoped plan for two standalone hosts and an evidence workbook. No working monitoring deployment is claimed.",
       challenges: "Host reachability does not establish that an application is healthy. The test plan separates hypervisor, guest and HTTP-service checks.",
@@ -141,7 +141,7 @@ const portfolioEntries = [
   { id: "nas", group: "infrastructure", year: "BCLC1", status: "documented", title: "From bare metal to shared storage", summary: "Hardware, RAID and OpenMediaVault shares. A team build with documented access from different operating systems.", proof: "Team report · hardware photos", featured: true },
   { id: "mysqldocker", group: "code", year: "BCLC2", status: "documented", title: "Make the data rules hold", summary: "MySQL constraints, deliberate failures and persistent data across container recreation.", proof: "Completed worksheet · checks", featured: true },
   { id: "chef", group: "code", year: "BCLC2", status: "research", title: "Explain infrastructure as code", summary: "A joint Chef presentation: recipes, desired state and the difference between provisioning and configuration.", proof: "15-slide authored presentation", featured: true },
-  { id: "networkmonitoring", group: "infrastructure", year: "BCLC2", status: "planning", title: "Plan for failure. Prove recovery.", summary: "Current Zabbix project: two Proxmox hosts, a monitoring matrix and a controlled incident test plan.", proof: "Project plan · tests not yet run", featured: true },
+  { id: "networkmonitoring", group: "infrastructure", year: "BCLC2", status: "ongoing", title: "Plan for failure. Prove recovery.", summary: "Current Zabbix project: two Proxmox hosts, a monitoring matrix and a controlled incident test plan.", proof: "Project plan · tests not yet run", featured: true },
   { id: "terraformazure", group: "cloud", year: "BCLC1", status: "source", title: "Azure infrastructure in Terraform", summary: "Networking and a Linux web-server VM described as resources, variables and outputs.", proof: "Inspectable Terraform excerpt" },
   { id: "serverdashboard", group: "code", year: "BCLC1", status: "source", title: "Give server metrics a face", summary: "A Python metrics client with readable units, request-error handling and a bounded history.", proof: "Inspectable Python source" },
   { id: "minicflaz104", group: "cloud", year: "BCLC1", status: "documented", title: "MiniCFL · Azure administration", summary: "A team train-simulator project. My role: the VNet, security groups and private PostgreSQL VM.", proof: "Architecture & simulator images" },
@@ -157,6 +157,68 @@ const portfolioEntries = [
   { id: "rejectiongym", group: "personal", year: "Personal", status: "ongoing", title: "RejectionGym · Challenge platform", summary: "An application project exploring daily challenges, progress tracking and proof uploads.", proof: "Project document · PDF" },
   { id: "portfolio", group: "personal", year: "2026", status: "ongoing", title: "This portfolio · Built to show the work", summary: "A buildless GitHub Pages site connecting capabilities to case studies and school progress.", proof: "Public GitHub repository" }
 ];
+
+/* Matching editorial covers; original photos and evidence are retained. */
+const projectCovers = {
+  "awssecurity": {
+    "path": "./assets/img/covers/awssecurity.webp",
+    "alt": "Concept illustration of two servers connected through a secure network gate"
+  },
+  "mysqldocker": {
+    "path": "./assets/img/covers/mysqldocker.webp",
+    "alt": "Concept illustration of a persistent database on modular container infrastructure"
+  },
+  "chef": {
+    "path": "./assets/img/covers/chef.webp",
+    "alt": "Concept illustration of one configuration recipe managing three consistent servers"
+  },
+  "networkmonitoring": {
+    "path": "./assets/img/covers/networkmonitoring.webp",
+    "alt": "Concept illustration of two servers connected to an infrastructure monitoring console"
+  },
+  "terraformazure": {
+    "path": "./assets/img/covers/terraformazure.webp",
+    "alt": "Concept illustration of cloud infrastructure assembled from reusable foundation modules"
+  },
+  "serverdashboard": {
+    "path": "./assets/img/covers/serverdashboard.webp",
+    "alt": "Concept illustration of a server-metrics client presenting charts and a short data history"
+  },
+  "minicflaz104": {
+    "path": "./assets/img/covers/minicflaz104.webp",
+    "alt": "Concept illustration of a train simulator backed by cloud compute and a private database"
+  },
+  "vircl": {
+    "path": "./assets/img/covers/vircl.webp",
+    "alt": "Concept illustration of virtual machines hosted by servers and connected to backup storage"
+  },
+  "lab8": {
+    "path": "./assets/img/covers/lab8.webp",
+    "alt": "Concept illustration of a remote laptop linked securely to a Windows Server environment"
+  },
+  "grademanagement": {
+    "path": "./assets/img/covers/grademanagement.webp",
+    "alt": "Concept illustration of student records, database storage and role-based access"
+  },
+  "weekflow": {
+    "path": "./assets/img/covers/weekflow.webp",
+    "alt": "Concept illustration of a weekly task planner and connected workflow steps"
+  },
+  "pif": {
+    "path": "./assets/img/covers/pif.webp",
+    "alt": "Concept illustration of a coffee fermentation vessel with sensors and industrial controls"
+  },
+  "portfolio": {
+    "path": "./assets/img/covers/portfolio.webp",
+    "alt": "Concept illustration connecting electrical, network and cloud elements to a portfolio website"
+  }
+};
+Object.entries(projectCovers).forEach(([id, cover]) => {
+  projectData[id].img = cover.path;
+  projectData[id].imageAlt = cover.alt;
+});
+projectData.erasmus.img = "./assets/img/projects/erasmus/erasmus-car-1.jpg";
+projectData.networkmonitoring.progressNote = "In progress — planning phase. Scope, inventory and acceptance tests are drafted. Installation and the first verified metric are next.";
 
 portfolioEntries.forEach(entry => {
   const project = projectData[entry.id];
@@ -174,7 +236,7 @@ const portfolioTranslations = {
     "rail.hardware": "Physical systems", "rail.network": "Connected systems", "rail.cloud": "Cloud infrastructure",
     "rail.hardwareNote": "Electrical · PLC · HMI", "rail.networkNote": "Networking · servers · storage", "rail.cloudNote": "Azure · AWS · automation",
     "projects.title": "The work behind the skills", "projects.intro": "A selection of labs, builds and technical decisions. Open a case study to see my role, the result and the evidence.",
-    "projects.note": "Technical case studies and original evidence are in English.", "filter.featured": "Selected", "filter.all": "All work", "filter.cloud": "Cloud", "filter.infrastructure": "Systems & networks", "filter.code": "Code & automation", "filter.industrial": "Industrial", "filter.personal": "Personal labs",
+    "projects.note": "Technical case studies and original evidence are in English.", "filter.featured": "Selected", "filter.all": "All work", "filter.cloud": "Cloud", "filter.infrastructure": "Systems & networks", "filter.code": "Code & automation", "filter.industrial": "Industrial", "filter.personal": "Personal labs", "filter.ongoing": "In progress",
     "status.documented": "Documented", "status.source": "Source available", "status.research": "Research", "status.planning": "Planning", "status.ongoing": "In progress",
     "projects.caseStudy": "Read case study", "projects.showing": "projects shown", "skills.title": "What I can bring to a team", "skills.intro": "Practical skills with work you can inspect. My second year is adding depth in automation, public cloud and operations.",
     "skill.systems": "Build & maintain", "skill.systemsText": "Proxmox, Windows Server, Linux and shared storage. I care about the recovery path as much as the initial setup.",
@@ -199,7 +261,7 @@ const portfolioTranslations = {
     "rail.hardware": "Systèmes physiques", "rail.network": "Systèmes connectés", "rail.cloud": "Infrastructure cloud",
     "rail.hardwareNote": "Électricité · PLC · IHM", "rail.networkNote": "Réseaux · serveurs · stockage", "rail.cloudNote": "Azure · AWS · automatisation",
     "projects.title": "Les projets derrière les compétences", "projects.intro": "Des labs, des réalisations et des choix techniques. Chaque étude présente mon rôle, les résultats et les éléments à consulter.",
-    "projects.note": "Les études techniques et les documents originaux sont en anglais.", "filter.featured": "Sélection", "filter.all": "Tous les projets", "filter.cloud": "Cloud", "filter.infrastructure": "Systèmes et réseaux", "filter.code": "Code et automatisation", "filter.industrial": "Industrie", "filter.personal": "Labs personnels",
+    "projects.note": "Les études techniques et les documents originaux sont en anglais.", "filter.featured": "Sélection", "filter.all": "Tous les projets", "filter.cloud": "Cloud", "filter.infrastructure": "Systèmes et réseaux", "filter.code": "Code et automatisation", "filter.industrial": "Industrie", "filter.personal": "Labs personnels", "filter.ongoing": "En cours",
     "status.documented": "Documenté", "status.source": "Code disponible", "status.research": "Recherche", "status.planning": "Planification", "status.ongoing": "En cours",
     "projects.caseStudy": "Lire l’étude", "projects.showing": "projets affichés", "skills.title": "Ce que je peux apporter à une équipe", "skills.intro": "Des compétences pratiques appuyées par des réalisations consultables. Ma deuxième année approfondit l’automatisation, le cloud public et les opérations.",
     "skill.systems": "Construire et maintenir", "skill.systemsText": "Proxmox, Windows Server, Linux et stockage partagé. La restauration compte autant que l’installation.",
@@ -224,7 +286,7 @@ const portfolioTranslations = {
     "rail.hardware": "Physische Systeme", "rail.network": "Vernetzte Systeme", "rail.cloud": "Cloud-Infrastruktur",
     "rail.hardwareNote": "Elektrotechnik · SPS · HMI", "rail.networkNote": "Netzwerke · Server · Speicher", "rail.cloudNote": "Azure · AWS · Automatisierung",
     "projects.title": "Die Arbeit hinter den Kompetenzen", "projects.intro": "Labs, Projekte und technische Entscheidungen. Jede Fallstudie zeigt meine Rolle, das Ergebnis und die Belege.",
-    "projects.note": "Technische Fallstudien und Originalbelege sind auf Englisch.", "filter.featured": "Auswahl", "filter.all": "Alle Projekte", "filter.cloud": "Cloud", "filter.infrastructure": "Systeme & Netzwerke", "filter.code": "Code & Automatisierung", "filter.industrial": "Industrie", "filter.personal": "Eigene Labs",
+    "projects.note": "Technische Fallstudien und Originalbelege sind auf Englisch.", "filter.featured": "Auswahl", "filter.all": "Alle Projekte", "filter.cloud": "Cloud", "filter.infrastructure": "Systeme & Netzwerke", "filter.code": "Code & Automatisierung", "filter.industrial": "Industrie", "filter.personal": "Eigene Labs", "filter.ongoing": "In Arbeit",
     "status.documented": "Dokumentiert", "status.source": "Quellcode verfügbar", "status.research": "Recherche", "status.planning": "Planung", "status.ongoing": "In Arbeit",
     "projects.caseStudy": "Fallstudie lesen", "projects.showing": "Projekte angezeigt", "skills.title": "Was ich in ein Team einbringe", "skills.intro": "Praktische Kompetenzen mit einsehbaren Arbeiten. Mein zweites Jahr vertieft Automatisierung, Public Cloud und IT-Betrieb.",
     "skill.systems": "Aufbauen & betreiben", "skill.systemsText": "Proxmox, Windows Server, Linux und gemeinsamer Speicher. Die Wiederherstellung zählt für mich genauso wie die Einrichtung.",

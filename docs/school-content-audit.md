@@ -75,3 +75,17 @@ URL policy; visual and browser interaction verification could not be completed.
 Recommended manual review: desktop/mobile widths; dark/light palette; EN/FR/DE
 narrative; project filters and year links; CV/training dialogs and Escape/focus;
 both BCLC1 reflections; evidence links; galleries and their keyboard controls.
+
+## Requested refinements
+
+- Narrowed the shared maximum container width from 1320px to 1200px.
+- Marked Zabbix **In progress**, while retaining its planning phase and pending
+  implementation in the case study. The new progress filter includes the six
+  unfinished projects already identified in the catalogue.
+- Added **Homelab** to the interests list.
+- Generated 13 matching editorial cover illustrations for school diagrams,
+  logo-only and title-only cards. MiniCFL now has a train-and-cloud cover in
+  place of the certification badge. Erasmus uses an existing project photo.
+- Covers are conceptual artwork; reports, actual photographs and screenshots
+  remain the evidence. Exact prompts and asset paths are recorded in
+  `project-cover-prompts.json`. WebP exports total approximately 1.16 MiB.

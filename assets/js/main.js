@@ -703,7 +703,7 @@ const filterButtons = [...document.querySelectorAll("[data-filter]")];
 const filterWork = filter => {
   let count = 0;
   workCards.forEach(card => {
-    const visible = filter === "all" || (filter === "featured" && card.dataset.featured === "true") || card.dataset.group === filter || card.dataset.year.toLowerCase() === filter;
+    const visible = filter === "all" || (filter === "featured" && card.dataset.featured === "true") || card.dataset.group === filter || card.dataset.year.toLowerCase() === filter || card.dataset.status === filter;
     card.hidden = !visible;
     if (visible) count++;
   });

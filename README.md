@@ -38,11 +38,20 @@ not replace visual or browser interaction testing.
 - `assets/css/portfolio.css`: the refresh design system, shared by both pages.
 - `assets/evidence/`: curated public summaries and source excerpts. Teacher
   worksheets, credentials and school management addresses are excluded.
+- `assets/img/covers/`: 13 matching generated concept illustrations, exported
+  as WebP for the project cards and case-study headers. Existing evidence
+  photographs and screenshots remain in their original galleries.
+- `docs/project-cover-prompts.json`: exact prompts, style reference, alt text
+  and saved paths for the generated cover series.
 - `docs/school-content-audit.md`: sources, evidence limits and review notes.
 
 When adding a project, update its case-study data, the `portfolioEntries` metadata
 and the static card in `index.html`. Keep the evidence level explicit. A code
 file alone does not establish a successful deployment.
+
+Unfinished projects use the `ongoing` status and appear in the **In progress**
+filter. An implementation phase, such as Zabbix's current planning work, is
+recorded separately in the case study.
 
 The navigation and refreshed narrative support English, French and German.
 Technical case studies, original documents, retained course descriptions and

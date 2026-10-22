@@ -21,7 +21,8 @@
   const heroImg = document.getElementById("projectHeroImg");
   if (heroImg) {
     heroImg.src = data.img || "";
-    heroImg.alt = data.title;
+    heroImg.alt = data.imageAlt || data.title;
+    heroImg.closest(".project-hero-media")?.classList.toggle("generated-cover", Boolean(data.imageAlt));
   }
 
   renderTags(data.tags);
@@ -93,6 +94,7 @@
     if (details.team) items.push({ label: "Team", value: details.team });
     if (details.timeline) items.push({ label: "Timeline", value: details.timeline });
     if (details.duration) items.push({ label: "Duration", value: details.duration });
+    if (details.phase) items.push({ label: "Current phase", value: details.phase });
     if (!items.length) return;
     list.innerHTML = items
       .map(
@@ -134,7 +136,7 @@
       planning: "As of 22 October 2026, scope, inventory and acceptance tests are drafted. The next milestone is installation and a first verified metric.",
       ongoing: "An active personal project. The notes below describe its scope, current work and next steps."
     }[meta.status];
-    box.innerHTML = `<strong>${escapeHtml(status)} · ${escapeHtml(meta.year)}</strong>${escapeHtml(note)}`;
+    box.innerHTML = `<strong>${escapeHtml(status)} · ${escapeHtml(meta.year)}</strong>${escapeHtml(project.progressNote || note)}`;
     box.hidden = false;
   }
 
