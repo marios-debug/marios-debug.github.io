@@ -1,2 +1,4 @@
 Context/
 .venv/
+.local/
+__pycache__/

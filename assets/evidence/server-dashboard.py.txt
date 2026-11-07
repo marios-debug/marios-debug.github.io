@@ -1,0 +1,213 @@
+# Adapted from BCLC1 coursework. Endpoint configuration is the only functional change.
+import os
+import requests
+import streamlit as st
+import pandas as pd
+from datetime import datetime
+
+# Public portfolio copy: the school API address has been replaced.
+# Set METRICS_API_URL to a JSON metrics endpoint before running.
+API_URL = os.environ.get("METRICS_API_URL", "http://localhost:8080/metrics")
+
+
+# ---------- Helper functions ----------
+
+def bytes_to_gb(b: int) -> float:
+    """Convert bytes to gigabytes."""
+    return b / (1024 ** 3)
+
+
+def format_number(value: float, decimals: int = 1, suffix: str = "") -> str:
+    """
+    Format a float with given decimals and replace '.' by ','.
+    Example: 47.3 -> '47,3 %'
+    """
+    formatted = f"{value:.{decimals}f}".replace(".", ",")
+    return f"{formatted}{suffix}"
+
+
+def fetch_metrics() -> dict | None:
+    """
+    Call the /metrics API and return a cleaned dict.
+    Handles errors gracefully and returns None on failure.
+    """
+    try:
+        response = requests.get(API_URL, timeout=2)
+        response.raise_for_status()
+        data = response.json()
+    except requests.exceptions.RequestException as e:
+        st.error(f"❌ Could not reach monitoring API.\n\nDetails: {e}")
+        return None
+    except ValueError:
+        st.error("❌ Monitoring API returned invalid JSON.")
+        return None
+
+    # Convert some values from bytes to GB for easier reading
+    data["ram_used_gb"] = bytes_to_gb(data.get("ram_used_bytes", 0))
+    data["ram_total_gb"] = bytes_to_gb(data.get("ram_total_bytes", 0))
+    data["disk_used_gb"] = bytes_to_gb(data.get("disk_used_bytes", 0))
+    data["disk_total_gb"] = bytes_to_gb(data.get("disk_total_bytes", 0))
+
+    # Parse timestamp to datetime for later plotting
+    try:
+        data["timestamp_dt"] = datetime.fromisoformat(data["timestamp"])
+    except Exception:
+        data["timestamp_dt"] = datetime.now()
+
+    return data
+
+
+def update_history(current_data: dict):
+    """
+    Store the last ~60 measurements in st.session_state['history'].
+    """
+    if "history" not in st.session_state:
+        st.session_state["history"] = []
+
+    entry = {
+        "timestamp": current_data["timestamp_dt"],
+        "cpu_percent": current_data["cpu_percent"],
+        "ram_percent": current_data["ram_percent"],
+        "disk_percent": current_data["disk_percent"],
+    }
+
+    st.session_state["history"].append(entry)
+
+    # Keep only last 60 entries
+    if len(st.session_state["history"]) > 60:
+        st.session_state["history"] = st.session_state["history"][-60:]
+
+
+def get_history_df() -> pd.DataFrame | None:
+    """
+    Convert history list into a pandas DataFrame for plotting.
+    """
+    history = st.session_state.get("history", [])
+    if not history:
+        return None
+
+    df = pd.DataFrame(history)
+    df = df.set_index("timestamp")
+    return df
+
+
+# ---------- Streamlit app ----------
+
+st.set_page_config(
+    page_title="Server Dashboard",
+    layout="wide",
+    page_icon="🖥️",
+)
+
+# Header / title
+left_col, right_col = st.columns([1, 5])
+with left_col:
+    # Optional: if you have a logo.png in the same folder, uncomment this:
+    # st.image("logo.png", width=80)
+    st.markdown("🖥️")
+with right_col:
+    st.title("Server Monitoring Dashboard")
+
+st.caption("Real-time metrics client (Streamlit)")
+
+# Fetch current metrics
+data = fetch_metrics()
+
+if data is None:
+    st.stop()  # Stop app if we cannot get any data
+
+# Update session history for the last ~60 seconds
+update_history(data)
+history_df = get_history_df()
+
+# ---------- Current CPU, RAM and Disk usage ----------
+
+st.subheader("Current server status")
+
+col1, col2, col3 = st.columns(3)
+
+cpu_percent = data["cpu_percent"]
+ram_percent = data["ram_percent"]
+disk_percent = data["disk_percent"]
+
+with col1:
+    st.metric(
+        label="CPU usage",
+        value=format_number(cpu_percent, 1, " %"),
+    )
+
+with col2:
+    ram_value_str = format_number(ram_percent, 1, " %")
+    st.metric(
+        label="RAM usage",
+        value=ram_value_str,
+    )
+    st.caption(
+        f"Used: {format_number(data['ram_used_gb'], 1, ' GB')} / "
+        f"{format_number(data['ram_total_gb'], 1, ' GB')}"
+    )
+
+with col3:
+    disk_value_str = format_number(disk_percent, 1, " %")
+    st.metric(
+        label="Disk usage",
+        value=disk_value_str,
+    )
+    st.caption(
+        f"Used: {format_number(data['disk_used_gb'], 1, ' GB')} / "
+        f"{format_number(data['disk_total_gb'], 1, ' GB')}"
+    )
+
+st.divider()
+
+# ---------- CPU & RAM over time (last ~60 measurements) ----------
+
+if history_df is not None and len(history_df) > 1:
+    cpu_col, ram_col = st.columns(2)
+
+    with cpu_col:
+        st.subheader("CPU usage over time (last ~60s)")
+        st.line_chart(history_df["cpu_percent"])
+
+    with ram_col:
+        st.subheader("RAM usage over time (last ~60s)")
+        st.line_chart(history_df["ram_percent"])
+else:
+    st.info("Not enough history yet to draw CPU/RAM charts. Wait a few refreshes.")
+
+st.divider()
+
+# ---------- Disk usage visualisation ----------
+
+st.subheader("Disk usage details")
+
+disk_col1, disk_col2 = st.columns([2, 1])
+
+with disk_col1:
+    st.write("Disk fill level")
+    # progress expects 0–100 integer
+    st.progress(int(disk_percent))
+
+with disk_col2:
+    free_gb = data["disk_total_gb"] - data["disk_used_gb"]
+    st.write("Details:")
+    st.write(f"- Used: {format_number(data['disk_used_gb'], 1, ' GB')}")
+    st.write(f"- Free: {format_number(free_gb, 1, ' GB')}")
+    st.write(f"- Total: {format_number(data['disk_total_gb'], 1, ' GB')}")
+
+st.divider()
+
+# ---------- Optional: per-core CPU load ----------
+
+cpu_per_core = data.get("cpu_per_core")
+if cpu_per_core:
+    st.subheader("CPU load per core")
+
+    core_df = pd.DataFrame(
+        {
+            "Core": [f"Core {i}" for i in range(len(cpu_per_core))],
+            "Load (%)": cpu_per_core,
+        }
+    ).set_index("Core")
+
+    st.bar_chart(core_df)
