@@ -29,11 +29,11 @@ not replace visual or browser interaction testing.
 
 ## Content
 
-- Current French CVs (updated 7 November 2026):
-  `assets/downloads/Marios-Sarkis-CV-FR.pdf` includes clickable social links;
-  `assets/downloads/Marios-Sarkis-CV-FR-Print.pdf` is the supplied print copy.
-  Both are unchanged copies of the supplied PDFs. The CV picker offers both
-  alongside the existing English version.
+- Current CVs (updated 7 November 2026):
+  `assets/downloads/Marios-Sarkis-CV-EN.pdf` is the supplied English CV;
+  `assets/downloads/Marios-Sarkis-CV-FR.pdf` is the supplied French CV.
+  Both are unchanged copies of the corrected source PDFs. The CV picker offers
+  one English and one French version.
 - `index.html`: static project cards, landing page, school journey and original
   first-year reflections. The selected work remains visible without JavaScript.
 - `assets/js/projects-data.js`: retained case-study content.

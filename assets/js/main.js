@@ -103,8 +103,7 @@ const translations = {
     "cv.download": "Download CV",
     "cv.hint": "Choose the version you would like to view:",
     "cv.english": "English",
-    "cv.french": "French · digital",
-    "cv.frenchPrint": "French · print"
+    "cv.french": "French"
   },
   fr: {
     "nav.about": "À propos",
@@ -177,8 +176,7 @@ const translations = {
     "cv.download": "Télécharger le CV",
     "cv.hint": "Choisissez la version que vous souhaitez consulter :",
     "cv.english": "Anglais",
-    "cv.french": "Français · numérique",
-    "cv.frenchPrint": "Français · impression"
+    "cv.french": "Français"
   },
   de: {
     "nav.about": "Über mich",
@@ -251,8 +249,7 @@ const translations = {
     "cv.download": "Lebenslauf herunterladen",
     "cv.hint": "Wählen Sie die Version, die Sie ansehen möchten:",
     "cv.english": "Englisch",
-    "cv.french": "Französisch · digital",
-    "cv.frenchPrint": "Französisch · Druckversion"
+    "cv.french": "Französisch"
   }
 };
 
