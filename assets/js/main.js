@@ -75,11 +75,6 @@ const translations = {
     "training.showLess": "Show less",
     "progress.title": "BTS Cloud Computing Progress",
     "progress.summary": "Currently focused on cloud infrastructure fundamentals and independent lab work, with an emphasis on documentation, repeatable deployments, and clear communication. I'm building skills step by step, validating outcomes, and turning complex topics into structured, organized work.",
-    "progress.readFull": "Read full BTS reflection",
-    "progress.hide": "Hide BTS reflection",
-    "progress.loading": "Loading...",
-    "progress.loadError": "Could not load reflection.",
-    "progress.empty": "Reflection is empty.",
     "contact.title": "Get in Touch",
     "contact.text": "Open to opportunities in cloud, IT infrastructure, and networking. Have a project, internship, or role in mind? Let's talk.",
     "contact.sayHello": "Say Hello",
@@ -148,11 +143,6 @@ const translations = {
     "training.showLess": "Voir moins",
     "progress.title": "Progression BTS Cloud Computing",
     "progress.summary": "Actuellement concentré sur les fondamentaux de l'infrastructure cloud et le travail de laboratoire autonome, avec un accent sur la documentation, les déploiements reproductibles et la communication claire. Je développe mes compétences étape par étape, en validant les résultats et en transformant les sujets complexes en travail structuré et organisé.",
-    "progress.readFull": "Lire la réflexion complète",
-    "progress.hide": "Masquer la réflexion",
-    "progress.loading": "Chargement...",
-    "progress.loadError": "Impossible de charger la réflexion.",
-    "progress.empty": "La réflexion est vide.",
     "contact.title": "Contact",
     "contact.text": "Ouvert aux opportunités dans le cloud, l'infrastructure IT et les réseaux. Vous avez un projet, un stage ou un poste en tête ? Parlons-en.",
     "contact.sayHello": "Dire bonjour",
@@ -221,11 +211,6 @@ const translations = {
     "training.showLess": "Weniger anzeigen",
     "progress.title": "BTS Cloud Computing Fortschritt",
     "progress.summary": "Derzeit fokussiert auf Cloud-Infrastruktur-Grundlagen und unabhängige Laborarbeit, mit Schwerpunkt auf Dokumentation, reproduzierbaren Bereitstellungen und klarer Kommunikation. Ich baue meine Fähigkeiten Schritt für Schritt auf, validiere Ergebnisse und verwandle komplexe Themen in strukturierte, organisierte Arbeit.",
-    "progress.readFull": "Vollständige Reflexion lesen",
-    "progress.hide": "Reflexion ausblenden",
-    "progress.loading": "Laden...",
-    "progress.loadError": "Reflexion konnte nicht geladen werden.",
-    "progress.empty": "Reflexion ist leer.",
     "contact.title": "Kontakt",
     "contact.text": "Offen für Möglichkeiten in den Bereichen Cloud, IT-Infrastruktur und Netzwerke. Sie haben ein Projekt, ein Praktikum oder eine Rolle im Sinn? Lassen Sie uns reden.",
     "contact.sayHello": "Hallo sagen",
@@ -591,92 +576,6 @@ const applyExperienceTooltips = async () => {
 };
 
 applyExperienceTooltips();
-
-const reflectionToggle = document.querySelector(".reflection-toggle");
-const reflectionPanel = document.querySelector(".reflection-panel");
-const reflectionStatus = document.querySelector(".reflection-status");
-const reflectionContent = document.querySelector(".reflection-content");
-const reflectionTabs = document.querySelectorAll(".reflection-tab");
-
-const loadReflection = async (semester = 1) => {
-  if (!reflectionStatus || !reflectionContent) return;
-  reflectionStatus.textContent = translations[currentLang]?.["progress.loading"] || "Loading...";
-
-  const templateId = semester === 2 ? "reflection-md-s2" : "reflection-md";
-  const inlineSource = document.getElementById(templateId);
-  let markdown = "";
-  if (inlineSource) {
-    markdown = inlineSource.innerHTML.trim();
-  } else {
-    reflectionStatus.textContent = translations[currentLang]?.["progress.loadError"] || "Could not load reflection.";
-    return;
-  }
-
-  if (!markdown) {
-    reflectionStatus.textContent = translations[currentLang]?.["progress.empty"] || "Reflection is empty.";
-    return;
-  }
-
-  // Both sources are authored HTML templates in this document.
-  reflectionContent.innerHTML = markdown;
-  reflectionStatus.textContent = "";
-  reflectionStatus.removeAttribute("data-i18n");
-
-  reflectionTabs.forEach((tab) => {
-    const isSelected = Number(tab.dataset.semester) === semester;
-    tab.classList.toggle("is-active", isSelected);
-    tab.setAttribute("aria-selected", String(isSelected));
-    tab.tabIndex = isSelected ? 0 : -1;
-  });
-};
-
-if (reflectionToggle && reflectionPanel) {
-  let loaded = false;
-
-  const openPanel = async (semester = 1) => {
-    reflectionPanel.hidden = false;
-    reflectionToggle.setAttribute("aria-expanded", "true");
-    reflectionToggle.textContent = translations[currentLang]?.["progress.hide"] || "Hide BTS reflection";
-    reflectionToggle.dataset.i18n = "progress.hide";
-    if (!loaded) {
-      loaded = true;
-      await loadReflection(semester);
-    }
-  };
-
-  const closePanel = () => {
-    reflectionPanel.hidden = true;
-    reflectionToggle.setAttribute("aria-expanded", "false");
-    reflectionToggle.textContent = translations[currentLang]?.["progress.readFull"] || "Read full BTS reflection";
-    reflectionToggle.dataset.i18n = "progress.readFull";
-  };
-
-  reflectionToggle.addEventListener("click", () => {
-    reflectionPanel.hidden ? openPanel(1) : closePanel();
-  });
-
-  reflectionTabs.forEach((tab) => {
-    tab.tabIndex = tab.getAttribute("aria-selected") === "true" ? 0 : -1;
-    tab.addEventListener("keydown", event => {
-      const tabs = [...reflectionTabs];
-      const index = tabs.indexOf(tab);
-      const next = event.key === "ArrowRight" ? (index + 1) % tabs.length : event.key === "ArrowLeft" ? (index + tabs.length - 1) % tabs.length : event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1 : -1;
-      if (next < 0) return;
-      event.preventDefault();
-      tabs[next].click();
-      tabs[next].focus();
-    });
-    tab.addEventListener("click", async () => {
-      const semester = Number(tab.dataset.semester);
-      if (reflectionPanel.hidden) {
-        loaded = false; // ensure content loads when opening directly to a tab
-        await openPanel(semester);
-      } else {
-        await loadReflection(semester);
-      }
-    });
-  });
-}
 
 const trainingMoreBtn = document.querySelector('.training-more-btn');
 const collapsibleTrainingRows = document.querySelectorAll('.training-row[data-collapsible]');

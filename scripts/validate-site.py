@@ -66,7 +66,7 @@ else:
     catalogue = json.loads(result.stdout)
     entries, projects = catalogue['entries'], catalogue['projects']
     if len({e['id'] for e in entries}) != len(entries): errors.append('Duplicate project metadata')
-    if len([e for e in entries if e.get('featured')]) != 6: errors.append('Expected six selected projects')
+    if len([e for e in entries if e.get('featured')]) != 4: errors.append('Expected four selected projects (VIRCL, AWS EC2, NAS, MiniCFL)')
     home = (root/'index.html').read_text(encoding='utf-8')
     for entry in entries:
         if f'project.html?id={entry["id"]}' not in home: errors.append(f'Project is not reachable: {entry["id"]}')

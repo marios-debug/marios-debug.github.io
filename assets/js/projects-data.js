@@ -393,7 +393,7 @@ const projectData = {
       timeline: "BTS Portfolio / exam project",
       duration: "Ongoing",
       outcome:
-        "A public, responsive portfolio hosted on GitHub Pages with sections for about me, education and experience, skills, certifications, projects, hobbies, CV downloads, reflection, and a teacher checklist. Includes dark/light theme and EN/FR/DE language switching.",
+        "A public, responsive portfolio hosted on GitHub Pages with sections for about me, education and experience, skills, certifications, projects, hobbies, CV downloads, and a teacher checklist. Includes dark/light theme and EN/FR/DE language switching.",
       challenges:
         "Keeping the design consistent across many sections while staying maintainable required a strong CSS custom-property system. Adding theme and language switching later meant refactoring the DOM and JS without breaking existing layout.",
       lessonsLearned:

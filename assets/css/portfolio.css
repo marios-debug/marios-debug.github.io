@@ -73,7 +73,7 @@ section { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
 .portrait-frame > img { width: 100%; height: auto; max-height: 440px; aspect-ratio: 4 / 4.7; object-fit: cover; object-position: center 30%; display: block; filter: saturate(.72); }
 .portrait-frame figcaption { display: flex; align-items: center; gap: .5rem; justify-content: space-between; padding-top: 10px; font-size: .65rem; color: var(--color-meta); }
 .portrait-cross { color: var(--color-accent); font: 1.2rem var(--font-mono); }
-.portrait-tab { position: absolute; bottom: 55px; left: -20px; background: #d4b896; color: #20251d; font: .6rem var(--font-mono); padding: .75rem 1.2rem; letter-spacing: .15em; }
+.portrait-tab { position: absolute; bottom: 55px; left: 12px; background: #d4b896; color: #20251d; font: .6rem var(--font-mono); padding: .75rem 1.2rem; letter-spacing: .15em; }
 .hero-bottom { display: flex; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--color-border); margin-top: 3.3rem; padding-block: 1.2rem; color: var(--color-meta); font: .62rem var(--font-mono); }
 .hero-bottom a { display: flex; gap: 1.5rem; }
 .systems-strip { border-block: 1px solid var(--color-border); background: var(--color-surface-01); }
@@ -131,7 +131,13 @@ section { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
 .learning-line { display: flex; flex-wrap: wrap; gap: .6rem 2.5rem; margin-top: 1.5rem; align-items: baseline; }
 .learning-line p { font-size: .74rem; color: var(--color-meta); margin: 0; }
 
-/* A visible two-year progression, separate from the original reflections. */
+/* Date tooltips were centered on the date, so on narrow screens they stuck out past the viewport
+   (adding scrollable page width) or got clipped. Anchor them inside the full-width row instead. */
+.duration { position: static; }
+.duration::after { left: auto; right: 1.1rem; transform: translateY(4px); }
+.duration:hover::after, .duration:focus-visible::after { transform: translateY(0); }
+
+/* A visible two-year progression. */
 #progress { background: var(--color-surface-01); border-block: 1px solid var(--color-border); }
 .journey-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
 .journey-step { border-top: 1px solid var(--color-border); position: relative; padding-top: 1.8rem; }
@@ -143,15 +149,7 @@ section { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
 .journey-step > p:not(.journey-date) { color: var(--color-meta); font-size: .8rem; line-height: 1.85; }
 .journey-step a { color: var(--color-accent); font-size: .7rem; display: inline-block; padding-block: .5rem; }
 .review-date { font: .6rem var(--font-mono); color: var(--color-meta); margin: 2rem 0 .5rem; }
-.bts-reflection { margin-top: 1.5rem; }
-.reflection-toggle { font-size: .72rem; padding: .7rem 1rem; border-color: var(--color-border); }
-.reflection-content { max-width: 76ch; }
-.reflection-content h1 { font-size: 1.6rem; }
-.reflection-content h2 { font-size: 1.3rem; }
-.reflection-content h3 { font-size: 1.05rem; }
-.reflection-content p, .reflection-content li { font-size: .87rem; }
-.reflection-tabs { flex-wrap: wrap; }
-.reflection-tab { white-space: normal; font-size: .75rem; }
+
 
 #about .about-bento { margin-top: 2rem; }
 .bento-cell { border-radius: 4px; padding: 1.7rem; }
@@ -162,7 +160,7 @@ section { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
 .entry-desc { font-size: .84rem; line-height: 1.9; }
 .education-current { color: var(--sage); font: .65rem var(--font-mono); display: inline-block; margin: .25rem 0 .8rem; }
 .section-subtitle { font-size: .75rem; color: var(--color-accent); font-family: var(--font-mono); letter-spacing: .04em; }
-.experience-row { border-radius: 3px; }
+.experience-row { border-radius: 3px; position: relative; }
 .cert-card, .training-row { border-radius: 4px; }
 .training-info p { font-size: .75rem; }
 #certifications { border-top: 1px solid var(--color-border); }
@@ -218,7 +216,10 @@ section { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
   .hero-grid { gap: 2rem; }
   .portrait-frame { max-width: 340px; }
   .portrait-frame > img { max-height: 340px; }
-  .portrait-tab { left: -10px; }
+  /* Keep the hero buttons on one row in every language: German labels are longer. */
+  .hero-actions { gap: 1.2rem; }
+  .hero-actions .btn { padding-inline: 1.15rem; gap: 1rem; }
+  .hero-actions .text-button { gap: .8rem; }
   .hero-bottom { margin-top: 2rem; font-size: .56rem; }
   .systems-path { padding-block: 1.2rem; gap: .9rem; }
   .systems-path strong { font-size: .75rem; }
